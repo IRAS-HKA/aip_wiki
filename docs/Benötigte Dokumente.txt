@@ -1,0 +1,13 @@
+- devices_ips_and_passwords
+- how_to_start_aip
+	- einschalten
+	- sps status prüfen
+	- status smartpad prüfen
+	- docker umgebung starten
+	- wie kann man verfahren? Hand / Rviz / Behavior tree / optional python
+- how_to_configure_sps
+- how_to_configure_robot_control
+- how_to_prepare_pc
+- how_to_configure_sick_scanner
+- how_to_connect_to_IO_link
+- troubleshooting

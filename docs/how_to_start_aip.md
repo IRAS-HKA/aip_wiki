@@ -1,0 +1,5 @@
+- einschalten
+	- sps status prüfen
+	- status smartpad prüfen
+	- docker umgebung starten
+	- wie kann man verfahren? Hand / Rviz / Behavior tree / optional python
