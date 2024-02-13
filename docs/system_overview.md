@@ -1,16 +1,33 @@
 # System Overview
-The AIP system is modelled below. Sensors and actuators are wired to the slaves. The IO link slaves are wired to the IO link master. The master is connected to the KR10 robot control. The configuration of the IO link master is done in Kuka WorkVisual.
 
-All network participants are connected to the switch.
+Automated Item Picking (short: AIP) describes the challenge of an automated detection and grippig of objects. A series of interlinked process steps are required to perform this task. 
+The main components of the AIP are object recognition, gripping point planning, gripping technology, motion planning and communication or control.
 
-The PLC is used to provide the safety-related aspects of the system. A Sick lidar scanner, an emergency stop and a signal tower are wired to the PLC. The PLC is communicating with the robot control and is giving the safety approval.
 
-The robot can be controlled via the Kuka Smartpad or by starting a behavior tree on the computer. Alternatively RViz can be used to move the robot to a specific pose.
+## General overview
+
+Below, you will find a **general overview** for AIP:
 
 <img src="../images/20240213_AIP-Overview-Detailed.png" alt="system_overview" width="1000">
 
+- Peripheral sensors and actuators are wired to the IO Link slaves. 
+- These slaves are wired to the IO Link master. 
+- The master device is connected to the KUKA KR10 robot control. 
+- A configuration of the IO Link system is done with the KUKA software WorkVisual.
 
-Below the detailed view of the IO Link wiring is shown.
+- All network participants are connected to the same switch.
+
+- A Beckhoff PLC is used to provide the safety-related aspects of the system. 
+- A Sick lidar scanner, an external emergency stop and a signal tower are wired to the PLC. 
+- The PLC is communicating with the robot control and provides the safety approval.
+
+The robot can be controlled via the KUKA SmartPad or by starting a behavior tree on the computer.  
+Alternatively RViz or pyhton can be used to move the robot to a specific pose.
+
+## Detailed IO Link wiring
+
+Below, you will find a **detailed view of the IO Link wiring**:
 
 <img src="../images/20240213_IO_Link_Detailed.png" alt="system_overview" width="1000">
+
 
