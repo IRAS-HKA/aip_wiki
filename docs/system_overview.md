@@ -1,7 +1,6 @@
 # System Overview
 
-Automated Item Picking (short: AIP) describes the challenge of an automated detection and grippig of objects. A series of interlinked process steps are required to perform this task. 
-The main components of the AIP are object recognition, gripping point planning, gripping technology, motion planning and communication or control.
+This section provides a general overview as well as a detailed IO Link overview for the complete AIP application. 
 
 
 ## General overview
