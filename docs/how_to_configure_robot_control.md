@@ -9,7 +9,7 @@ This sections provides a quick guide for the installation of WorkVisual as well 
 3. Connect to the same subnet as the KUKA robot. For more information to the IPs, please check this [Link](/docs/devices_ips_and_passwords.md).
 
 
-<img src="./images/GifWorkVisual.gif"/>
+<img src="../images/GifWorkVisual.gif" width="900"/>
 
 
 ## II. Overview of the AIP WorkVisual project 
@@ -20,9 +20,11 @@ You will find the freezed project status in the corresponding MS Teams Team:
 
 ## Configuration of PLC communication 
 
-### => ToDo: Document the settings in WoV with screenshots
-
-   Document the settings in WorkVisuals with Screenshots
+To set up the communication between robot control and the PLC, the EtherCAT communication interface needs to be implemented into the bus structure. The bus structure can be opened by double-clicking on the shown control (BinPicking HSKa (KRC4 compact - 8.5.5)). The necessary components are added to the KUKA Extension Bus (SYS-X44).<br>
+The module KRC4 primary EL6695-1001 can be added after importing the corresponding ESI device description. Check the documentation file "KR_C4_EtherCAT_Bridge_FSoE_Master_Master_de" on MS Teams to set up the configuration of the communication <br>
+Additionally, the ifm IO-Link Master AL1332 is added to the bus structure. Here also the ESI device description must be imported previously. 
+For the configuration of the IO-Link master, in the tab "Modules" the following Bytes are assigned to the channels.
+<img src="../images/20240213_AL1332_Modules.png" width="900"><br>
 
 ## Configuration of the peripheral field modules
 
