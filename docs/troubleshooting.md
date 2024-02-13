@@ -1,51 +1,65 @@
-# PLC Device Manager not accessible
+# Trouble shooting 
 
-### Solution
+This section provides a brief summary of various problems that have arisen as well as their solution.  This may help you with different kind of struggles while working with the AIP application. 
+
+
+## I.  PLC Device Manager not accessible
+
+`The plc device manager is not accessible`
+
+### Solution:
 - Reset PLC to factory settings
 - PLC settings are available via "CER Host". Program is available in MS Teams folder.
 
 
-# EL 1904 Diag 2 (red) illuminating
+## II. EL 1904 Diag 2 (red) illuminating
 
 `Error: The Diag 2 LED illuminates red if the terminal detects an external supply or cross-circuit. The LED
 extinguishes once the error is rectified.`
 
-### Solution
+### Solution:
 - Check circuit wiring
 - Check if correct safety configuration is loaded to PLC
 - Check if correct device description file (ESI) for KRC4 EL6995-1001 is loaded
 
 
-# PLC does not give permission (= keine Freigabesignal der Sicherheitssteuerung für Roboter)
-`Possible errors:
-BIOS Battery is low,
+## III. PLC does not provide the necessary safety approval to KUKA KR C4 
+`Possible errors: 
+BIOS Battery is low, 
 Programm is not loaded correctly to PLC,
 SD card is broken`
 
-### Solution
-- If the BIOS Battery is low, the time on PLC is set to 01.01.1970. This leads to the pseudo error of an expired license. Change battery on PLC below the SD Card reader and set time to actual time.
-- If program is not loaded correctly, it is not possible to switch the PLC into "RUN" mode. Load the program again, it is saved in MS Teams
-- If the SD card is broken, copy file simply to a new one. No flashing required
+### Solution:
+- If the BIOS Battery is low, the time on PLC will be set to 01.01.1970 automatically. This leads to the pseudo error of an expired license. Change battery of PLC below the SD Card reader and set time to current time.
+- If the program is not loaded correctly, it is not possible to switch the PLC into "RUN" mode. Try to load the program again. The complete project is saved in the  it is saved in corresponding AIP MS Teams Team: : "CER Host"
+- If the SD card is broken, simply copy the files to a new one. No flashing required.
 
 
-# SPS debugging problems
-- Connect PLC via Display output to a monitor
-- Install programm from MS Teams: "CER Host"
+## IV. PLC debugging issues
+
+`Various plc debugging issues`
+
+- Connect PLC via display output to a monitor
+- Install programm "**CER Host**" from the corresponding AIP MS Teams Team _IRAS Students/Projects/.-Automated_Item_Picking_ and access it over this tool. 
 - Access it over the web interface -> PW required
-- If nothing works: Take SD card to another SPS unit and try it there
+- If nothing works: Take SD card to another SPS unit or try it there.
 
 
-# Devices can not find each other in the network
+## V. Network communication issues
 
-### Solution
-- Check cable and connection of cable
-- Check if all devices are in the same subnet (e.g. 10.177.x.x) 
+`Devices can´t establish communication in the network`
+
+### Solution:
+- Check the cables and cable connections
+- Verify that all devices are in the same subnet (e.g. 10.177.x.x) 
 - Log onto device to check if they are running/working (connection via ethernet/usb to pc)
 
 
-# IO-Link and KUKA KR10 connection issues
+## VI. IO-Link and KUKA KR C4 connection issues
 
-### Solution
-- Install KUKA Workvisual and IFM Moneo and check the configuration
-- IO Link Master IFM 24001 can be reset
-- Check if devices are in the grafical overview in Workvisual. If not import them and deploy project to KUKA.
+`IO-Link and KUKA KR C4 connection issues`
+
+### Solution:
+- Install KUKA WorkVisual and IFM Moneo and check the current configuration
+- IO Link Master IFM 24001 can be resetted
+- Check if devices are listed in the graphical overview in Workvisual. If not,import them and deploy the project to KUKA.
