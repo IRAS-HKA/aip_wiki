@@ -1,0 +1,13 @@
+# Mapping: Hardware to IO number
+
+The following table gives an overview to the mapping of the hardware number to the IO variable numbers which can be used in the software programming. 
+
+| IO Link device  | Port number     | IO Link variable |
+| -----------     | -----------     | -----------      |
+|                 |                 |                  |
+|                 |                 |                  |
+
+
+# ToDo:
+
+- [ ] Add the mapping table content
