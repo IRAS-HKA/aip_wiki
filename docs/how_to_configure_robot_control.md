@@ -23,13 +23,11 @@ You will find the freezed project status in the corresponding MS Teams Team:
 To set up the communication between robot control and the PLC, the EtherCAT communication interface needs to be implemented into the bus structure. The bus structure can be opened by double-clicking on the shown control (BinPicking HSKa (KRC4 compact - 8.5.5)). The necessary components are added to the KUKA Extension Bus (SYS-X44).<br>
 The module KRC4 primary EL6695-1001 can be added after importing the corresponding ESI device description. Check the documentation file "KR_C4_EtherCAT_Bridge_FSoE_Master_Master_de" on MS Teams to set up the configuration of the communication <br>
 Additionally, the ifm IO-Link Master AL1332 is added to the bus structure. Here also the ESI device description must be imported previously. 
-For the configuration of the IO-Link master, in the tab "Modules" the following Bytes are assigned to the channels.
+For the configuration of the IO-Link master, in the tab "Modules" the following Bytes are assigned to the channels. <br>
 <img src="../images/20240213_AL1332_Modules.png" width="900"><br>
 
 ## Configuration of the peripheral field modules
 
-### => ToDo: Document the settings in WoV with screenshots
-
-   Document the settings in WorkVisuals with Screenshots
+To link the peripheral field modules with this robot control, the in- and outputs need to be mapped. Follow the instructions in the KUKA documentation "AL1x3x_Kuka_Rev1_EN" in the "KUKA Startup Package" on MS Teams.
 
 
