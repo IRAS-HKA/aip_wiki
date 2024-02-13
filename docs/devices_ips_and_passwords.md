@@ -7,4 +7,4 @@
 | Robot Control (Kuka) | 10.166.32.145 | - | - |
 | Sick Scanner | - | admin | Authenticated User |
 | IO Link Master | 10.166.32.227 | - | - |
-| Roboception | 172.31.1.100 | ? | - |
+| Roboception | 10.166.32.13 | - | - |
