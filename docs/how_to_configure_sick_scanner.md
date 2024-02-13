@@ -10,22 +10,22 @@ The scanner is configured with the configuration tool "[Safety Designer](https:/
 - After the software is installed, open it and connect your computer via USB with the scanner. Search for the connected scanner.
 - Choose the scanner to open the **configuration**.
 
-    <img src="../images/20240213_Choose_Scanner_SD.png" alt="system_overview" width="300"><br>
+    <img src="../images/20240213_Choose_Scanner_SD.png" width="300"><br>
 
 - In the tab "**Configuration**" the settings of the scanner can be adjusted.
 
-    <img src="../images/20240213_Configuration_Scanner_SD.png" alt="system_overview" width="500"><br>
+    <img src="../images/20240213_Configuration_Scanner_SD.png" width="500"><br>
 
 - Choose "**Fields**" to configure the warning and stop field of the scanner.
 
-    <img src="../images/20240213_Fields_Scanner_SD.png" alt="system_overview" width="500"><br>
+    <img src="../images/20240213_Fields_Scanner_SD.png" width="500"><br>
 
 - Choose "**In- and Outputs, local**" to assign a funtion to a pin of the scanner.
 
-    <img src="../images/20240213_InOuts_Scanner_SD.png" alt="system_overview" width="500"><br>
+    <img src="../images/20240213_InOuts_Scanner_SD.png" width="500"><br>
 
 - Choose "**Monitoring cases**" to create or adapt a monitoring case. Pins can be assigned to the stop or warning field.
 
-    <img src="../images/20240213_Monitoring_cases_SD.png" alt="system_overview" width="500"><br>
+    <img src="../images/20240213_Monitoring_cases_SD.png" width="500"><br>
 
 - Save your changes and load it to the scanner.
