@@ -13,7 +13,7 @@ This sections provides a quick setup guide for your laboratory pc and specific r
 ## AIP specific requirements
 
 1. Sign in to KA-Wlan via wireless LAN 
-2. Make sure to have a valid GitHub account (with activated 2FA) and access to the repo: [IRAS-HKA/aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator)
+2. Make sure to have a valid GitHub account (with activated 2FA) and access to the repo: [IRAS-HKA/aip_wiki](https://github.com/IRAS-HKA/aip_wiki.git)
 3. Clone the required GitHub repositories. 
    **Note:** For more information, please review the specific AIP setup guide (["How to start AIP"](/docs/how_to_start_aip.md)).
 4. Connect the KUKA Robot System to LAN connection of your PC LAN <-----> X66
