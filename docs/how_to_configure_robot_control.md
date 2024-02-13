@@ -9,7 +9,8 @@
 
    Document the settings in WorkVisuals with Screenshots
 
-    Screenshot / Gif erstellen wie man sich damit verbindet
+<img src="./images/GiFWorkvisual.gif"/>
+
 
 # Overview of the AIP WorkVisual project 
 
