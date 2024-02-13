@@ -9,7 +9,7 @@ This sections provides a quick guide for the installation of WorkVisual as well 
 3. Connect to the same subnet as the KUKA robot. For more information to the IPs, please check this [Link](/docs/devices_ips_and_passwords.md).
 
 
-<img src="./images/GifWorkVisual.gif"/>
+<img src="../images/GifWorkVisual.gif"/>
 
 
 ## II. Overview of the AIP WorkVisual project 
