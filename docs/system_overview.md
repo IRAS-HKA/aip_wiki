@@ -7,11 +7,10 @@ The PLC is used to provide the safety-related aspects of the system. A Sick lida
 
 The robot can be controlled via the Kuka Smartpad or by starting a behavior tree on the computer. Alternatively RViz can be used to move the robot to a specific pose.
 
-<img src="../images/20231106_AIP-Overview-Detailed.png" alt="system_overview" width="1000">
+<img src="../images/20240213_AIP-Overview-Detailed.png" alt="system_overview" width="1000">
 
 
 Below the detailed view of the IO Link wiring is shown.
 
-<img src="../images/20231106_Detailansicht IO Link.png" alt="system_overview" width="1000">
-
+<img src="../images/20240213_IO_Link_Detailed.png" alt="system_overview" width="1000">
 
