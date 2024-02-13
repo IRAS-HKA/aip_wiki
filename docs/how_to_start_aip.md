@@ -22,7 +22,7 @@ There are 4 different options to move the AIP application which will be describe
 
 For more information please see the  *_ready2_educate KUKA documentation_*
 
-### 2. Automatic modus via RVIZ 
+### 2. Automatic modus via RViz 
 
 **=> ToDo**
 
