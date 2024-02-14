@@ -1,6 +1,6 @@
 # Automated Item Picking - Wiki
 
-![github-header-image](https://github.com/IRAS-HKA/aip_wiki/assets/55143852/8796999d-17db-40b2-8292-b2a176927491)
+<img src="images/header-image.png">
 
 This repository is intended to be a wiki for the Automated Item Picking project of the iRAS at the University of Applied Sciences in Karlsruhe. 
 
