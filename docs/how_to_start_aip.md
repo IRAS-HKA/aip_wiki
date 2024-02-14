@@ -21,8 +21,22 @@ There are 4 different options to move the AIP application which will be describe
 ### Manual mode via the KUKA SmartPad 
 
 **=> ToDo: Add the file names to be executed + stored location on the pad:**
-- active project 
-- 
+
+  1. Switch to user group Administrator on smartHMI
+  2. Activate project "ros2_driver" on smartHMI (if not already active)
+      1. Open project management window (blue WorkVisual icon (gear with robot in it) on smartHMI)
+      2. Select "ros2_driver" in Verfügbare Projekte → Entpinnen
+      3. Aktivieren → Ja
+      4. Wait until project is activated
+  3. On smartHMI navigate to R1/Program/ros2_driver
+  4. Load the file "kuka_eki_hw" on the KUKA HMI Device
+  5. Click first on "Abwählen" to deactivate the current programm
+  6. Click on "Anwählen" to activate the "kuka_eki_hw"
+   - ![](../images/KUKA_EKI_HW.png)
+  7. Execute the programm
+  8. During the execution you can see the following code:
+  9.  - ![](../images/CodeKUKA.png)
+
 
 
 For more information please see the  **_ready2_educate KUKA documentation_**
@@ -72,6 +86,7 @@ Especially, the ReadMe provides detailled information regarding the start up.
         ```
 
 2. Connect with second terminal to existing docker session
+   
     - Execute the still running container
         ```bash
         docker exec -it aip_bringup bash
@@ -103,9 +118,11 @@ Especially, the ReadMe provides detailled information regarding the start up.
         ```
 
 3. Check out tutorial code 
+   
    - For the tutorial code, please check out the repository [IRAS-HKA/aip_bringup](https://github.com/IRAS-HKA/aip_bringup.git), if you haven´t already. 
 
 4. Move Robot 
+   
    - Open up a new terminal and attach to running container
         ```bash
         docker exec -it r2e_cell /bin/bash
@@ -142,11 +159,11 @@ Especially, the ReadMe provides detailled information regarding the start up.
 
 The information for how to move the robot using a behavior tree are described in the repository [IRAS-HKA/aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator.git). 
 
-The "IRAS Coordinator" package uses the "BehaviorTree.IRAS" framework. It provides a starting point for high-level task control of the AIP robot application.
+The "IRAS Coordinator" package provides a starting point for high-level task control of the AIP robot application.
 
-The library of actions can be freely arranged using the "Groot" graphical user interface. There are instructions on how to create and start the Docker container as well as instructions on how to start debugging in C++. 
+The library of actions can be freely arranged using the "Groot" graphical user interface. There are instructions on how to create and start the Docker container as well as instructions on how to start debugging. 
 
-Once the container is started, the description can be used to design a new or change the behavior tree in Groot. Furthermore, instructions are given on how to create a new custom node.
+Once the container is started, the description can be used to design a new or change the behavior tree in Groot. Furthermore, instructions are given on how to create a new custom node and how to create behavior trees.
 
 ### 4. Automatic modus via Python
 
@@ -166,6 +183,6 @@ ros2 launch aip_cell_description aip.launch.py
 
 # TODO
 
-- [ ] Add manual mode description 
+- [x] Add manual mode description 
 - [x] Add EKI/ RViz description
 - [ ] Add automatic modus behaviour tree description
