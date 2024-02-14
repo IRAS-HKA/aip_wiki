@@ -10,6 +10,7 @@ The main components of the AIP are object recognition, gripping point planning, 
 
 ## System overview
 - [System overview](/docs/system_overview.md)
+- [Repository overview](/docs/overview_repository.md)
 
 ## How To AIP
 
