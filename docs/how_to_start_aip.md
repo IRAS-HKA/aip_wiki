@@ -140,9 +140,13 @@ Especially, the ReadMe provides detailled information regarding the start up.
 
 ### 3. Automatic modus via behaviour tree
 
-For more information, please review the following repository: [IRAS-HKA/aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator.git)
+The information for how to move the robot using a behavior tree are described in the repository [IRAS-HKA/aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator.git). 
 
-**=> ToDo: Add explicit links and a short summary from the other repository**
+The "IRAS Coordinator" package uses the "BehaviorTree.IRAS" framework. It provides a starting point for high-level task control of the AIP robot application.
+
+The library of actions can be freely arranged using the "Groot" graphical user interface. There are instructions on how to create and start the Docker container as well as instructions on how to start debugging in C++. 
+
+Once the container is started, the description can be used to design a new or change the behavior tree in Groot. Furthermore, instructions are given on how to create a new custom node.
 
 ### 4. Automatic modus via Python
 
