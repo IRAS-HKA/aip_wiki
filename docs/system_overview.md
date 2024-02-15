@@ -7,7 +7,7 @@ This section provides a general overview as well as a detailed IO Link overview 
 
 Below, you will find a **general overview** for AIP:
 
-<img src="../images/20240213_AIP-Overview-Detailed.png" alt="system_overview" width="1000">
+<img src="../images/20240215_AIP-Overview-Detailed.png" alt="system_overview" width="1000">
 
 - Peripheral sensors and actuators are wired to the IO Link slaves. 
 - These slaves are wired to the IO Link master. 
@@ -27,6 +27,6 @@ Alternatively RViz or pyhton can be used to move the robot to a specific pose.
 
 Below, you will find a **detailed view of the IO Link wiring**:
 
-<img src="../images/20240213_IO_Link_Detailed.png" alt="system_overview" width="1000">
+<img src="../images/20240215_IO_Link_Detailed.png" alt="system_overview" width="1000">
 
 
