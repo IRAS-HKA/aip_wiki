@@ -4,7 +4,7 @@ This sections provides a quick guide to use the Moneo configuration software fro
 
 
 You can install the software package from the official IFM website. Additionally, you will find the software package in the corresponding AIP MS Teams Team: 
-**_IRAS Students/Projects/.-Automated_Item_Picking_**
+[**_IRAS Students/General/01-IRAS_Wiki/2-Projects/2.1-Automated_Item_Picking/30_IFM_IO_Link/ifm_moneo_1.13.3.867452_QA.exe_**](https://hskarlsruhede.sharepoint.com/:u:/s/Robolab/EQd4lfL8PPBKkYSWUX7UL9QBiTW2VN1KNNEbkAkGhufHdg?e=c24aqB)
 
 
 ### Quick start guide:

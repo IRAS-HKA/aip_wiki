@@ -20,11 +20,15 @@ The main components of the AIP are object recognition, gripping point planning, 
 - [How to configure robot control](/docs/how_to_configure_robot_control.md)
 - [How to configure PLC](/docs/how_to_configure_plc.md)
 
-
-
 ## Parameters 
 
 - [Devices, IPs and passwords](/docs/devices_ips_and_passwords.md)
+
+## MS Teams
+
+[AIP MS Teams Team](https://hskarlsruhede.sharepoint.com/:f:/s/Robolab/EqgV9DKqqRJDrYVzu5INeNgBFf0JPXn-Eccabwk7Z6qXew?e=pYTAJ6)
+
+If you are not yet part of the iRAS Students MS team, you can ask any member of the IRAS Institute to invite you to join the team.
 
 ## Components
 

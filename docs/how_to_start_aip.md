@@ -3,8 +3,7 @@
 This sections provides a quick guide to start the AIP application. It enables you to run the complete AIP system and engineer your extended application.
 
 For more information, please also review the corresponding AIP MS Teams Team: 
-**_IRAS Students/Projects/.-Automated_Item_Picking_**
-
+[**_IRAS Students/General/01-IRAS_Wiki/2-Projects/2.1-Automated_Item_Picking_**](https://hskarlsruhede.sharepoint.com/:f:/s/Robolab/EqgV9DKqqRJDrYVzu5INeNgBFf0JPXn-Eccabwk7Z6qXew?e=N3B4xT)
 
 ## I. Quick start guide 
 
@@ -24,11 +23,11 @@ There are 4 different options to move the AIP application which will be describe
 1. Switch to user group Administrator on smartHMI (pw: kuka)
 2. Make sure to clean all the warnings (green rectangle)
 3. If the error occurs "NOT-Halt nur lokal" and red led on the SPS is blicking, please reinstall the PLC project on the PLC 
-   1. Download in MS Teams [MS TEAMS](https://hskarlsruhede.sharepoint.com/:u:/s/Robolab/EUuKVyvE1J1Phd9Jf6vTnd0B8jmQP6yJJhvDQD5b5yJrhw?e=urHCMM )
+   1. Download in [MS TEAMS](https://hskarlsruhede.sharepoint.com/:u:/s/Robolab/EUuKVyvE1J1Phd9Jf6vTnd0B8jmQP6yJJhvDQD5b5yJrhw?e=urHCMM )
 4. Make sure to set KUKA KR 10 into T1-Mode
 5. Press the two white buttons on the back while moving the axis with the buttons (red rectangle)
 - <img src="../images/KUKA_SmartPad.jpeg" width="600"/>
-6. If you want to execute a programm, select it and press the "Start" button below the axis
+1. If you want to execute a programm, select it and press the "Start" button below the axis
 
 
 ### How to use the Gripper
@@ -167,7 +166,7 @@ Especially, the ReadMe provides detailled information regarding the start up.
 - Click "Plan & Excecute" in order to move the robot and in the simulation
   - Pay attention: If you´ve set the parameter use_fake_hardware:=false, the action will be executed on the real robot. Make sure that it won´t trigger a collision
 
-### 3. Automatic modus via behaviour tree
+### 3. Automatic modus via Behaviour Tree
 
 The information for how to move the robot using a behavior tree are described in the repository [IRAS-HKA/aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator.git). 
 
@@ -175,7 +174,8 @@ The "IRAS Coordinator" package provides a starting point for high-level task con
 
 The library of actions can be freely arranged using the "Groot" graphical user interface. There are instructions on how to create and start the Docker container as well as instructions on how to start debugging. 
 
-Once the container is started, the description can be used to design a new or change the behavior tree in Groot. Furthermore, instructions are given on how to create a new custom node and how to create behavior trees.
+Once the container is started, the description can be used to design a new or change the behavior tree in Groot.  
+Furthermore, instructions are given on how to create a new custom node and how to create behavior trees.
 
 ### 4. Automatic modus via Python
 
@@ -197,4 +197,6 @@ ros2 launch aip_cell_description aip.launch.py
 
 - [x] Add manual mode description 
 - [x] Add EKI/ RViz description
+- [ ] Extend manual mode description
 - [ ] Add automatic modus behaviour tree description
+- [ ] Add automatic modus Python description
