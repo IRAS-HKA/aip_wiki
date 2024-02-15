@@ -52,7 +52,3 @@ Below you can find an example of the long text editor for the digital outputs be
 Below you can find a picture of all mapped inputs and outputs.
 
 <img src="../images/20240215_In_Outputs_Mapping.png" width="900"><br>
-
-
-# todo: Bild ovn allen gemappten IOs. 
-
