@@ -1,10 +1,9 @@
 # Repository Overview
 
-This section provides a general overview of the used repositories.
+This section provides a general overview of the used repositories for the AIP application. 
 
-## General overview
 
-1. AIP-Coordinator
+## 1. AIP-Coordinator
 
 This docker container handels the control via the Groot Behavior Tree System.
 You can design new behavior trees and programm the sequence visually.
@@ -14,7 +13,7 @@ The full instructions and explaination of the code can be found here:
 [GitHub Repository](https://github.com/IRAS-HKA/aip_coordinator)
 
 
-2. Aip_Cell_Description
+## 2. Aip_Cell_Description
 
 This repository contains the specific describtion of the robot in this case KUKA KR10. 
 [GitHub Repository](https://github.com/IRAS-HKA/aip_cell_description/tree/main)
@@ -23,7 +22,7 @@ Without this repo the simulation has no representation of the robot. The repo ha
 
 If those information would be missing, the robot could crash with the environment, simply because the environment is not known.
 
-3. AIP Bring Up 
+## 3. AIP_BringUp 
    
 The full instructions and explaination of the code can be found here:
 [GitHub Repository](https://github.com/IRAS-HKA/aip_bringup)
@@ -38,7 +37,7 @@ This enables you to move the robot after initilising the robot driver. The examp
 For the further details please take a look in the GitHub repository.
 
 
-4. Kuka_Eki 
+## 4. Kuka_Eki 
 
 The full instructions and explaination of the code can be found here:
 [GitHub Repository](https://github.com/IRAS-HKA/kuka_eki/tree/driver-humble)
@@ -46,7 +45,7 @@ The full instructions and explaination of the code can be found here:
 This repo contains the configurations of the KUKA EKI Interface, which is used to build up an connection between the linux-pc and the robot control-unit.
 
 
-5. MoveIt Wrapper
+### 5. MoveIt Wrapper
 
 The full instructions and explaination of the code can be found here:
 [GitHub Repository](https://github.com/IRAS-HKA/moveit_wrapper)
