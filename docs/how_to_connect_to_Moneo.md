@@ -12,6 +12,11 @@ You can install the software package from the official IFM website. Additionally
 1. Download and install IFM Moneo on a Windows PC ([Link](https://www.ifm.com/de/de/shared/moneo))
 2. Connect a LAN cable from the IFM IO Link Master to your local pc
 3. Set your IP Adress to an appropriate one in the subnet of the IO Link devices
-4. Open up IFM Moneo and connect via IP address
+4. Open up IFM Moneo and connect via url (URL opens up automatically)
 5. After a quick loading time, you will see all connections including the IFM slaves
 6. There you can set parameters of the devices, but little to none changes are necessary
+
+
+Example screenshot of ifm Moneo:
+
+- <img src="../images/ScreenShot_Moneo.png" width="1000"/>
