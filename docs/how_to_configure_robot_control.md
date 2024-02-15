@@ -44,5 +44,11 @@ The byteorder indicates how the single Bytes are stored in the controller memory
 
 The number of bytes and bits used must also be adjusted. For example, reed contacts only use one bit, while the measured value of the pressure sensor is transferred with one byte. Additionally, the pressure sensor also uses individual bits. The number of bits can be adjusted by dragging the line on the right-hand side. The information on how the modules are integrated can be found in the data sheet.
 
+Once the inputs and outputs have been integrated, they still need to be created in the KUKA Smartpad. To do this, the "Long text editor" must be selected in the "Editors" tab in WorkVisual. The variable name can be entered here in the previously assigned position. Once the programme has been uploaded to the controller, the created variables are visible and can be read or controlled.
+Below you can find an example of the long text editor for the digital outputs below.
+
+<img src="../images/240215_lontext_editor.png" width="900"><br>
+
+
 # todo: Welche bytes müssen geswappt werden, Bild ovn allen gemappten IOs. Bild oben drüber vielleicht nochmal aktualisieren
 
