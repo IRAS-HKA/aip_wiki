@@ -1,21 +1,55 @@
 # Mapping: Hardware to IO number
 
-The following table gives an overview to the mapping of the hardware number to the IO variable numbers which can be used in the software programming. 
+The following table gives an overview ofor the mapping of the hardware number to the IO variable numbers which can be used in the software programming. 
 
 ## Inputs
 
-| Master Channel | Slave Channel | Name             | KR C Name | Field Module Adress | Slave Name |
-|-----------     | -----------   |-----------       |-----------| -----------         | -----------|
-| CH 1           | X1.0          | Reedkontakt      | $IN[123]  | 1072                | AL1442     |
+| Master Channel | Connected Slave Name | Slave Channel | Name                                          | KR C4 Name                                  | Data Type | Field Module Adress |
+|-----------------|-----------------------|---------------|-----------------------------------------------|--------------------------------------------|-----------|----------------------|
+| X01             | AL2401                | X1.0          | Reedkontakt 1: Zylinder 1 ausgefahren         | $IN[132]                                   | BOOL      | 1072                 |
+| X01             | AL2401                | X1.1          | Reedkontakt 1: Zylinder 3 ausgefahren         | $IN[133]                                   | BOOL      | 1073                 |
+| X01             | AL2401                | X1.2          | Reedkontakt 2: Zylinder 1 eingefahren         | $IN[134]                                   | BOOL      | 1074                 |
+| X01             | AL2401                | X1.3          | Reedkontakt 2: Zylinder 3 eingefahren         | $IN[135]                                   | BOOL      | 1075                 |
+| X01             | AL2401                | X1.4          | Reedkontakt 1: Zylinder 2 ausgefahren         | $IN[136]                                   | BOOL      | 1076                 |
+| X01             | AL2401                | X1.5          | Reedkontakt 1: Zylinder 4 ausgefahren         | $IN[137]                                   | BOOL      | 1077                 |
+| X01             | AL2401                | X1.6          | Reedkontakt 2: Zylinder 2 eingefahren         | $IN[138]                                   | BOOL      | 1078                 |
+| X01             | AL2401                | X1.7          | Reedkontakt 2: Zylinder 4 eingefahren         | $IN[139]                                   | BOOL      | 1079                 |
+| X03             | AL2330                | X1.0          | UD-Sensor 01 / Messwert Teil 1                | $IN[25]#G                                  | USINT     | 1104                 |
+| X03             | AL2330                | X1.0          | UD-Sensor 01 / Messwert Teil 2                | $IN[33]#G                                  | USINT     | 1114                 |
+| X03             | AL2330                | X1.0          | UD-Sensor 01 / SP1                            | $IN[41]                                    | BOOL      | 1112                 |
+| X03             | AL2330                | X1.0          | UD-Sensor 01 / SP2                            | $IN[42]                                    | BOOL      | 1113                 |
+| X03             | AL2330                | X1.1          | UD-Sensor 02 / Messwert Teil 1                | $IN[43]#G                                  | USINT     | 1120                 |
+| X03             | AL2330                | X1.1          | UD-Sensor 02 / Messwert Teil 2                | $IN[51]#G                                  | USINT     | 1130                 |
+| X03             | AL2330                | X1.1          | UD-Sensor 02 / SP1                            | $IN[59]                                    | BOOL      | 1128                 |
+| X03             | AL2330                | X1.1          | UD-Sensor 02 / SP2                            | $IN[60]                                    | BOOL      | 1129                 |
+| X03             | AL2330                | X1.2          | UD-Sensor 03 / Messwert Teil 1                | $IN[61]#G                                  | USINT     | 1200                 |
+| X03             | AL2330                | X1.2          | UD-Sensor 03 / Messwert Teil 2                | $IN[69]#G                                  | USINT     | 1210                 |
+| X03             | AL2330                | X1.2          | UD-Sensor 03 / SP1                            | $IN[77]                                    | BOOL      | 1208                 |
+| X03             | AL2330                | X1.2          | UD-Sensor 03 / SP2                            | $IN[78]                                    | BOOL      | 1209                 |
+| X03             | AL2330                | X1.3          | UD-Sensor 04 / Messwert Teil 1                | $IN[79]#G                                  | USINT     | 1216                 |
+| X03             | AL2330                | X1.3          | UD-Sensor 04 / Messwert Teil 2                | $IN[87]#G                                  | USINT     | 1226                 |
+| X03             | AL2330                | X1.3          | UD-Sensor 04 / SP1                            | $IN[95]                                    | BOOL      | 1224                 |
+| X03             | AL2330                | X1.3          | UD-Sensor 04 / SP2                            | $IN[96]                                    | BOOL      | 1225                 |
+
 
 
 ## Outputs
 
-| Master Channel | Slave Channel | Name             | KR C Name | Field Module Adress | Slave Name |
-|-----------     | -----------   |-----------       |-----------| -----------         | -----------|
-| CH 1           | X1.0          | Reedkontakt      | $IN[123]  | 1072                | AL1442     |
 
+| Master Channel | Connected Slave Name | Slave Channel | Name                | KR C4 Name          | Data Type | Field Module Adress |
+|-----------------|-----------------------|---------------|---------------------|---------------------|-----------|----------------------|
+| X02             | AL2330                | X1.2          | Ejektor 1           | $OUT[33]            | BOOL      | 12769                |
+| X02             | AL2330                | X1.3          | Ejektor 2           | $OUT[34]            | BOOL      | 12761                |
+| X02             | AL2330                | X1.4          | Ejektor 3           | $OUT[35]            | BOOL      | 12770                |
+| X02             | AL2330                | X1.5          | Ejektor 4           | $OUT[36]            | BOOL      | 12762                |
+| X03             | AL2330                | X1.4          | Adidas Zylinder 1   | $OUT[37]            | BOOL      | 12826                |
+| X03             | AL2330                | X1.5          | Adidas Zylinder 2   | $OUT[38]            | BOOL      | 12834                |
+| X04             | MPA-L                 | X1.0          | Zylinder 1 einfahren| $OUT[39]            | BOOL      | 12888                |
+| X04             | MPA-L                 | X1.1          | Zylinder 1 ausfahren| $OUT[40]            | BOOL      | 12889                |
+| X04             | MPA-L                 | X1.2          | Zylinder 2 einfahren| $OUT[41]            | BOOL      | 12890                |
+| X04             | MPA-L                 | X1.3          | Zylinder 2 ausfahren| $OUT[42]            | BOOL      | 12891                |
+| X04             | MPA-L                 | X1.4          | Zylinder 3 einfahren| $OUT[43]            | BOOL      | 12892                |
+| X04             | MPA-L                 | X1.5          | Zylinder 3 ausfahren| $OUT[44]            | BOOL      | 12893                |
+| X04             | MPA-L                 | X1.6          | Zylinder 4 einfahren| $OUT[45]            | BOOL      | 12894                |
+| X04             | MPA-L                 | X1.7          | Zylinder 4 ausfahren| $OUT[46]            | BOOL      | 12895                |
 
-# ToDo:
-
-- [ ] Add the mapping table content
