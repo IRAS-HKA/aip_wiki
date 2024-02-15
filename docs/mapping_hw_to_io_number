@@ -16,22 +16,23 @@ You will find the corresponding Excel-Table via the following [**_IRAS Students/
 | X01             | AL2401                | X1.5          | Reedkontakt 1: Zylinder 4 ausgefahren         | $IN[137]                                   | BOOL      | 1077                 |
 | X01             | AL2401                | X1.6          | Reedkontakt 2: Zylinder 2 eingefahren         | $IN[138]                                   | BOOL      | 1078                 |
 | X01             | AL2401                | X1.7          | Reedkontakt 2: Zylinder 4 eingefahren         | $IN[139]                                   | BOOL      | 1079                 |
-| X03             | AL2330                | X1.0          | UD-Sensor 01 / Messwert Teil 1                | $IN[25]#G                                  | USINT     | 1104                 |
-| X03             | AL2330                | X1.0          | UD-Sensor 01 / Messwert Teil 2                | $IN[33]#G                                  | USINT     | 1114                 |
-| X03             | AL2330                | X1.0          | UD-Sensor 01 / SP1                            | $IN[41]                                    | BOOL      | 1112                 |
-| X03             | AL2330                | X1.0          | UD-Sensor 01 / SP2                            | $IN[42]                                    | BOOL      | 1113                 |
-| X03             | AL2330                | X1.1          | UD-Sensor 02 / Messwert Teil 1                | $IN[43]#G                                  | USINT     | 1120                 |
-| X03             | AL2330                | X1.1          | UD-Sensor 02 / Messwert Teil 2                | $IN[51]#G                                  | USINT     | 1130                 |
-| X03             | AL2330                | X1.1          | UD-Sensor 02 / SP1                            | $IN[59]                                    | BOOL      | 1128                 |
-| X03             | AL2330                | X1.1          | UD-Sensor 02 / SP2                            | $IN[60]                                    | BOOL      | 1129                 |
-| X03             | AL2330                | X1.2          | UD-Sensor 03 / Messwert Teil 1                | $IN[61]#G                                  | USINT     | 1200                 |
-| X03             | AL2330                | X1.2          | UD-Sensor 03 / Messwert Teil 2                | $IN[69]#G                                  | USINT     | 1210                 |
-| X03             | AL2330                | X1.2          | UD-Sensor 03 / SP1                            | $IN[77]                                    | BOOL      | 1208                 |
-| X03             | AL2330                | X1.2          | UD-Sensor 03 / SP2                            | $IN[78]                                    | BOOL      | 1209                 |
-| X03             | AL2330                | X1.3          | UD-Sensor 04 / Messwert Teil 1                | $IN[79]#G                                  | USINT     | 1216                 |
-| X03             | AL2330                | X1.3          | UD-Sensor 04 / Messwert Teil 2                | $IN[87]#G                                  | USINT     | 1226                 |
-| X03             | AL2330                | X1.3          | UD-Sensor 04 / SP1                            | $IN[95]                                    | BOOL      | 1224                 |
-| X03             | AL2330                | X1.3          | UD-Sensor 04 / SP2                            | $IN[96]                                    | BOOL      | 1225                 |
+| X05             | AL1332                |               | UD-Sensor 01 / Messwert Teil 1                | $IN[25]#G                                  | USINT     | 1232                 |
+| X05             | AL1332                |               | UD-Sensor 01 / Messwert Teil 2                | $IN[33]#G                                  | USINT     | 1242                 |
+| X05             | AL1332                |               | UD-Sensor 01 / SP1                            | $IN[41]                                    | BOOL      | 1240                 |
+| X05             | AL1332                |               | UD-Sensor 01 / SP2                            | $IN[42]                                    | BOOL      | 1241                 |
+| X06             | AL1332                |               | UD-Sensor 02 / Messwert Teil 1                | $IN[43]#G                                  | USINT     | 1264                 |
+| X06             | AL1332                |               | UD-Sensor 02 / Messwert Teil 2                | $IN[51]#G                                  | USINT     | 1274                 |
+| X06             | AL1332                |               | UD-Sensor 02 / SP1                            | $IN[59]                                    | BOOL      | 1272                 |
+| X06             | AL1332                |               | UD-Sensor 02 / SP2                            | $IN[60]                                    | BOOL      | 1273                 |
+| X07             | AL1332                |               | UD-Sensor 03 / Messwert Teil 1                | $IN[61]#G                                  | USINT     | 1296                 |
+| X07             | AL1332                |               | UD-Sensor 03 / Messwert Teil 2                | $IN[69]#G                                  | USINT     | 1306                 |
+| X07             | AL1332                |               | UD-Sensor 03 / SP1                            | $IN[77]                                    | BOOL      | 1304                 |
+| X07             | AL1332                |               | UD-Sensor 03 / SP2                            | $IN[78]                                    | BOOL      | 1305                 |
+| X08             | AL1332                |               | UD-Sensor 04 / Messwert Teil 1                | $IN[79]#G                                  | USINT     | 1328                 |
+| X08             | AL1332                |               | UD-Sensor 04 / Messwert Teil 2                | $IN[87]#G                                  | USINT     | 1338                 |
+| X08             | AL1332                |               | UD-Sensor 04 / SP1                            | $IN[95]                                    | BOOL      | 1336                 |
+| X08             | AL1332                |               | UD-Sensor 04 / SP2                            | $IN[96]                                    | BOOL      | 1337                 |
+
 
 
 
