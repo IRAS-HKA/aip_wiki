@@ -2,10 +2,18 @@
 
 The following table gives an overview to the mapping of the hardware number to the IO variable numbers which can be used in the software programming. 
 
-| IO Link device  | Port number     | IO Link variable |
-| -----------     | -----------     | -----------      |
-|                 |                 |                  |
-|                 |                 |                  |
+## Inputs
+
+| Master Channel | Slave Channel | Name             | KR C Name | Field Module Adress | Slave Name |
+|-----------     | -----------   |-----------       |-----------| -----------         | -----------|
+| CH 1           | X1.0          | Reedkontakt      | $IN[123]  | 1072                | AL1442     |
+
+
+## Outputs
+
+| Master Channel | Slave Channel | Name             | KR C Name | Field Module Adress | Slave Name |
+|-----------     | -----------   |-----------       |-----------| -----------         | -----------|
+| CH 1           | X1.0          | Reedkontakt      | $IN[123]  | 1072                | AL1442     |
 
 
 # ToDo:

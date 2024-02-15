@@ -34,7 +34,7 @@ Open the tab "E/A Mapping" and choose the marked settings shown below in the ima
 
 <img src="../images/240213_IO_Mapping.png" width="900"><br>
 
-Right-click on the in- or output you want to map in the lower box. Not-mapped I/Os are marked grey. As soon as the I/O is mapped it appears in the upper box. The module number represents the port/channel number on the IO-Link master.
+Right-click on the in- or output you want to map in the lower box. Not-mapped I/Os are marked grey. Mapping works with drag and drop from the right box into preferred signal on the left box. As soon as the I/O is mapped it appears in the upper box. The module number represents the port/channel number on the IO-Link master.
 
 By clicking on the pen in the bottom right corner, the signal editor can be opened. Here are the previously mapped in- and outputs shown, broken down on bit level. The names of the variables can be adapted in this view.
 
