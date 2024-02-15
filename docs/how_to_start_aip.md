@@ -21,12 +21,29 @@ There are 4 different options to move the AIP application which will be describe
 ### Manual mode via the KUKA SmartPad 
 
 **=> ToDo: Add the file names to be executed + stored location on the pad:**
+1. Switch to user group Administrator on smartHMI (pw: kuka)
+2. Make sure to clean all the warnings (green rectangle)
+3. If the error occurs "NOT-Halt nur lokal" and red led on the SPS is blicking, please reinstall the PLC project on the PLC 
+   1. Download in MS Teams [MS TEAMS](https://hskarlsruhede.sharepoint.com/:u:/s/Robolab/EUuKVyvE1J1Phd9Jf6vTnd0B8jmQP6yJJhvDQD5b5yJrhw?e=urHCMM )
+4. Make sure to set KUKA KR 10 into T1-Mode
+5. Press the two white buttons on the back while moving the axis with the buttons (red rectangle)
+- <img src="../images/KUKA_SmartPad.jpeg" width="600"/>
+6. If you want to execute a programm, select it and press the "Start" button below the axis
+
+
+### How to use the Gripper
+
+To read out or control sensors or actuators, the "Display" tab and then the "Inputs/Outputs" tab must be selected in the Smartpad main menu. Either the digital inputs or outputs can then be selected. The status of the inputs can be read out directly. To switch an actuator, it must first be selected and then switched by pressing the "Value" button while pressing the enabling switch.
+
+For more information please see the  **_ready2_educate KUKA documentation_**
+
+### How to set robot in EKI mode in order to listen to Linux-PC 
 
   1. Switch to user group Administrator on smartHMI
   2. Activate project "ros2_driver" on smartHMI (if not already active)
       1. Open project management window (blue WorkVisual icon (gear with robot in it) on smartHMI)
       2. Select "ros2_driver" in Verfügbare Projekte → Entpinnen
-      3. Aktivieren → Ja
+      3. "Aktivieren" → Ja
       4. Wait until project is activated
   3. On smartHMI navigate to R1/Program/ros2_driver
   4. Load the file "kuka_eki_hw" on the KUKA HMI Device
@@ -35,12 +52,7 @@ There are 4 different options to move the AIP application which will be describe
    - ![](../images/KUKA_EKI_HW.png)
   7. Execute the programm
   8. During the execution you can see the following code:
-  9.  - ![](../images/CodeKUKA.png)
-
-
-
-For more information please see the  **_ready2_educate KUKA documentation_**
-
+  - ![](../images/CodeKUKA.png)
 
 ### Automatic modus via EKI (RViz)
 
