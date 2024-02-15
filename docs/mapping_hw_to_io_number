@@ -2,6 +2,8 @@
 
 The following table gives an overview ofor the mapping of the hardware number to the IO variable numbers which can be used in the software programming. 
 
+You will find the corresponding Excel-Table via the following [**_IRAS Students/General/01-IRAS_Wiki/2-Projects/2.1-Automated_Item_Picking/10_KUKA_WoV/IO Mapping.xlsx_**](https://hskarlsruhede.sharepoint.com/:x:/s/Robolab/EckyS9jFJg1JsJkgt-PI7WIBAil-Je8FX_XW09xrqo0VMg?e=toe4zT)
+
 ## Inputs
 
 | Master Channel | Connected Slave Name | Slave Channel | Name                                          | KR C4 Name                                  | Data Type | Field Module Adress |

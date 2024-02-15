@@ -4,7 +4,7 @@ This sections provides a quick guide for the installation of WorkVisual as well 
 
 ## I. How to install WorkVisual?
 
-1. Download WorkVisual from the official KUKA website ([Link](https://kuka.sharefile.eu/share/view/seb15e6d0c9246e79/fofe824e-d661-457c-9858-97304df52369))
+1. Download WorkVisual from the official [KUKA website](https://kuka.sharefile.eu/share/view/seb15e6d0c9246e79/fofe824e-d661-457c-9858-97304df52369)
 2. Install and run .exe 
 3. Connect to the same subnet as the KUKA robot. For more information to the IPs, please check this [Link](/docs/devices_ips_and_passwords.md).
 
@@ -14,7 +14,7 @@ This sections provides a quick guide for the installation of WorkVisual as well 
 
 This sections provides an overview to the different components of the configured AIP WorkVisual project.
 You will find the freezed project status in the corresponding MS Teams Team: 
-**_IRAS Students/Projects/.-Automated_Item_Picking_**
+[**_IRAS Students/General/01-IRAS_Wiki/2-Projects/2.1-Automated_Item_Picking/10_KUKA_WoV/20231130_AIP_KUKA_WoV_Project_**](https://hskarlsruhede.sharepoint.com/:f:/s/Robolab/Esc6STswNCFPnDBuxPwZ8QoBDzZO1w3VhKvccdllRSFXeQ?e=HVxMI5)
 
 ### Configuration of PLC communication 
 
