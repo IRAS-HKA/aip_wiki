@@ -40,7 +40,7 @@ By clicking on the pen in the bottom right corner, the signal editor can be open
 
 <img src="../images/240213_Signal_editor.png" width="900"><br>
 
-The byteorder indicates how the single Bytes are stored in the controller memory. IO-Link uses a different byte order than the KUKA control. Because of that, the byte order must be swapped. Swapped bytes are marked with the red square in the picture above. You can swap bytes by dragging the dash, marked with the arrow.
+The byteorder indicates how the single Bytes are stored in the controller memory. IO-Link uses a different byte order than the KUKA control. As soon as the amount of data is greater than 1 bit (e.g. byte), the signals must be swapped so that they are processed in the correct order. Swapped bytes are marked with the red square in the picture above. You can swap bytes by dragging the dash, marked with the arrow.
 
 The number of bytes and bits used must also be adjusted. For example, reed contacts only use one bit, while the measured value of the pressure sensor is transferred with one byte. Additionally, the pressure sensor also uses individual bits. The number of bits can be adjusted by dragging the line on the right-hand side. The information on how the modules are integrated can be found in the data sheet.
 
@@ -49,6 +49,6 @@ Below you can find an example of the long text editor for the digital outputs be
 
 <img src="../images/240215_lontext_editor.png" width="900"><br>
 
+Below you can find a picture of all mapped inputs and outputs.
 
-# todo: Welche bytes müssen geswappt werden, Bild ovn allen gemappten IOs. Bild oben drüber vielleicht nochmal aktualisieren
-
+<img src="../images/20240215_In_Outputs_Mapping.png" width="900"><br>
