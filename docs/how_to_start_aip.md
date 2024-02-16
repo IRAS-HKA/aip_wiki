@@ -33,6 +33,10 @@ There are 4 different options to operate the AIP application which will be descr
 
 To read or control sensors or actuators, select in the main menu the "_Display_" tab and then "_Inputs/Outputs_". Either the _digital inputs_ or _outputs_ can then be selected. The status of the inputs can be read out directly. To switch an actuator, it must first be selected and then switched by pressing the "_Value_" button while pressing the enabling switch.
 
+1. To read or control sensors or actuators, select in the main menu the "_Display_" tab and then "_Inputs/Outputs_". Either the _digital inputs_ or _outputs_ can then be selected. The status of the inputs can be read out directly. To switch an actuator, it must first be selected and then switched by pressing the "_Value_" button while pressing the enabling switch.
+
+   <img src="../images/Gripper_Control.png" width="600"/>
+
 For further information please see the KUKA **_ready2_educate_** documentation.
 
 ### How to set robot in EKI mode in order to listen to Linux-PC
