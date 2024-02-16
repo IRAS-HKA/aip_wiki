@@ -1,4 +1,5 @@
 # How to configure Sick Scanner MicroScan3 Core I/O
+
 ## Hardware
 
 The scanner operates on a 24V power supply, while its signals, known as OSSDA and OSSDB, are redundantly connected to the PLC. These signals interface with two distinct channels of the PLC module EL1904. The scanner is equipped with additional universal inputs and outputs. These can be optionally configured.
