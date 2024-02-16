@@ -10,8 +10,14 @@ This sections provides a quick setup guide for your laboratory pc and specific r
 
 2. Install Linux System (e.g. Ubuntu 20.04, see [Link](https://releases.ubuntu.com/focal/))
 3. Install VS Code ([Link](https://code.visualstudio.com/download))
-4. Install Docker environment ([Link](https://docs.docker.com/engine/install/))
-5. Install ROS Humble ([Link](https://docs.ros.org/en/humble/Installation.html))
+4. Install Terminator ([Terminal-Multiplexer](https://wiki.ubuntuusers.de/Terminator/))
+
+    ```shell
+    sudo apt-get install terminator
+    ```
+
+5. Install Docker environment ([Link](https://docs.docker.com/engine/install/))
+6. Install ROS Humble ([Link](https://docs.ros.org/en/humble/Installation.html))
 
 ## AIP specific requirements
 
@@ -24,4 +30,6 @@ This sections provides a quick setup guide for your laboratory pc and specific r
 4. Connect the KUKA robot control via socket X66 with LAN connection to your PC
 5. Test your connection by sending a ping to robot control using your terminal
 
-    `ping 10.166.32.145`
+    ```shell
+    ping 10.166.32.145
+    ```

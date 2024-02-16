@@ -2,177 +2,218 @@
 
 This sections provides a quick guide to start the AIP application. It enables you to run the complete AIP system and engineer your extended application.
 
-For more information, please also review the corresponding AIP MS Teams Team: 
+For more information, please also review the corresponding AIP MS Teams Team:
 [**_IRAS Students/General/01-IRAS_Wiki/2-Projects/2.1-Automated_Item_Picking_**](https://hskarlsruhede.sharepoint.com/:f:/s/Robolab/EqgV9DKqqRJDrYVzu5INeNgBFf0JPXn-Eccabwk7Z6qXew?e=N3B4xT)
 
-## I. Quick start guide 
+## I. Quick start guide
 
 1. Plug in the cabinet and power all devices
-2. Check the plc status 
+2. Check the PLC status
 3. Check the KUKA SmartPad status
-4. Start your docker environment on your laboratory PC 
-
+4. Start your docker environment on the laboratory PC
 
 ## II. Different movement options
 
-There are 4 different options to move the AIP application which will be described in the following subchapters.
+There are 4 different options to operate the AIP application which will be described in the following subchapters.
 
-### Manual mode via the KUKA SmartPad 
+### Manual mode via the KUKA SmartPad
 
-**=> ToDo: Add the file names to be executed + stored location on the pad:**
-1. Switch to user group Administrator on smartHMI (pw: kuka)
-2. Make sure to clean all the warnings (green rectangle)
-3. If the error occurs "NOT-Halt nur lokal" and red led on the SPS is blicking, please reinstall the PLC project on the PLC 
-   1. Download in [MS TEAMS](https://hskarlsruhede.sharepoint.com/:u:/s/Robolab/EUuKVyvE1J1Phd9Jf6vTnd0B8jmQP6yJJhvDQD5b5yJrhw?e=urHCMM )
-4. Make sure to set KUKA KR 10 into T1-Mode
-5. Press the two white buttons on the back while moving the axis with the buttons (red rectangle)
-- <img src="../images/KUKA_SmartPad.jpeg" width="600"/>
-1. If you want to execute a programm, select it and press the "Start" button below the axis
+# **=> ToDo: Add the file names to be executed + stored location on the pad:**
 
+1. Switch to user group _Administrator_ on smartHMI (pw: kuka)
+2. Make sure to clean all errors, shown in green rectangle in the picture below
+3. If the error "NOT-Halt nur lokal" occurs and red LED on the PLC CPU is blinking, probably the PLC is not in RUN mode.
+4. Make sure that the drives are switched on
+5. Make sure to set KUKA KR 10 into T1 mode
+6. Push the enabling switch of the SmartPad while moving an axis with the buttons, marked with the red rectangle in the picture below, or the 6D mouse.
 
-### How to use the Gripper
+    <img src="../images/KUKA_SmartPad.jpeg" width="600"/>
 
-To read out or control sensors or actuators, the "Display" tab and then the "Inputs/Outputs" tab must be selected in the Smartpad main menu. Either the digital inputs or outputs can then be selected. The status of the inputs can be read out directly. To switch an actuator, it must first be selected and then switched by pressing the "Value" button while pressing the enabling switch.
+### How to operate the Gripper
 
-For more information please see the  **_ready2_educate KUKA documentation_**
+To read or control sensors or actuators, select in the main menu the "_Display_" tab and then "_Inputs/Outputs_". Either the _digital inputs_ or _outputs_ can then be selected. The status of the inputs can be read out directly. To switch an actuator, it must first be selected and then switched by pressing the "_Value_" button while pressing the enabling switch.
 
-### How to set robot in EKI mode in order to listen to Linux-PC 
+For further information please see the KUKA **_ready2_educate_** documentation.
 
-  1. Switch to user group Administrator on smartHMI
-  2. Activate project "ros2_driver" on smartHMI (if not already active)
-      1. Open project management window (blue WorkVisual icon (gear with robot in it) on smartHMI)
-      2. Select "ros2_driver" in Verfügbare Projekte → Entpinnen
-      3. "Aktivieren" → Ja
-      4. Wait until project is activated
-  3. On smartHMI navigate to R1/Program/ros2_driver
-  4. Load the file "kuka_eki_hw" on the KUKA HMI Device
-  5. Click first on "Abwählen" to deactivate the current programm
+### How to set robot in EKI mode in order to listen to Linux-PC
+
+  1. Switch to user group Administrator on SmartPad
+  2. Activate project "ros2_driver" on SmartPad, if not already active
+      - Open project management window (Blue WorkVisual icon, gear with robot inside)
+      - Select "ros2_driver" in Verfügbare Projekte → Entpinnen
+      - "Aktivieren" → Ja
+      - Wait until project is activated
+  3. On SmaprtPad navigate to R1 → Program → ros2_driver
+  4. Load the file "kuka_eki_hw"
+  5. Click on "Abwählen" to deactivate the current programm
   6. Click on "Anwählen" to activate the "kuka_eki_hw"
-   - ![](../images/KUKA_EKI_HW.png)
+
+      <img src="../images/KUKA_EKI_HW.png" width="600"/>
+
   7. Execute the programm
   8. During the execution you can see the following code:
-  - ![](../images/CodeKUKA.png)
+
+      <img src="../images/CodeKUKA.png" width="600"/>
 
 ### Automatic modus via EKI (RViz)
 
-Further information can be found in the corresponding repository: [IRAS-HKA/aip_bringup](https://github.com/IRAS-HKA/aip_bringup.git). 
-Especially, the ReadMe provides detailled information regarding the start up. 
+Further information for this operating mode can be found in the corresponding repository: [IRAS-HKA/aip_bringup](https://github.com/IRAS-HKA/aip_bringup.git). Especially, the ReadMe provides detailed information regarding the start up.
 
 1. Prerequisite: Docker and connection to robot is up and running
-   - Clone and build repository "AIP Bringup" 
-     - Open a terminal (Ctrl + Alt + T) and navigate to project folders 
+      - Clone and build repository "[AIP Bringup](https://github.com/IRAS-HKA/aip_bringup.git)"
+      - Open a terminal (Ctrl + Alt + T) and navigate to project folders
+
         ```shell
         mkdir -p ~/projects && cd ~/projects
         ```
 
-     - Clone repo (if not already cloned); log in with your RZ account 
+      - Clone repository, if not already cloned. Log in with your RZ account.
+
         ```shell
         git clone -b dev https://www.w.hs-karlsruhe.de/gitlab/iras/common/instructions/iras_robots/aip_bringup.git
         ```
 
-     - Navigate to cloned repo 
+      - Navigate to cloned repository
+
         ```shell
         cd aip_bringup
         ```
-     - Build container 
+
+      - Build container
+
         ```shell
         ./start_docker.sh
         ```
-        If everything went well, you should be in the container like this: `robot@IRAS-IRL0-LIN:~/ros_ws$`
+
+        If everything went well, you should be in the container like this:
+
+        `robot@IRAS-IRL0-LIN:~/ros_ws$`
+
       - Set ROS_DOMAIN_ID. If there are multiple robots in use, make sure, that the set ROS_DOMAIN_ID is different on each PC
+
         ```shell
         export ROS_DOMAIN_ID=<id>
         ```
+
       - You can check your currently set ROS_DOMAIN_ID by running
+
         ```shell
         echo $ROS_DOMAIN_ID
         ```
+
       - In the container, build workspace:
+
         ```shell
         colcon build
         ```
+
       - Source workspace
+
         ```shell
         source install/setup.bash
         ```
 
-2. Connect with second terminal to existing docker session
-   
+2. Start launch file
+
     - Execute the still running container
+
         ```bash
         docker exec -it aip_bringup bash
         ```
-    - As you´ve opened a new terminal, you need to set your ROS_DOMAIN_ID again, use the same ID as before
+
+    - As you have opened a new terminal, you need to set your ROS_DOMAIN_ID again, use the same ID as before
+
         ```bash
         export ROS_DOMAIN_ID=<id>
         ```
+
     - You can check your currently set ROS_DOMAIN_ID by running
+
         ```bash
         echo $ROS_DOMAIN_ID
         ```
+
     - Source workspace
+
         ```bash
         source install/setup.bash
         ```
+
     - Launch robot driver with MoveIt2 wrapper
+
         ```bash
         ros2 launch kuka_kr3_cell_description cell.launch.py
         ```
+
         This will open up a simulated hardware with visualisation.
         To launch the real robot:
-        - Make sure that you are in our local network (Wi-Fi or LAN)
+        - Make sure that you are in the local network (Wi-Fi or LAN)
         - Test your application in simulation first
         - Make sure that the robot is not in a collision state when the application is executed on the real robot
         - If everything is fine, execute
-        ```bash
-        ros2 launch kuka_kr3_cell_description cell.launch.py use_fake_hardware:=false robot_ip:=<robot-ip>
-        ```
 
-3. Check out tutorial code 
-   
-   - For the tutorial code, please check out the repository [IRAS-HKA/aip_bringup](https://github.com/IRAS-HKA/aip_bringup.git), if you haven´t already. 
+          ```bash
+          ros2 launch kuka_kr3_cell_description cell.launch.py use_fake_hardware:=false robot_ip:=<robot-ip>
+          ```
 
-4. Move Robot 
-   
+3. Check out tutorial code
+
+   - Please check out the repository [IRAS-HKA/aip_bringup](https://github.com/IRAS-HKA/aip_bringup.git), if you haven´t already.
+
+4. Start ROS environment
+
    - Open up a new terminal and attach to running container
+
         ```bash
         docker exec -it r2e_cell /bin/bash
         ```
-    - If you have opened a new terminal you need to set your ROS_DOMAIN_ID again, use the same ID as before
+
+   - If you have opened a new terminal you need to set your ROS_DOMAIN_ID again, use the same ID as before
+
         ```bash
         export ROS_DOMAIN_ID=<id>
         ```
-    - You can check your currently set ROS_DOMAIN_ID by running
+
+   - You can check your currently set ROS_DOMAIN_ID by running
+
         ```bash
         echo $ROS_DOMAIN_ID
         ```
-    - Source workspace
+
+   - Source workspace
+
         ```bash
         source install/setup.bash
         ```
-    - Run same application
-        - before running the application, check the robot's movement in the simulated environment and make sure, that the robot is not in a collision state when the application is executed on the real robot
+
+   - Run same application
+        - Before running the application, check the robot's movement in the simulated environment and make sure, that the robot is not in a collision state when the application is executed on the real robot
+
         ```bash
         ros2 run r2e_demos test_ros_env
         ```
-   
-5. Move Robot via EKI and RVIZ 
-- Start Rviz in second terminal of your running docker container
-    ```bash
-    ros2 run rviz
-    ```
-- Use mouse courser to drag robot to your desired position
-- Click "Plan" in order to plan the trajectory in the simulation 
-- Click "Plan & Excecute" in order to move the robot and in the simulation
-  - Pay attention: If you´ve set the parameter use_fake_hardware:=false, the action will be executed on the real robot. Make sure that it won´t trigger a collision
+
+5. Move Robot via EKI and RViz
+
+   - Start RViz in second terminal of your running docker container
+
+      ```bash
+      ros2 run rviz
+      ```
+
+   - Use mouse courser to drag robot to your desired position
+   - Click "Plan" in order to plan the trajectory in the simulation
+   - Click "Plan & Excecute" in order to move the robot and in the simulation
+
+      **Pay attention**: If you´ve set the parameter use_fake_hardware:=false, the action will be executed on the real robot. Make sure that it won´t trigger a collision
 
 ### 3. Automatic modus via Behaviour Tree
 
-The information for how to move the robot using a behavior tree are described in the repository [IRAS-HKA/aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator.git). 
+The information for how to move the robot using a behavior tree are described in the repository [IRAS-HKA/aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator.git).
 
 The "IRAS Coordinator" package provides a starting point for high-level task control of the AIP robot application.
 
-The library of actions can be freely arranged using the "Groot" graphical user interface. There are instructions on how to create and start the Docker container as well as instructions on how to start debugging. 
+The library of actions can be freely arranged using the "Groot" graphical user interface. There are instructions on how to create and start the Docker container as well as instructions on how to start debugging.
 
 Once the container is started, the description can be used to design a new or change the behavior tree in Groot.  
 Furthermore, instructions are given on how to create a new custom node and how to create behavior trees.
@@ -181,21 +222,23 @@ Furthermore, instructions are given on how to create a new custom node and how t
 
 1. Prerequisite: Docker and connection to robot is up and running
 2. Connect with second terminal to existing docker session
-```bash
-docker exec -it aip_bringup bash 
-```
+
+    ```bash
+    docker exec -it aip_bringup bash 
+    ```
+
 3. In the second terminal you can execute the following python scripts in order to move the robot basend on coordinates. Example python file.
-```bash
-ros2 launch aip_cell_description aip.launch.py
-```
-**=> ToDo**
 
+    ```bash
+    ros2 launch aip_cell_description aip.launch.py
+    ```
 
+# **=> ToDo**
 
 
 # TODO
 
-- [x] Add manual mode description 
+- [x] Add manual mode description
 - [x] Add EKI/ RViz description
 - [ ] Extend manual mode description
 - [ ] Add automatic modus behaviour tree description
