@@ -1,8 +1,8 @@
-# WorkVisual
+# How to configure WorkVisual
 
 This sections provides a quick guide for the installation of WorkVisual as well as an overview of the project specific AIP WorkVisual project.
 
-## I. How to install WorkVisual?
+## I. How to install WorkVisual
 
 1. Download WorkVisual from the official [KUKA website](https://kuka.sharefile.eu/share/view/seb15e6d0c9246e79/fofe824e-d661-457c-9858-97304df52369)
 2. Install and run .exe

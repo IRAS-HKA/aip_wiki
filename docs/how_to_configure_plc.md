@@ -1,4 +1,4 @@
-# How to configure the PLC?
+# How to configure the PLC
 
 This sections provides a quick guide to configure the PLC for the AIP application.
 

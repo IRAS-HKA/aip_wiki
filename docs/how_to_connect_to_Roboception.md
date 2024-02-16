@@ -1,10 +1,10 @@
-# Use RCDiscover
+# How to connect to Roboception camera
 
-This sections provides a quick guide for the connection to the Roboception camera.
+This sections provides a quick guide for the connection to the Roboception camera, using RCDiscover
 
 This guide is applicable to a Windows PC, but there is a possiblity to use it on  [Linux](https://github.com/roboception/rcdiscover).
 
-## I. How to detect cameras via RCDiscover?
+## How to detect cameras via RCDiscover
 
 1. Make sure the camera has power (separate power switch!) and has an ethernet connection to the switch
 2. Make sure the pc is connected to the switch and is in a correct subnet

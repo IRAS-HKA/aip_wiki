@@ -1,4 +1,4 @@
-# Explain the standard functionalities on the KUKA SmartPad
+# Standard functionalities on the KUKA SmartPad
 
 ## How to move robot
 

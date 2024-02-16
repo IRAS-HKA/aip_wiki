@@ -1,4 +1,4 @@
-# How to setup the laboratory pc
+# How to setup the laboratory PC
 
 This sections provides a quick setup guide for your laboratory pc and specific reqirements for the AIP application.
 
