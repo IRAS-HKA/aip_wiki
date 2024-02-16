@@ -1,4 +1,4 @@
-## Device IPs and passwords
+# Device IPs and passwords
 
 | Device | IP | Password | User |
 |----------|----------|----------|----------|
