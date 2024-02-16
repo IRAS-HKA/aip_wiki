@@ -1,6 +1,6 @@
 # Mapping: Hardware to IO number
 
-The following table gives an overview ofor the mapping of the hardware number to the IO variable numbers which can be used in the software programming. 
+The following table gives an overview of the mapping of the hardware number to the IO variable numbers, which can be used in the software programming.
 
 You will find the corresponding Excel-Table via the following [**_IRAS Students/General/01-IRAS_Wiki/2-Projects/2.1-Automated_Item_Picking/10_KUKA_WoV/IO Mapping.xlsx_**](https://hskarlsruhede.sharepoint.com/:x:/s/Robolab/EckyS9jFJg1JsJkgt-PI7WIBAil-Je8FX_XW09xrqo0VMg?e=toe4zT)
 
@@ -33,11 +33,7 @@ You will find the corresponding Excel-Table via the following [**_IRAS Students/
 | X08             | AL1332                |               | UD-Sensor 04 / SP1                            | $IN[95]                                    | BOOL      | 1336                 |
 | X08             | AL1332                |               | UD-Sensor 04 / SP2                            | $IN[96]                                    | BOOL      | 1337                 |
 
-
-
-
 ## Outputs
-
 
 | Master Channel | Connected Slave Name | Slave Channel | Name                | KR C4 Name          | Data Type | Field Module Adress |
 |-----------------|-----------------------|---------------|---------------------|---------------------|-----------|----------------------|
@@ -55,4 +51,3 @@ You will find the corresponding Excel-Table via the following [**_IRAS Students/
 | X04             | MPA-L                 | X1.5          | Zylinder 3 ausfahren| $OUT[44]            | BOOL      | 12893                |
 | X04             | MPA-L                 | X1.6          | Zylinder 4 einfahren| $OUT[45]            | BOOL      | 12894                |
 | X04             | MPA-L                 | X1.7          | Zylinder 4 ausfahren| $OUT[46]            | BOOL      | 12895                |
-
