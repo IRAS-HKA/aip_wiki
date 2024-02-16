@@ -1,4 +1,4 @@
-# How to start the AIP application?
+# How to start the AIP application
 
 This sections provides a quick guide to start the AIP application. It enables you to run the complete AIP system and engineer your extended application.
 
