@@ -1,10 +1,12 @@
-# How to configure the PLC
+# How to configure the PLC?
 
-This sections provides a quick guide to configure the PLC for the AIP application.
+This sections provides a guide to configure the PLC for the AIP application.
 
 For more information, please also review the corresponding folder in the AIP MS Teams Team: [**_IRAS Students/General/01-IRAS_Wiki/2-Projects/2.1-Automated_Item_Picking/20_Beckhoff_PLC/_**](https://hskarlsruhede.sharepoint.com/:f:/s/Robolab/EsXb2rS7tkNHiE9Vva1hRJQBlkx3YtZ9MsPilZJKrE4KLA?e=RStLJ4)
 
 Especially, pay attention to the official manufacturer descriptions stored in  [**_IRAS Students/General/01-IRAS_Wiki/2-Projects/2.1-Automated_Item_Picking/20_Beckhoff_PLC/Manufacturer documentation_**](https://hskarlsruhede.sharepoint.com/:f:/s/Robolab/EtWBKyUWYTJJhI81cag6Vu4BRYX0zx6OWt2i09hfl6ZEaQ?e=ReFuOb)
+
+## I. General Setup 
 
 1. **Load the necessary device description files of used components per manufacturer**
 
@@ -150,7 +152,55 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
 
 9. **Transfer configuration to the PLC**
 
-**Miscellaneous:**
+
+## II. Setting up signal lamps, external control panel and ventilation
+
+This section deals with the set up of the signal lamps for the application status lamps, external control panel and includes the ventilation system. 
+
+For details on cabling, please refer to the [circuit diagram](https://hskarlsruhede.sharepoint.com/:b:/s/Robolab/EQobmkHrY0RFslK2JM3dPUMB7YcZyiPEdmcFV-oI7fIJPQ?e=fbCcIk) in the AIP MS Teams Team. 
+
+1. Extending the "PRG_Safety (PRG)" programmable object unit (POU) in the standard plc part 
+   - Declaring the new variables for inputs from the safety related components  
+      ```bash	
+      InputNotHaltCHA AT%I* : BOOL;  
+      InputNotHaltCHB AT%I* : BOOL;  
+      InputLidarCHA AT%I* : BOOL;  
+      InputLidarCHB AT%I* : BOOL;  
+      ```
+
+   - Declaring the new variables for outputs to the lamps 
+      ```bash	
+      TasterResetLampe AT%Q* : BOOL;  	
+      LampeNotHalt_OK AT%Q* : BOOL;     
+      LampeNotHalt_NOK AT%Q* : BOOL;		
+      LampeNotHalt_ACK AT%Q* : BOOL; 		
+      ```
+    For reference please review the following image: 
+
+    <img src="../images/20240221_PLC_variable_declaration_lamps.png" width="700">
+
+
+
+2. Connect the PLC variables with the physical inputs / outputs 
+    - Take the correct channels of the terminals from the valid [circuit diagram](https://hskarlsruhede.sharepoint.com/:b:/s/Robolab/EQobmkHrY0RFslK2JM3dPUMB7YcZyiPEdmcFV-oI7fIJPQ?e=fbCcIk)
+    - Search for the correct input/ output terminals in the IO structure 
+      - Inputs:  e.g. InputNotHaltCHA
+        - Besides the other input signals from the safety related components, the signal from channel A of the safety stop ("NotHalt") will queried in a if condition to set the status lamps. 
+        - To generate a hardware feedback, the PLC variable has to be mapped to the corresponding output. 
+          - In this case, the InputNotHaltCHA has to be mapped to terminal EL1904 InputChannel1
+          - Search for the corresponding terminal and channel in the IO topology 
+          <img src="../images/20240221_PLC_input_NotHaltCHA_IO_topology.png" width="200">
+
+
+          <img src="../images/20240221_PLC_input_NotHaltCHA_IO_link.png" width="600">
+      - Outputs: e.g. TasterResetLamp 
+        - The blue lamp shall light up if it is necessary to acknowledge after a safety stop was triggered. It is necessary to provide active human feedback so that the application can resume operation.
+
+
+
+
+
+## III. Miscellaneous:
 
 - Remote access to the device manager can be enabled by using the CERHOST programm.
 - It is located in the following [folder](https://hskarlsruhede.sharepoint.com/:u:/s/Robolab/Edmn-Y5lowRPluMAa_jBZO4BiidjAPeTsX1Hcp4GsXG-qQ?e=9T6Gwt) of the AIP MS Teams Team
