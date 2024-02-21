@@ -23,6 +23,7 @@ The main components of the AIP are object recognition, gripping point planning, 
 ## Parameters
 
 - [Devices, IPs and passwords](/docs/devices_ips_and_passwords.md)
+- [IO Mapping KUKA](/docs/mapping_hw_to_io_number.md)
 
 ## MS Teams
 
