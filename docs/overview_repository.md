@@ -42,7 +42,7 @@ The full instructions and explaination of the code can be found here:
 
 This repo contains the configurations of the KUKA EKI Interface, which is used to build up an connection between the Linux-PC and the robot control.
 
-### 5. MoveIt Wrapper
+## 5. MoveIt Wrapper
 
 The full instructions and explaination of the code can be found here:
 [MoveIt Wrapper GitHub Repository](https://github.com/IRAS-HKA/moveit_wrapper)
