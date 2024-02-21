@@ -15,7 +15,7 @@ The main components of the AIP are object recognition, gripping point planning, 
 ## How To AIP
 
 - [How to setup laboratory pc](/docs/how_to_setup_laboratory_pc.md)
-- [How to use KUKA SmartPad](/docs/how_to_use_kuka_hmi_help.md)
+- [How to use KUKA SmartPad](/docs/how_to_use_kuka_hmi.md)
 - [How to start AIP](/docs/how_to_start_aip.md)
 - [How to configure robot control](/docs/how_to_configure_robot_control.md)
 - [How to configure PLC](/docs/how_to_configure_plc.md)

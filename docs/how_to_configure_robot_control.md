@@ -45,7 +45,7 @@ The byteorder indicates how the single Bytes are stored in the controller memory
 
 The number of bytes and bits used must also be adjusted. For example, reed contacts only use one bit, while the measured value of the pressure sensor is transferred with one byte. Additionally, the pressure sensor also uses individual bits. The number of bits can be adjusted by dragging the line on the right-hand side. The information on how the modules are integrated can be found in the data sheets.
 
-Once the inputs and outputs have been integrated, they still need to be created in the KUKA Smartpad. To do this, the "Long text editor" must be selected in the "Editors" tab in WorkVisual. The variable name can be entered here in the previously assigned position. Once the programm has been uploaded to the controller, the created variables are visible and can be read or controlled.
+Once the inputs and outputs have been integrated, they still need to be created in the KUKA Smartpad. To do this, the "Long text editor" must be selected in the "Editors" tab in WorkVisual. The variable name can be entered here in the previously assigned position. Once the programme has been uploaded to the controller, the created variables are visible and can be read or controlled.
 Below you can find an example of the long text editor for the digital outputs below.
 
 <img src="../images/240215_lontext_editor.png" width="900">
@@ -68,7 +68,7 @@ EKI offers the following options:
 
 To use EthernetKRL, the software package must first be installed on the robot controller. You can read about this in chapter 4 of the [KUKA EKI documentation](https://hskarlsruhede.sharepoint.com/:b:/s/Robolab/ET_KrUUq_xJKnf7MTesLJNUBsFdrSCsVxshHmyi3J7YznA?e=GNgcrq) on MS Teams. The network connection must also be set up via the KLI interface of the robot controller, as described in chapter 5. Next, one or more Ethernet connections must be configured via an XML file, which must be saved in the robot controller's _C:\KRC\ROBOTER\Config\User\Common\EthernetKRL_ directory.
 
-The EKI file _"EkiIOInterface.xml"_ is used in this project, as shown in the following structure tree.
+The EKI files "_EkiIOInterface.xml_" and "_EkiHwInterface_" are used in this project. EkiIOInterface.xml is used for controlling the gripper, EkiHwInterface is used to control the robot axes.
 
 <img src="../images/20240220_EKI_Baum.png" width="300">
 
@@ -84,13 +84,19 @@ The most important components of the EKI files used can be described as follows:
 | `<RECEIVE>...</RECEIVE>`             | Configuration of reception structure received by robot controller |
 | `<SEND>...</SEND>`                   | Configuration of transmission structure sent by robot controller  |
 
-Finally, a KRL programme must be written to control the data transfer. The Ethernet connection can be initialised with the **EKI_Init()** function and opened with the **EKI_Open()** function. Data can be sent and received with the **EKI_Send()** and **EKI_Get...()** functions. The Ethernet connection can be closed with the **EKI_Close()** function and deleted with the **EKI_Clear()** function. The **EKI_Check()** function can be used to check and handle errors. Chapter 7 of the document contains some programme examples for various use cases.
+### Configuration of KRL files
 
-The KRL programme used can be described as follows:
+A KRL programme must be written to control the data transfer. The Ethernet connection can be initialised with the **EKI_Init()** function and opened with the **EKI_Open()** function. Data can be sent and received with the **EKI_Send()** and **EKI_Get...()** functions. The Ethernet connection can be closed with the **EKI_Close()** function and deleted with the **EKI_Clear()** function. The **EKI_Check()** function can be used to check and handle errors. Chapter 7 of the document contains some programme examples for various use cases.
 
-- ```shell
-    DEF kuka_eki_hw()
-    ```
+In this project the source file "_kuka_eki_hw.src_" and data file "_kuka_eki_hw.dat_" in the folder "_ros2_driver_" is used.
+
+.src files contain the actual robot code, including the movement and operating instructions. They are created directly by the programmer and contain the executable commands for the robot. On the other hand, .dat files contain configuration and data details such as hardware settings, user parameters or communication structures. They are used to store information that is required by the robot programme but are not executable instructions.
+
+<img src="../images/20240220_KRL_Baum.png" width="300">
+
+The **source file** used can be described as follows:
+
+- ```DEF kuka_eki_hw()```:
 
     Several variables are declared that are used for control and communication with the hardware.
 
@@ -104,62 +110,30 @@ The KRL programme used can be described as follows:
 
     The loop runs indefinitely, which means that the function continuously waits for new commands and events and reacts accordingly.  
 
-- ```shell
-    def eki_hw_iface_init()
-    ```
+- ```def eki_hw_iface_init()```: Initialisation of the hardware interface (eki_hw_interface). Interrupts are set up to react to events such as the disconnection of a client connection and a connection to the eki_hw_interface socket is established.
 
-    teasfada
+- ```def eki_io_iface_init()```: Initialisation of the I/O interface (eki_io_interface). Similar to the hardware interface, interrupts are set up and a connection to the I/O interface is established.
 
-- ```shell
-    def eki_io_iface_init()
-    ```
+- ```def eki_io_iface_send()```: Transmission of data via the I/O interface. The current states of the I/O pins are queried and sent to the eki_io_interface server to enable the control and monitoring of inputs and outputs.
 
-    asdasd
+- ```def eki_hw_iface_send()```: Transmission of the current states of the robot axes via the hardware interface. The current positions, speeds and efforts of the axes are loaded into an XML structure and sent to the server.
 
-- ```shell
-    def eki_io_iface_send()
-    ```
+- ```deffct int eki_hw_iface_available()```: Check if new commands are available for the robot axis. This function checks the buffer for new commands and returns the number of available elements.
 
-    asdasd
+- ```deffct int eki_hw_iface_get(joint_pos_cmd :out)``` and ```shell
+    deffct int eki_io_iface_get()```: Reading the latest commands from the buffers of the hardware or I/O interface. The target positions of the robot axis or the states of the I/O pins are updated according to the commands received.
 
-- ```shell
-    def eki_hw_iface_send()
-    ```
+- ```def set_io_values()```: This function updates the output states of the I/O pins based on the commands (io_cmd) that were previously received. A loop is run through to iterate over all existing I/O pins. If a valid command is available (different from -1), the output of the corresponding pin is set according to the command. The loop runs until the output has been successfully set to ensure that the command has been processed correctly.
 
-    asdasd
+- ```def eki_hw_iface_reset()```:This function is called to reset the hardware interface (eki_hw_interface). All existing data in the buffer of the interface is first deleted (eki_clear), then the interface is reinitialised (eki_init) and opened (eki_open) to make it ready for operation again.
 
-- ```shell
-    deffct int eki_hw_iface_available()
-    ```
+- ```def eki_io_iface_reset()```: Similar to the eki_hw_iface_reset() function, the I/O interface (eki_io_interface) is reset here. First, all existing data in the buffer of the interface is deleted, then the interface is reinitialised and opened.
 
-    asdasd
+The code of the **data file** used can be described as follows:
 
-- ```shell
-    deffct int eki_hw_iface_get(joint_pos_cmd :out)
-    ```
-
-    asdasd
-
-- ```shell
-    deffct int eki_io_iface_get()
-    ```
-
-    asdasd
-
-- ```shell
-    def set_io_values()
-    ```
-
-    asdasd
-
-- ```shell
-    def eki_hw_iface_reset()
-    ```
-
-    asdasd
-
-- ```shell
-    def eki_io_iface_reset()
-    ```
-
-    asdasd
+- ``&ACCESS RVP``: This is an instruction that specifies that the RVP (robot visualisation and programming) functions are to be accessed. The RVP is a part of the KUKA software that is used for programming and visualising robots.
+- ``DEFDAT kuka_eki_hw``: This defines a data structure with the name "kuka_eki_hw". This data structure is used to store information about the hardware inputs and outputs.
+- ``ext bas(bas_command :in, real :in)``: This line defines an external interface called "bas", which is used to send commands to the robot's basic controller. In this case, the interface takes two arguments: a command (bas_command) of type "in" and a real number (real) of type "in".
+- ``decl int io_pins[2]``: Two arrays named "io_pins" and "io_types" are declared here. These arrays are used to store information about the input and output pins. As they are both declared as "int", they are used for integers.
+- ``decl int io_types[2]``: This declares another array, "io_types", which is used to store information about the types of the input and output pins.
+- ``decl int io_cmd[2]``: Finally, an array "io_cmd" is declared, which is used to store commands for the inputs and outputs.
