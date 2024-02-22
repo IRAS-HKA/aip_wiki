@@ -75,5 +75,10 @@ If the battery of the PLC is empty, the date will be resetted after every restar
 
 ### Solution
 
-- Long term: Replace the button battery of the PLC
-- Short term: Set the correct date and time manually in the online device manager. This is required at every restart of the system.
+- Long term: Replace the battery of the PLC
+- Short term:
+  - Connect via LAN to PLC
+  - Open the correct programme
+  - Load the programme to PLC → This triggers the generation of a licence
+
+If there are further issues, set the correct date and time manually in the online device manager.
