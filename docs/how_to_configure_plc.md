@@ -1,4 +1,4 @@
-# How to configure the PLC?
+## How to configure the PLC?
 
 This sections provides a guide to configure the PLC for the AIP application.
 
@@ -8,7 +8,7 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
 
 ## I. General Setup
 
-1. **Load the necessary device description files of used components per manufacturer**
+1. **Load the necessary device description files of the used components per manufacturer**
 
     Note: _Please pay attention to use the correct file storage location enabling the TwinCAT Shell to read them in correctly_
   
@@ -40,31 +40,46 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
 
 3. **Start the PLC in configuration mode**
 
-4. **Use the existing project**
+4. **Option 1: Use the existing project**
       - Download the running AIP TwinCAT application project from the [folder](https://hskarlsruhede.sharepoint.com/:f:/s/Robolab/EvBXPR8iiC1CjPC9OmHc55QB9pIL2lSHhNAUp725h_jsCA?e=HsHzn0) in the AIP MS Teams Team
       - Make your desired adjustments to your local copy of the standard AIP TwinCAT Application project
 
-Note: _The following steps are only necessary if no project exists yet or if you want to make changes._
-  
-5. **Create new project**
+**Note: _The following steps are only necessary if no project exists yet or if you want to make changes._**
+
+5. **Option 2: Create new project package**
+    - Create new TwinCAT project package ("TwinCAT Project")
+      <img src="../images/20240222_PLC_new_project.png" width="500">
+ 
     - Load the IOs by using the integrate scan function
-        - Verify that the automatic scan has detected all physical available IOs
-        - Check the current status of all topology elements
-          - Use "_Gerät 1 (EtherCat)_"
-          - Tab can be read online
+        - Verify that the automatic scan has detected all physical available IOsw
           - Status "_OP_" is necessary
+
+      ## => Add picture for the automatic scan when directly connected to the PLC
+
     - Check the input/output signals currently present  
         - Select terminal, select module, select corresponding channel  
         - Necessary tab: _Online_
+      <img src="../images/20240222_PLC_IO_check_current_signals_online.png" width="500">
+
+
 
 6. **Create a new safety project**
   
     Note: _This section is only related to the yellow PLC safety terminals. It has to be connected at least one safety terminal._
+    - Create new safety project part<br>
+      <img src="../images/20240222_PLC_new_safety_plc_project.png" width="300">
+
+    - Create TwinSafeGroup
+      <img src="../images/20240222_PLC_safety_create_TwinSAFE_group.png" width="400">
 
      - Parameterisation of the individual modules
-        - Import the necessary alias devices from the current IO ocnfiguration
-        - FSOE address must match the one of the KUKA control (default: 8504)
+        - Import the necessary alias devices from the current IO configuration <br>
+      <img src="../images/20240222_PLC_safety_import_alias_devices.png" width="400">
+
+        - FSOE address must match the one of the KUKA control (default: 8504)<br>
+        <img src="../images/20240222_PLC_safety_check_FSOE_adresses.png" width="400">
         - Check the process images
+        <img src="../images/20240222_PLC_safety_check_process_images.png" width="400">
         - Choose the device
           - Tab: Safety Parameters
           - e.g. EL1904:
@@ -72,28 +87,39 @@ Note: _The following steps are only necessary if no project exists yet or if you
               - Deactivate sensor test due to the self-examined test of the scanner
               - Set "_Asynchronous analysis OSSD, sensor test deactived_"
               - For more information, please check the operating manual from the Sick website or the AIP MS Teams Team documentation
+              <img src="../images/20240222_PLC_safety_EL1904_LiDAR_set_safety_parameters.png" width="400">    
+          - The similiar must be done for the KUKA robot part. (see given TwinCAT project)
         - Check the target system
           - This has to equal your master terminal (here: EL6900)
           - Verify if the physical set DIP switch setting matches the one in TwinCAT
-        - Create a TwinSafeGroup
-          - Create a SafeEstop building block
+          <img src="../images/20240222_PLC_safety_EL1904_LiDAR_set_safety_parameters.png" width="400">    
+
+        - Create a SafeEstop building block by drag and drop from the toolbox
+          <img src="../images/20240222_PLC_safety_create_safeEstop_block.png" width="400">    
+          - Name the explicit inputs and outputs with your variable name
+
           - Map the variables to the corresponding channels of the modules or further variables used
+          <img src="../images/20240222_PLC_safety_map_TwinSAFE_group_variables.png" width="400">    
+
             - **Input side:**
   
-                  - NotHalt CHA to In1 
-                  - NotHalt CHB to In2
-  
+                  - NotHalt CHA to EL1901 Channel 1 
+                  - NotHalt CHB to EL1901 Channel 2
+                  - Sick_LIDAR_CHA to EL1901 Channel 3
+                  - Sick_LIDAR_CHB to EL1901 Channel 4
+
               Note: _It requires a logical connection of the safety stops as channel A and B need to react at the same time when the button is pressed. Even if one component is damaged, the safety is not allowed to be endangered. Consequently the control must trigger an error if a signal is not detected directly (low demand system)._
   
             - **Output side:**
   
-                    EStopOut = NotHalt_OK
+                    EStopOut = NotHalt_OK = SafetyRoboter
 
                 Note: _To communicate with the KUKA KR10 robot, the process image must from Beckhoff PLC and KUKA KR C4 control must match. If you wan´t to e.g. set status lamps, it is necessary to report to a variable im regular PLC part._
 
-            - Set the input of the regular PLC part
-                - Necessary to restart the function module after starting up the system
+            - Set the input of the regular PLC part. 
+                - It is necessary to restart the function module after starting up the system
                 - Add an alias device (input from the regular PLC part)
+                <img src="../images/20240222_PLC_safety_restart_ESTOP.png" width="400">    
                 - Execute a variables mapping in the TwinSAFE group
                 - Link them with the PLC variables too
 
