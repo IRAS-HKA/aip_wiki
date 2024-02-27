@@ -91,14 +91,14 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
           - The similiar must be done for the KUKA robot part. (see given TwinCAT project)
         - Check the target system
           - This has to equal your master terminal (here: EL6900)
-          - Verify if the physical set DIP switch setting matches the one in TwinCAT
+          - Verify if the physical set DIP switch setting matches the one in TwinCAT <br>
           <img src="../images/20240222_PLC_safety_EL1904_LiDAR_set_safety_parameters.png" width="400">    
 
         - Create a SafeEstop building block by drag and drop from the toolbox <br>
           <img src="../images/20240222_PLC_safety_create_safeEstop_block.png" width="400">    
           - Name the explicit inputs and outputs with your variable name
 
-          - Map the variables to the corresponding channels of the modules or further variables used
+          - Map the variables to the corresponding channels of the modules or further variables used <br>
           <img src="../images/20240222_PLC_safety_map_TwinSAFE_group_variables.png" width="400">    
 
             - **Input side:**
@@ -120,13 +120,13 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
                 - It is necessary to restart the function module after starting up the system
                 - Add an alias device (input from the regular PLC part) <br>
                 <img src="../images/20240222_PLC_safety_restart_ESTOP.png" width="400">    
-                - Execute a variables mapping in the TwinSAFE group 
+                - Execute a variables mapping in the TwinSAFE group   
                 <img src="../images/20240222_PLC_safety_restart_ESTOP_mapping.png" width="400">
-                - Link them with the PLC variables too
+                - Link them with the PLC variables too  
                 <img src="../images/20240222_PLC_safety_restart_and_error_mapping.png" width="400">
 
             - Set the outputs to the PLC
-                - e.g. communication error ("COMError"), function module fault ("FBError"), NotHalt_OK to further use e.g. status message
+                - e.g. communication error ("COMError"), function module fault ("FBError"), NotHalt_OK to further use e.g. status message <br>
                 <img src="../images/20240222_PLC_safety_std_error_mapping.png" width="400">
                 - Link them with the PLC variables too (see above)
 
@@ -146,11 +146,11 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
 7. **Create new standard PLC project**
 
       Note: _It is a separated project which is able to receive inputs from the safety part_
-    - Use a right click on the "PLC" / "SPS" icon and select "Add new item" 
+    - Use a right click on the "PLC" / "SPS" icon and select "Add new item"   
       <img src="../images/20240222_PLC_standard_create_project.png" width="400">
 
    - Create Programmble object units (POUs)
-     - The _main_ has to call the PRG_Safety POU in order to run it on the PLC
+     - The _main_ has to call the PRG_Safety POU in order to run it on the PLC  
     <img src="../images/20240222_PLC_std_pou_main.png" width="400">
        - It generates a PLC task im main (see PLC tasks, PLC).
        - Cyclus ticks of the PLC can be reviewed via System/Tasks/PLCTasks
@@ -216,7 +216,7 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
 	            LampeNotHalt_ACK AT%Q* : BOOL; 		// Orange lamp
 	            LampeNotHalt_NOK AT%Q* : BOOL;		// Red lamp
               ```
-              - Connect them to the physical hardware in the IO topology (e.g. "_LampeNotHalt_OK_")
+              - Connect them to the physical hardware in the IO topology (e.g. "_LampeNotHalt_OK_")  
                <img src="../images/20240222_PLC_standard_status_lamps_variables_connect_to_physical_hardware.png" width="400">  <br> 
 
           - Create logical link in the executable programme code
@@ -225,7 +225,7 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
 
 8. **Adjust the process image of the KUKA KR C4 module in the IO structure**
    - Select the box of the KR C4 in the tab "_Slots_"
-     - Choose the corresponding process image ("Safety Daten"/ "Reguläre Daten"/ "Kombiniert")
+     - Choose the corresponding process image ("Safety Daten"/ "Reguläre Daten"/ "Kombiniert")   
     <img src="../images/20240222_PLC_KRC4_adjust_process_image.png" width="400">  <br> 
    - Module 2 (Safety Data (8 Byte)); TxPDO - FSOE (Inputs) and RxPDO - FSOE must match the process image to the Beckhoff PLC
       - Verify the process image with the alias device one in the safety PLC
