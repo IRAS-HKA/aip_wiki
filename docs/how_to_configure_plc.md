@@ -47,7 +47,7 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
 **Note: _The following steps are only necessary if no project exists yet or if you want to make changes._**
 
 5. **Option 2: Create new project package**
-    - Create new TwinCAT project package ("TwinCAT Project")
+    - Create new TwinCAT project package ("TwinCAT Project") <br>
       <img src="../images/20240222_PLC_new_project.png" width="500">
  
     - Load the IOs by using the integrate scan function
@@ -58,7 +58,7 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
 
     - Check the input/output signals currently present  
         - Select terminal, select module, select corresponding channel  
-        - Necessary tab: _Online_
+        - Necessary tab: _Online_ <br>
       <img src="../images/20240222_PLC_IO_check_current_signals_online.png" width="500">
 
 
@@ -69,7 +69,7 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
     - Create new safety project part<br>
       <img src="../images/20240222_PLC_new_safety_plc_project.png" width="300">
 
-    - Create TwinSafeGroup
+    - Create TwinSafeGroup <br>
       <img src="../images/20240222_PLC_safety_create_TwinSAFE_group.png" width="400">
 
      - Parameterisation of the individual modules
@@ -78,7 +78,7 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
 
         - FSOE address must match the one of the KUKA control (default: 8504)<br>
         <img src="../images/20240222_PLC_safety_check_FSOE_adresses.png" width="400">
-        - Check the process images
+        - Check the process images <br>
         <img src="../images/20240222_PLC_safety_check_process_images.png" width="400">
         - Choose the device
           - Tab: Safety Parameters
@@ -86,7 +86,7 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
             - Using the Sick LiDAR Scanner MicroScan3 Core I/O with OSSD requires the following setting for channel 3 + 4:
               - Deactivate sensor test due to the self-examined test of the scanner
               - Set "_Asynchronous analysis OSSD, sensor test deactived_"
-              - For more information, please check the operating manual from the Sick website or the AIP MS Teams Team documentation
+              - For more information, please check the operating manual from the Sick website or the AIP MS Teams Team documentation <br>
               <img src="../images/20240222_PLC_safety_EL1904_LiDAR_set_safety_parameters.png" width="400">    
           - The similiar must be done for the KUKA robot part. (see given TwinCAT project)
         - Check the target system
@@ -94,7 +94,7 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
           - Verify if the physical set DIP switch setting matches the one in TwinCAT
           <img src="../images/20240222_PLC_safety_EL1904_LiDAR_set_safety_parameters.png" width="400">    
 
-        - Create a SafeEstop building block by drag and drop from the toolbox
+        - Create a SafeEstop building block by drag and drop from the toolbox <br>
           <img src="../images/20240222_PLC_safety_create_safeEstop_block.png" width="400">    
           - Name the explicit inputs and outputs with your variable name
 
@@ -118,14 +118,17 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
 
             - Set the input of the regular PLC part. 
                 - It is necessary to restart the function module after starting up the system
-                - Add an alias device (input from the regular PLC part)
+                - Add an alias device (input from the regular PLC part) <br>
                 <img src="../images/20240222_PLC_safety_restart_ESTOP.png" width="400">    
-                - Execute a variables mapping in the TwinSAFE group
+                - Execute a variables mapping in the TwinSAFE group 
+                <img src="../images/20240222_PLC_safety_restart_ESTOP_mapping.png" width="400">
                 - Link them with the PLC variables too
+                <img src="../images/20240222_PLC_safety_restart_and_error_mapping.png" width="400">
 
             - Set the outputs to the PLC
                 - e.g. communication error ("COMError"), function module fault ("FBError"), NotHalt_OK to further use e.g. status message
-                - Link them with the PLC variables too
+                <img src="../images/20240222_PLC_safety_std_error_mapping.png" width="400">
+                - Link them with the PLC variables too (see above)
 
      - Load the configuration on the physical safety modules
         - Position your curser onto the desired TwinSafeGroup e.g. TwinSafeGroup1
@@ -137,13 +140,19 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
                 Password:  TwinSAFE
         - Save the complete project
 
+# => TODO: Add pictures while connected- to the physical PLC hardware 
+
+
 7. **Create new standard PLC project**
 
       Note: _It is a separated project which is able to receive inputs from the safety part_
+    - Use a right click on the "PLC" / "SPS" icon and select "Add new item" 
+      <img src="../images/20240222_PLC_standard_create_project.png" width="400">
 
    - Create Programmble object units (POUs)
-     - The _main_ has to run for the PRG_Safety POU
-       - It must generate a PLC task im main (see PLC tasks, PLC).
+     - The _main_ has to call the PRG_Safety POU in order to run it on the PLC
+    <img src="../images/20240222_PLC_std_pou_main.png" width="400">
+       - It generates a PLC task im main (see PLC tasks, PLC).
        - Cyclus ticks of the PLC can be reviewed via System/Tasks/PLCTasks
      - PRG_Safety
        - Read Inputs-/ Ouputs of the safety PLC
@@ -162,23 +171,69 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
                 - GrpErrAck := TasterReset; 
                 - RestartNH := TasterReset; 
 
-       - Set status lamp for operating status display
-          - Use the input from the safety PLC signal for _"NotHalt_OK"_ as output from the function module
-          - Create project map to instanciate the variables
-            - Use the tab: "_Erstellen_"
-          - Set the output to the lamps "_LampeNotHalt_OK_"
+       - Set status lamp for operating status display <br>
+          ```bash
+            // Reset FBs
+            GrpErrAck := TasterReset;
+            RestartNH := TasterReset;
+
+            // Lamp control
+            IF NotHalt_OK = TRUE // Lamp green
+              THEN	
+              LampeNotHalt_OK := NotHalt_OK;
+              LampeNotHalt_NOK:= FALSE;
+              LampeNotHalt_ACK := FALSE;
+              TasterResetLampe := FALSE;
+              Luefter_ON := TRUE; 
+              
+            ELSIF InputNotHaltCHA AND InputNotHaltCHB AND InputLidarCHA AND InputLidarCHB = TRUE // Lamp yellow
+              THEN 
+              LampeNotHalt_ACK := TRUE;
+              TasterResetLampe := TRUE; 
+              LampeNotHalt_NOK:= FALSE;
+              LampeNotHalt_OK := FALSE;
+              Luefter_ON := TRUE; 
+              
+            ELSIF NotHalt_OK = FALSE // Lamp red
+              THEN	
+              LampeNotHalt_NOK:= NOT NotHalt_OK;
+              LampeNotHalt_OK := FALSE;
+              LampeNotHalt_ACK := FALSE;
+              TasterResetLampe := FALSE;
+              Luefter_ON := FALSE; 
+              
+            END_IF
+            ```
+
+         <img src="../images/20240222_PLC_standard_status_lamps_code.png" width="400">  <br> 
+        - Use the input from the safety PLC signal for _"NotHalt_OK"_ as output from the function module
+        - Create project map to instanciate the variables
+            - Use the tab: "_Erstellen_" // "_Create_" => "_Projektmappe erstellen_" //  "_Create project map_"
+          - Set the output to the lamps 
+              - Review the defined variables name in the upper section of the PRG_Safety POU
+              ```bash
+                LampeNotHalt_OK AT%Q* : BOOL;     	// Green lamp
+	            LampeNotHalt_ACK AT%Q* : BOOL; 		// Orange lamp
+	            LampeNotHalt_NOK AT%Q* : BOOL;		// Red lamp
+              ```
+              - Connect them to the physical hardware in the IO topology (e.g. "_LampeNotHalt_OK_")
+               <img src="../images/20240222_PLC_standard_status_lamps_variables_connect_to_physical_hardware.png" width="400">  <br> 
+
           - Create logical link in the executable programme code
   
-                LampeNotHalt_OK := NotHalt_OK; 
+                LampeNotHalt_OK := NotHalt_OK; (see screenshot above)
 
 8. **Adjust the process image of the KUKA KR C4 module in the IO structure**
    - Select the box of the KR C4 in the tab "_Slots_"
      - Choose the corresponding process image ("Safety Daten"/ "Reguläre Daten"/ "Kombiniert")
+    <img src="../images/20240222_PLC_KRC4_adjust_process_image.png" width="400">  <br> 
    - Module 2 (Safety Data (8 Byte)); TxPDO - FSOE (Inputs) and RxPDO - FSOE must match the process image to the Beckhoff PLC
       - Verify the process image with the alias device one in the safety PLC
       - Select the inputs / outputs of the module EL6900
 
 9. **Transfer configuration to the PLC**
+    - By pressing "Konfiguration aktivieren" // "Activate configuration" on the top left corner of the TwinCAT UI 
+    - Note: _To load the configuration, please verify that your PLC is in configuration mode._
 
 ## II. Setting up signal lamps, external control panel and ventilation
 
@@ -238,3 +293,17 @@ For details on cabling, please refer to the [circuit diagram](https://hskarlsruh
   - Click _"POU/PRG_Safety/Einloggen"_ (via the green symbol)
   - Set the values for the variables as prepared value
   - Transfer the prepared values via write
+
+
+
+
+
+
+# TODO
+
+- [X] Add standard PLC description 
+- [X] Add safety PLC description 
+- [X] Add pictures for standard & safety plc 
+- [ ] Add pictures which require to be connected to the PLC
+- [ ] Add description and pictures to enable application status lamps for signals from the KR C4 to the PLC 
+
