@@ -24,8 +24,6 @@ There are 4 different options to operate the AIP application which will be descr
 
 ### Manual mode via the KUKA SmartPad
 
-# **=> ToDo: Add the file names to be executed + stored location on the pad:**
-
 1. Switch to user group _Administrator_ on smartHMI (pw: kuka)
 2. Make sure to clean all errors, shown in green rectangle in the picture below
 3. If the error "NOT-Halt nur lokal" occurs and red LED on the PLC CPU is blinking, probably the PLC is not in RUN mode.
@@ -250,6 +248,5 @@ Furthermore, instructions are given on how to create a new custom node and how t
 
 - [x] Add manual mode description
 - [x] Add EKI/ RViz description
-- [ ] Extend manual mode description
+- [x] Extend manual mode description
 - [ ] Add automatic modus behaviour tree description
-- [ ] Add automatic modus Python description
