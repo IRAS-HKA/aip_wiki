@@ -3,8 +3,8 @@
 | Device | IP | Password | User |
 |----------|----------|----------|----------|
 | PLC | 10.181.116.66 | 1 | Administrator |
-| PLC Safety Config | - | TwinSAFE | - |
-| Robot Control (Kuka) | 10.166.32.145 | - | - |
+| PLC Safety Config | - | TwinSAFE | Administrator |
+| Robot Control (KUKA) | 10.166.32.145 | - | - |
 | Sick Scanner | - | admin | Authenticated User |
 | IO Link Master | 10.166.32.227 | - | - |
 | Roboception | 10.166.32.13 | - | - |
