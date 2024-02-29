@@ -12,12 +12,14 @@ For more information, please also review the corresponding AIP MS Teams Team:
 3. Check the KUKA SmartPad status
 4. Start your docker environment on the laboratory PC
 
-Notes: <br> 
--_The ejectors switch while the PLC is starting up. If there is compressed air in the system at the same time, this leads to a loss of pressure and a noticeable noise. However, this is not dramatic. As soon as the PLC has started up, the ejectors are set to their normal state and the pressure loss ends._ <br>
-_To prevent this behaviour, the air supply on the Festo maintenance unit can be closed._
-- _If the PLC is not starting properly, the 7 days trial license may be outdated. To verify, please open the electrical cabinet and check if the PLC is in run mode (green light) or in configuration mode (blue light). If the blue light is on, this can be an license issue. For a quick solution, please check the assigned [trouble shooting](/docs/troubleshooting.md) of this repository. 
-  
+Notes:
 
+- _The ejectors switch while the PLC is starting up. If there is compressed air in the system at the same time, this leads to a loss of pressure and a noticeable noise. However, this is not dramatic. As soon as the PLC has started up, the ejectors are set to their normal state and the pressure loss ends._
+
+  _To prevent this behaviour, the air supply on the Festo maintenance unit can be closed._
+- _If the PLC is not starting properly, the 7 days trial license may be outdated. To verify, please open the electrical cabinet and check if the PLC is in run mode (green light) or in configuration mode (blue light). If the blue light is on, this can be an license issue. For a quick solution, please check the assigned [trouble shooting](/docs/troubleshooting.md) of this repository._
+- _To use the system after it has been switched on, the blue button on the control panel must be pressed. This does not light up at the beginning. Then the safety release has then been given and the robot can be used._
+  
 ## II. Different movement options
 
 There are 4 different options to operate the AIP application which will be described in the following subchapters.
