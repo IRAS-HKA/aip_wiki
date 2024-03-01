@@ -35,7 +35,7 @@ You will find the corresponding Excel-Table via the following [**_IRAS Students/
 
 ## Outputs
 
-| Master Channel | Connected Slave Name | Slave Channel | Name                | KR C4 Name          | Data Type | Field Module Adress |
+| Master Channel  | Connected Slave Name  | Slave Channel | Name                | KR C4 Name          | Data Type | Field Module Adress  |
 |-----------------|-----------------------|---------------|---------------------|---------------------|-----------|----------------------|
 | X02             | AL2330                | X1.2          | Ejektor 1           | $OUT[33]            | BOOL      | 12769                |
 | X02             | AL2330                | X1.3          | Ejektor 2           | $OUT[34]            | BOOL      | 12761                |
