@@ -6,7 +6,7 @@ You will find the corresponding Excel-Table via the following [**_IRAS Students/
 
 ## Inputs
 
-| Master Channel | Connected Slave Name | Slave Channel | Name                                          | KR C4 Name                                  | Data Type | Field Module Adress |
+| Master Channel  | Connected Slave Name  | Slave Channel | Name                                          | KR C4 Name                                 | Data Type | Field Module Adress  |
 |-----------------|-----------------------|---------------|-----------------------------------------------|--------------------------------------------|-----------|----------------------|
 | X01             | AL2401                | X1.0          | Reedkontakt 1: Zylinder 1 ausgefahren         | $IN[132]                                   | BOOL      | 1072                 |
 | X01             | AL2401                | X1.1          | Reedkontakt 1: Zylinder 3 ausgefahren         | $IN[133]                                   | BOOL      | 1073                 |
