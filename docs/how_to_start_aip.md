@@ -243,6 +243,28 @@ Furthermore, instructions are given on how to create a new custom node and how t
     ros2 launch aip_cell_description aip.launch.py
     ```
 
+## III. URDF Model
+
+A URDF model is integrated so that the robot does not collide with its environment. The files used are stored in MS Teams. To integrate or change files, new files must be stored in the following folder as an STL file.
+
+    home/code/aip_bringup/dependencies/aip_cell_description/meshes/aip_cell/visual
+
+To detect collisions, it is necessary to store the files also in the following folder:
+
+    home/code/aip_bringup/dependencies/aip_cell_description/meshes/aip_cell/collision
+
+These must then be included in the file _"aip_cell_macro.xacro"_ under the file path:
+
+    home/code/aip_bringup/dependencies/aip_cell_description/aip_cell_description/urdf
+
+The scaling factor and translational shifts are also defined in this file.
+
+The model consists of 3 files, the table, the frame and a safety distance, as the ejectors on the robot are not modelled. The model is best visualised in RViz.
+
+
+
+
+
 # **=> ToDo**
 
 
