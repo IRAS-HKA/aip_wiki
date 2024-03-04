@@ -28,7 +28,7 @@ There are 4 different options to operate the AIP application which will be descr
 
 1. Switch to user group _Administrator_ on smartHMI (pw: kuka)
 2. Make sure to clean all errors, shown in green rectangle in the picture below
-3. If the error "NOT-Halt nur lokal" occurs and red LED on the PLC CPU is blinking, probably the PLC is not in RUN mode.
+3. If the error _"NOT-Halt nur lokal"_ occurs and red LED on the PLC CPU is blinking, probably the PLC is not in RUN mode.
 4. Make sure that the drives are switched on
 5. Make sure to set KUKA KR 10 into T1 mode
 6. Push the enabling switch of the SmartPad while moving an axis with the buttons, marked with the red rectangle in the picture below, or the 6D mouse.
@@ -39,57 +39,57 @@ There are 4 different options to operate the AIP application which will be descr
 
 To read or control sensors or actuators, select in the main menu the "_Display_" tab and then "_Inputs/Outputs_". Either the _digital inputs_ or _outputs_ can then be selected. The status of the inputs can be read out directly. To switch an actuator, it must first be selected and then switched by pressing the "_Value_" button while pressing the enabling switch.
 
-1. To read or control sensors or actuators, select in the main menu the "_Display_" tab and then "_Inputs/Outputs_". Either the _digital inputs_ or _outputs_ can then be selected. The status of the inputs can be read out directly. To switch an actuator, it must first be selected and then switched by pressing the "_Value_" button while pressing the enabling switch.
+To read or control sensors or actuators, select in the main menu the "_Display_" tab and then "_Inputs/Outputs_". Either the _digital inputs_ or _outputs_ can then be selected. The status of the inputs can be read out directly. To switch an actuator, it must first be selected and then switched by pressing the "_Value_" button while pressing the enabling switch.
 
-   <img src="../images/Gripper_Control.png" width="600"/>
+<img src="../images/Gripper_Control.png" width="600"/>
 
 For further information please see the KUKA **_ready2_educate_** documentation.
 
 ### How to set robot in EKI mode in order to listen to Linux-PC
 
-  1. Switch to user group Administrator on SmartPad
-  2. Activate project "ros2_driver" on SmartPad, if not already active
-      - Open project management window (Blue WorkVisual icon, gear with robot inside)
-      - Select "ros2_driver" in Verfügbare Projekte → Entpinnen
-      - "Aktivieren" → Ja
-      - Wait until project is activated
-  3. On SmaprtPad navigate to R1 → Program → ros2_driver
-  4. Load the file "kuka_eki_hw"
-  5. Click on "Abwählen" to deactivate the current programm
-  6. Click on "Anwählen" to activate the "kuka_eki_hw"
+1. Switch to user group Administrator on SmartPad
+2. Activate project "ros2_driver" on SmartPad, if not already active
+    - Open project management window (Blue WorkVisual icon, gear with robot inside)
+    - Select "ros2_driver" in Verfügbare Projekte → Entpinnen
+    - "Aktivieren" → Ja
+    - Wait until project is activated
+3. On SmaprtPad navigate to R1 → Program → ros2_driver
+4. Load the file "kuka_eki_hw"
+5. Click on "Abwählen" to deactivate the current programm
+6. Click on "Anwählen" to activate the "kuka_eki_hw"
 
-      <img src="../images/KUKA_EKI_HW.png" width="600"/>
+    <img src="../images/KUKA_EKI_HW.png" width="600"/>
 
-  7. Execute the programm
-  8. During the execution you can see the following code:
+7. Execute the programm
+8. During the execution you can see the following code:
 
-      <img src="../images/CodeKUKA.png" width="600"/>
+    <img src="../images/CodeKUKA.png" width="600"/>
 
 ### Automatic modus via EKI (RViz)
 
 Further information for this operating mode can be found in the corresponding repository: [IRAS-HKA/aip_bringup](https://github.com/IRAS-HKA/aip_bringup.git). Especially, the ReadMe provides detailed information regarding the start up.
 
 1. Prerequisite: Docker and connection to robot is up and running
-      - Clone and build repository "[AIP Bringup](https://github.com/IRAS-HKA/aip_bringup.git)"
-      - Open a terminal (Ctrl + Alt + T) and navigate to project folders
+    - Clone and build repository "[AIP Bringup](https://github.com/IRAS-HKA/aip_bringup.git)"
+    - Open a terminal (Ctrl + Alt + T) and navigate to project folders
 
         ```shell
         mkdir -p ~/projects && cd ~/projects
         ```
 
-      - Clone repository, if not already cloned. Log in with your RZ account.
+    - Clone repository, if not already cloned. Log in with your RZ account.
 
         ```shell
         git clone -b dev https://www.w.hs-karlsruhe.de/gitlab/iras/common/instructions/iras_robots/aip_bringup.git
         ```
 
-      - Navigate to cloned repository
+    - Navigate to cloned repository
 
         ```shell
         cd aip_bringup
         ```
 
-      - Build container
+    - Build container
 
         ```shell
         ./start_docker.sh
@@ -99,25 +99,25 @@ Further information for this operating mode can be found in the corresponding re
 
         `robot@IRAS-IRL0-LIN:~/ros_ws$`
 
-      - Set ROS_DOMAIN_ID. If there are multiple robots in use, make sure, that the set ROS_DOMAIN_ID is different on each PC
+    - Set ROS_DOMAIN_ID. If there are multiple robots in use, make sure, that the set ROS_DOMAIN_ID is different on each PC
 
         ```shell
         export ROS_DOMAIN_ID=<id>
         ```
 
-      - You can check your currently set ROS_DOMAIN_ID by running
+    - You can check your currently set ROS_DOMAIN_ID by running
 
         ```shell
         echo $ROS_DOMAIN_ID
         ```
 
-      - In the container, build workspace:
+    - In the container, build workspace:
 
         ```shell
         colcon build
         ```
 
-      - Source workspace
+    - Source workspace
 
         ```shell
         source install/setup.bash

@@ -10,7 +10,7 @@ This sections provides a quick setup guide for your laboratory pc and specific r
 
 2. Install Linux System (e.g. Ubuntu 20.04, see [Link](https://releases.ubuntu.com/focal/))
 3. Install VS Code ([Link](https://code.visualstudio.com/download))
-4. Install Terminator ([Terminal-Multiplexer](https://wiki.ubuntuusers.de/Terminator/))
+4. Install [Terminator](https://wiki.ubuntuusers.de/Terminator/)
 
     ```shell
     sudo apt-get install terminator
