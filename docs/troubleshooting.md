@@ -1,6 +1,6 @@
 # Trouble shooting
 
-This section provides a brief summary of various problems that have arisen as well as their solution. <br>
+This section provides a brief summary of various problems that have arisen as well as their solution.
 This may help you with different kind of struggles while working with the AIP application.
 
 ## I.  PLC Device Manager not accessible
@@ -98,7 +98,7 @@ A trial license is only valid for 7 days but can be generated for free.
 - Confirm the restart of the TwinCAT System in run mode
   
   <img src="../images/20240222_PLC_license_error_restart_TwinCAT_run_mode.jpg" width="200">
-  
+
 - This will generate a new 7 days free trial license and enables you to put the PLC back in run mode. If it doesn´t solve the issue, please check VIII below.
 
 ## VIII. PLC License Error - empty battery
