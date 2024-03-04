@@ -268,7 +268,7 @@ These must then be included in the file _"aip_cell_macro.xacro"_ under the file 
 
 The scaling factor and translational shifts are also defined in this file.
 
-The model consists of 3 files, the table, the frame and a safety distance, as the ejectors on the robot are not modelled. The model is best visualised in RViz.
+The model consists of 3 files, the table, the frame and the simulated ejectors on the robot. The model is best visualised in RViz.
 
 
 
