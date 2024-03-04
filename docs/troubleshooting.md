@@ -68,31 +68,40 @@ Possible errors:
 - Reset ifm IO-Link Master using Moneo
 - Check if devices are listed in the graphical overview in Workvisual. If not,import them and deploy the project to KUKA.
 
-## VII. PLC start up issues 
+## VII. PLC start up issues
 
 `PLC not properly starting up due to license issues`
 
-If you´re trying to start the AIP application but the PLC doesn´t start up properly, this may be caused by an outdated PLC trial license. 
-A trial license is only valid for 7 days but can be generated for free. 
+If you´re trying to start the AIP application but the PLC doesn´t start up properly, this may be caused by an outdated PLC trial license.
+A trial license is only valid for 7 days but can be generated for free.
 
 ### Solution
 
-- Connect your laptop/ PC (with TwinCAT) via LAN cable with the PLC 
-- Make sure that your route to the PLC ip is set up 
-- Open the latest valid PLC project in TwinCAT 
-- Try to restart the PLC in the run mode by clicking the green TwinCAT Symbol "Restart TwinCAT System" on the top left side of the application UI 
-- Most likely you will receive the following error messages: 
+- Connect your laptop/ PC (with TwinCAT) via LAN cable with the PLC
+- Make sure that your route to the PLC ip is set up
+- Open the latest valid PLC project in TwinCAT
+- Try to restart the PLC in the run mode by clicking the green TwinCAT Symbol "Restart TwinCAT System" on the top left side of the application UI
+- Most likely you will receive the following error messages:
+  
   <img src="../images/20240222_PLC_license_error_log.jpg" width="400">
-- Try to load the valid configuration to the PLC again by clicking "Activate configuration" / "Konfiguration aktivieren" on the top left side of the application UI. <br>
-  It will ask you to if you would like to generate a trial license. Confirm this. <br>
-  <img src="../images/20240222_PLC_license_error_generate_trial_license.png" width="400">
-- Type in the requested type sequence <br>
-  <img src="../images/20240222_PLC_license_error_generate_trial_license_2.jpg" width="200">
-- Confirm the restart of the TwinCAT System in run mode <br>
-  <img src="../images/20240222_PLC_license_error_restart_TwinCAT_run_mode.jpg" width="200">
-- This will generate a new 7 days free trial license and enables you to put the PLC back in run mode. If it doesn´t solve the issue, please check VIII below. 
 
-## VIII. PLC License Error - empty battery 
+- Try to load the valid configuration to the PLC again by clicking "Activate configuration" / "Konfiguration aktivieren" on the top left side of the application UI.
+
+  It will ask you to if you would like to generate a trial license. Confirm this.
+  
+  <img src="../images/20240222_PLC_license_error_generate_trial_license.png" width="400">
+
+- Type in the requested type sequence
+
+  <img src="../images/20240222_PLC_license_error_generate_trial_license_2.jpg" width="200">
+
+- Confirm the restart of the TwinCAT System in run mode
+  
+  <img src="../images/20240222_PLC_license_error_restart_TwinCAT_run_mode.jpg" width="200">
+  
+- This will generate a new 7 days free trial license and enables you to put the PLC back in run mode. If it doesn´t solve the issue, please check VIII below.
+
+## VIII. PLC License Error - empty battery
 
 `Invalid license for PLC`
 

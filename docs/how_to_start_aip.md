@@ -245,7 +245,16 @@ Furthermore, instructions are given on how to create a new custom node and how t
 
 ## III. URDF Model
 
-A URDF model is integrated so that the robot does not collide with its environment. The files used are stored in MS Teams. To integrate or change files, new files must be stored in the following folder as an STL file.
+A URDF (Unified Robot Description Format) model is an XML file that is used to describe the kinematic and geometric structure of a robot. URDF is often used in robotics, especially in robot simulation environments such as ROS.
+
+URDF typically defines the following aspects of a robot:
+
+- **Joints**: The connections between the individual links of the robot that enable movement. These can be rotational or translational joints.
+- **Links**: The rigid bodies of the robot that are connected by the joints.
+- **Sensors**: Information about sensors such as cameras, lidar or tactile sensors can also be defined in the URDF.
+- **Visualisation**: URDF can also contain the visual representation of the robot, e.g. by specifying mesh files or other graphic resources.
+
+The files used are stored in [MS Teams](https://hskarlsruhede.sharepoint.com/:f:/s/Robolab/EvarfBdhJH5EiF5MisFpLRoBV33X3YFL95Ve3CYxm8kgdQ?e=Y4TLLa). To integrate or change files, new files must be stored in the following folder as an STL file.
 
     home/code/aip_bringup/dependencies/aip_cell_description/meshes/aip_cell/visual
 
