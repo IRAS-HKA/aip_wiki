@@ -80,7 +80,7 @@ Further information for this operating mode can be found in the corresponding re
     - Clone repository, if not already cloned. Log in with your RZ account.
 
         ```shell
-        git clone -b dev https://www.w.hs-karlsruhe.de/gitlab/iras/common/instructions/iras_robots/aip_bringup.git
+        git clone https://github.com/IRAS-HKA/aip_bringup.git
         ```
 
     - Navigate to cloned repository
@@ -152,12 +152,12 @@ Further information for this operating mode can be found in the corresponding re
     - Launch robot driver with MoveIt2 wrapper
 
         ```bash
-        ros2 launch kuka_kr3_cell_description cell.launch.py
+        ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145
         ```
 
         This will open up a simulated hardware with visualisation.
         To launch the real robot:
-        - Make sure that you are in the local network (Wi-Fi or LAN)
+        - Make sure that you are in the local network (Wi-Fi AND LAN)
         - Test your application in simulation first
         - Make sure that the robot is not in a collision state when the application is executed on the real robot
         - If everything is fine, execute
@@ -175,7 +175,7 @@ Further information for this operating mode can be found in the corresponding re
    - Open up a new terminal and attach to running container
 
         ```bash
-        docker exec -it r2e_cell /bin/bash
+        docker exec -it aip_bringup /bin/bash
         ```
 
    - If you have opened a new terminal you need to set your ROS_DOMAIN_ID again, use the same ID as before
@@ -285,21 +285,25 @@ Those are being read from the behavior tree.
 1. Open Gripper (AIP_Coordinator/ AIP_BringUP)
    
     ```bash
+    * works in both dockers *
     ros2 service call /open_gripper iras_interfaces/srv/MoveGripper '{cylinder_ids: [1,2]}'
     ```
 
 2. Close Gripper (AIP_Coordinator/ AIP_BringUP)
+   * works in both dockers *
     ```bash
     ros2 service call /close_gripper iras_interfaces/srv/MoveGripper '{cylinder_ids: [1,2]}'
     ```
-4.  Cancel robot operation
+3.  Cancel robot operation
     Use Strg+ C to cancel the terminal which is running the command:
+
     ```bash
     ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145 
     ```
 
-5.  Disconnect the gripper but not the robot:
+4.  Disconnect the gripper but not the robot:
     Use Strg+ C to cancel the terminal which is running the command:
+
     ```bash
     ros2 run aip_bosch_gripper aip_bosch_gripper_node 
     ```
@@ -336,16 +340,3 @@ In the file _"aip_kr10_cell.xacro"_ in the previous file path, the joint between
 In the file _"aip_kr10_cell.srdf"_ in the following file path, the exceptions for collisions are defined. This is necessary because between the simulated ejetors and the robot, a "false" collsion is detected.
 
     home/code/aip_bringup/dependencies/aip_cell_description/aip_cell_description/config
-
-
-
-
-# **=> ToDo**
-
-
-# TODO
-
-- [x] Add manual mode description
-- [x] Add EKI/ RViz description
-- [x] Extend manual mode description
-- [x] Add automatic modus behaviour tree description

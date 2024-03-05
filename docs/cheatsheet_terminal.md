@@ -22,7 +22,7 @@ Start running docker
 docker exec -it <docker_name> bash
 ```
 
-Rviz Starten in AIP Bringup => Pay attention to the hardware flag !!
+Rviz Starten in AIP Bringup => Pay attention to the hardware flag !!   
 KUKA HMI must be in AUT-Mode and EKI_HW_Interface must be running!
 
 ``` bash
