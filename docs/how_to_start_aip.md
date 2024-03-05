@@ -227,21 +227,84 @@ The library of actions can be freely arranged using the "Groot" graphical user i
 
 Once the container is started, the description can be used to design a new or change the behavior tree in Groot.  
 Furthermore, instructions are given on how to create a new custom node and how to create behavior trees.
+To controll the gripper, we have created two services: /open_gripper and /close_gripper.
+Both are using the iras_interfaces/srv/MoveGripper-datatype.
 
-### 4. Automatic modus via Python
+The only input is cylinder_ids, which an array of int32. The content of the array are the ejectors, which will be opened.
+Those are being read from the behavior tree.
 
-1. Prerequisite: Docker and connection to robot is up and running
-2. Connect with second terminal to existing docker session
+
+#### 3.1. Start Automatic modus via Behavior Trees
+
+1. Prerequisite: Docker (AIP_BringUP) and connection to robot is up and running
+2. We recommend using Terminator due to many terminal windows.
+3. Connect with second terminal to existing docker session
 
     ```bash
     docker exec -it aip_bringup bash 
     ```
+    Connect in first terminal with the robot:
 
-3. In the second terminal you can execute the following python scripts in order to move the robot basend on coordinates. Example python file.
+    ```bash
+    ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145 
+    ```
+    Open second terminal for starting the Bosch Gripper Node:
 
+    ```bash
+    docker exec -it aip_bringup bash 
+    ```
+    Start Bosch gripper node:
+    ```bash
+    ros2 run aip_bosch_gripper aip_bosch_gripper_node 
+    ```
+ 
+
+
+3. In the third terminal you can execute the following python scripts in order to move the robot basend on coordinates. Example python file. This needs to be executed in the AIP_Coordinator.
+
+    ```bash
+    (IF AIP_Coordinator docker is not already running) 
+
+    cd ../aip_coordinator
+    source start_docker.sh 
+
+    (IF AIP_Coordinator docker is running) 
+    docker exec -it aip_coordinator
+    ros2 launch aip_cell_description aip.launch.py
+    ```
+    This will execute the behavior tree using groot.
+4.  To edit the tree switch to the edit mode and save the tree afterwards.
+5.  This will take effect on the next start:
+   
     ```bash
     ros2 launch aip_cell_description aip.launch.py
     ```
+
+### 4. Controll robot with Terminal
+
+1. Open Gripper (AIP_Coordinator/ AIP_BringUP)
+   
+    ```bash
+    ros2 service call /open_gripper iras_interfaces/srv/MoveGripper '{cylinder_ids: [1,2]}'
+    ```
+
+2. Close Gripper (AIP_Coordinator/ AIP_BringUP)
+    ```bash
+    ros2 service call /close_gripper iras_interfaces/srv/MoveGripper '{cylinder_ids: [1,2]}'
+    ```
+4.  Cancel robot operation
+    Use Strg+ C to cancel the terminal which is running the command:
+    ```bash
+    ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145 
+    ```
+
+5.  Disconnect the gripper but not the robot:
+    Use Strg+ C to cancel the terminal which is running the command:
+    ```bash
+    ros2 run aip_bosch_gripper aip_bosch_gripper_node 
+    ```
+
+   
 
 ## III. URDF Model
 
@@ -285,4 +348,4 @@ In the file _"aip_kr10_cell.srdf"_ in the following file path, the exceptions fo
 - [x] Add manual mode description
 - [x] Add EKI/ RViz description
 - [x] Extend manual mode description
-- [ ] Add automatic modus behaviour tree description
+- [x] Add automatic modus behaviour tree description
