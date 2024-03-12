@@ -21,7 +21,7 @@ The main components of the AIP are object recognition, gripping point planning, 
 - [How to configure PLC](/docs/how_to_configure_plc.md)
 - [Cheatsheet terminal commands](/docs/cheatsheet_terminal.md)
 - [ROS2 - AIP](/docs/ros2_aip.md)
-- 
+- [How to use AIP Coordinator](/docs/how_to_use_aip_coordinator.md)
 
 ## Parameters
 
