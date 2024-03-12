@@ -72,17 +72,53 @@ This array is further processed in the gripper.cpp file where the cylinder numbe
 The coordinator node is located at `aip_coordinator/src/node.cpp`
 
 1. Include your newly created header files in the coordinator node. 
-2. Register your node in the BehaviorTreeFactore
+2. Register your node in the BehaviorTreeFactory
    - The inserted string defined the name of the node in the BehaviorTree XML representation and Groot visualization
 
 ## Gripper.cpp 
 
-### => TODO
+Please note: The Gripper.cpp is located in the AIP_BringUp repository not in the AIP_Coordinator repository.
 
-execute_command
+#### execute_command
 
-check_command
+This method contains the logic, to send the previously formed command to the robot control. Therefore, the IO pin type is set to 2 (write-Mode). 
+After the initialization of the variables, the service sends out the information to the KUKA control in a while-loop.
+The break condition of the loop (= command_received) is to set to True, once the information was transfered.
+The eki_read_state-method delivers the information, whether the pin state was set successfully or not.
 
+#### check_command
+
+This method contains the logic to check the command state of the pins.
+Therefore, the IO pin type is set to 1 (READ-mode).
+
+Just like in the execute_command method, there is a control mechanism in place, which checks if the request to the KUKA control was actually made. 
+Once again, the eki_write_commands checks for the pin states in a while-loop. Only when the information was received and the pins have the desired state, the while loop ends.
+However, there is a possibility to exit it by pressing CTRL+ C on the keyboard.
+
+#### open_gripper
+
+This method contains the logic to open the gripper.
+First of all, the following pins are being set:
+
+
+* eject_pins
+* retract_pins
+* eject_check_pins
+* retract_check_pins
+* suction_pins
+
+MoveGripper request parameter from the method-head (variable name "request"), contains the necessary pins to perform the wanted extension of the gripper.
+Those integers are being pushed into the previously mentioned arrays.
+For every array, the pins are being printed to the terminal and the command will be executed by calling the method "execute_command".
+If for example the gripper has to retract, the pins for the previous extension have to be set to False and the pins for retraction have to be set to True.
+Thats why the boolean True or False is passed to the execute_commands method, depending on the wanted behavior of the gripper.
+In the for-loops there are check_commands and timeouts implemented in order to make sure the pins are physically extended before the next order is sent out. Otherwise, this could result in a malfunction of the gripper, if e.g. the gripper starts the suction before it is fully extended.
+
+
+#### close_gripper
+
+This method contains the logic to close the gripper. The structure is analog the open_gripper methode, however the
+procedure is reversed.
 
 ### Mapping from cylinder id to the hardware pins 
 
