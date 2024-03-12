@@ -74,6 +74,15 @@ The coordinator node is located at `aip_coordinator/src/node.cpp`
 1. Include your newly created header files in the coordinator node. 
 2. Register your node in the BehaviorTreeFactory
    - The inserted string defined the name of the node in the BehaviorTree XML representation and Groot visualization
+  
+Example Code:
+
+
+```c++
+    // Gripper
+    factory.registerNodeType<OpenGripper>("OpenGripper");
+    factory.registerNodeType<CloseGripper>("CloseGripper");
+```
 
 ## Gripper.cpp 
 
@@ -167,3 +176,16 @@ Alternatively, you can create a new launch file with the following parameter:
 parameters=[{'main_tree_path': "/home/docker/ros2_ws/src/aip_coordinator/behaviors/<your_folder_name>/<your_tree_name>.xml",
              'groot_palette_path': "/home/docker/ros2_ws/src/aip_coordinator/behaviors/GrootPalette.xml"}],
 ```
+
+
+### Import the Groot Palette
+
+<img src="../images/20240313_GrootPaletteImport.gif" width="800"/>
+
+This needs to be added every time, the trees are edited.
+
+### Load Tree in Groot
+
+<img src="../images/20240313_Groot_Load_Tree.gif" width="800"/>
+
+
