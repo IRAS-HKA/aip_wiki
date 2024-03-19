@@ -1,4 +1,4 @@
-# How to use AIP Coodinator
+# How to use AIP Coordinator
 
 This section provides an overview to the creation of a custom client (including a custom interface) and the workflow with behavior trees.
 
