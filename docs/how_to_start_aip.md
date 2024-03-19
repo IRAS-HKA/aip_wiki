@@ -166,7 +166,7 @@ Further information for this operating mode can be found in the corresponding re
         - If everything is fine, please execute:
 
        ```bash
-        ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=true robot_ip:=10.166.32.145
+        ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145
         ```
 
       **Pay attention**: If you´ve set the parameter use_fake_hardware:=false, the action will be executed on the real robot. Make sure that it won´t trigger a collision
