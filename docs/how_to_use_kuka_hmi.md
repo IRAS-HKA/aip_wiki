@@ -1,4 +1,4 @@
-# Standard functionalities on the KUKA SmartPad
+# How to use the KUKA SmartPad
 
 ## How to move robot
 
@@ -12,7 +12,7 @@
 
     <img src="../images/KUKA_SmartPad.jpeg" width="600"/>
 
-## How to controll the gripper
+## How to control the gripper
 
 To read or control sensors or actuators, select in the main menu the "_Display_" tab and then "_Inputs/Outputs_". Either the _digital inputs_ or _outputs_ can then be selected. The status of the inputs can be read out directly. To switch an actuator, it must first be selected and then switched by pressing the "_Value_" button while pressing the enabling switch.
 
@@ -38,7 +38,7 @@ Make sure you are logged in as "Administrator".
 
    <img src="../images/HMI_minimieren.png" width="600"/>
 
-## How to install Additional Software?
+## How to install additional software?
 
 You can select the software you want to install by using the correct .kop file.
 
