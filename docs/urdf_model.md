@@ -9,7 +9,9 @@ URDF typically defines the following aspects of a robot:
 - **Sensors**: Information about sensors such as cameras, lidar or tactile sensors can also be defined in the URDF.
 - **Visualisation**: URDF can also contain the visual representation of the robot, e.g. by specifying mesh files or other graphic resources.
 
-The model consists of several files. Main components are the robot, the table, the frame and the simulated ejectors on the robot. The model is best visualised in RViz as shown below: 
+For further information, check the [official ROS documentation](https://docs.ros.org/en/humble/Tutorials/Intermediate/URDF/URDF-Main.html)
+
+The model consists of several files. Main components are the robot, the table, the frame and the simulated ejectors on the robot. The model is best visualised in RViz as shown below:
 
 <img src="../images/20240304_URDF_model.png" width="300">
 
