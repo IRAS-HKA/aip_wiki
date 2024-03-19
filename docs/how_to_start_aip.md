@@ -47,6 +47,8 @@ For further information please see the KUKA **_ready2_educate_** documentation.
 
 ### How to set robot in EKI mode in order to listen to Linux-PC
 
+**Import**: If you´re not familiar with ROS2 and AIP commands, please check out the [Cheatsheet with terminal commands](/docs/cheatsheet_terminal.md) for quick help. 
+
 1. Switch to user group Administrator on SmartPad
 2. Activate project "ros2_driver" on SmartPad, if not already active
     - Open project management window (Blue WorkVisual icon, gear with robot inside)
@@ -152,74 +154,36 @@ Further information for this operating mode can be found in the corresponding re
     - Launch robot driver with MoveIt2 wrapper
 
         ```bash
-        ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145
+        ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=true robot_ip:=10.166.32.145
         ```
 
         This will open up a simulated hardware with visualisation.
+
         To launch the real robot:
         - Make sure that you are in the local network (Wi-Fi AND LAN)
-        - Test your application in simulation first
+        - Test your application in simulation first (see above)
         - Make sure that the robot is not in a collision state when the application is executed on the real robot
-        - If everything is fine, execute
+        - If everything is fine, please execute:
 
-          ```bash
-          ros2 launch kuka_kr3_cell_description cell.launch.py use_fake_hardware:=false robot_ip:=<robot-ip>
-          ```
-
-3. Check out tutorial code
-
-   - Please check out the repository [IRAS-HKA/aip_bringup](https://github.com/IRAS-HKA/aip_bringup.git), if you haven´t already.
-
-4. Start ROS environment
-
-   - Open up a new terminal and attach to running container
-
-        ```bash
-        docker exec -it aip_bringup /bin/bash
+       ```bash
+        ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=true robot_ip:=10.166.32.145
         ```
 
-   - If you have opened a new terminal you need to set your ROS_DOMAIN_ID again, use the same ID as before
+      **Pay attention**: If you´ve set the parameter use_fake_hardware:=false, the action will be executed on the real robot. Make sure that it won´t trigger a collision
 
-        ```bash
-        export ROS_DOMAIN_ID=<id>
-        ```
-
-   - You can check your currently set ROS_DOMAIN_ID by running
-
-        ```bash
-        echo $ROS_DOMAIN_ID
-        ```
-
-   - Source workspace
-
-        ```bash
-        source install/setup.bash
-        ```
-
-   - Run same application
-        - Before running the application, check the robot's movement in the simulated environment and make sure, that the robot is not in a collision state when the application is executed on the real robot
-
-        ```bash
-        ros2 run r2e_demos test_ros_env
-        ```
-
-5. Move Robot via EKI and RViz
-
-   - Start RViz in second terminal of your running docker container
-
-      ```bash
-      ros2 run rviz
-      ```
 
    - Use mouse courser to drag robot to your desired position
    - Click "Plan" in order to plan the trajectory in the simulation
    - Click "Plan & Excecute" in order to move the robot and in the simulation
 
-      **Pay attention**: If you´ve set the parameter use_fake_hardware:=false, the action will be executed on the real robot. Make sure that it won´t trigger a collision
+3. Check out tutorial code
+
+   - Please check out the repository [IRAS-HKA/aip_bringup](https://github.com/IRAS-HKA/aip_bringup.git), if you haven´t already.
+
 
 ### 3. Automatic modus via Behaviour Tree
 
-The information for how to move the robot using a behavior tree are described in the repository [IRAS-HKA/aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator.git).
+The information for how to move the robot using a behavior tree are described in the repository [IRAS-HKA/aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator.git) and the [How to use AIP Coordinator](/docs/how_to_use_aip_coordinator.md) of this repository.
 
 The "IRAS Coordinator" package provides a starting point for high-level task control of the AIP robot application.
 
@@ -233,12 +197,11 @@ Both are using the iras_interfaces/srv/MoveGripper-datatype.
 The only input is cylinder_ids, which an array of int32. The content of the array are the ejectors, which will be opened.
 Those are being read from the behavior tree.
 
+#### 3.1. Start automatic mode via Behavior Trees
 
-#### 3.1. Start Automatic modus via Behavior Trees
-
-1. Prerequisite: Docker (AIP_BringUP) and connection to robot is up and running
-2. We recommend using Terminator due to many terminal windows.
-3. Connect with second terminal to existing docker session
+1. Prerequisite: Docker (AIP_BringUP) and connection to robot is up and running.
+2. It is recommended to use Terminator to use many terminal windows in parallel.
+3. Connect with second terminal to existing docker session:
 
     ```bash
     docker exec -it aip_bringup bash 
@@ -257,10 +220,8 @@ Those are being read from the behavior tree.
     ```bash
     ros2 run aip_bosch_gripper aip_bosch_gripper_node 
     ```
- 
 
-
-3. In the third terminal you can execute the following python scripts in order to move the robot basend on coordinates. Example python file. This needs to be executed in the AIP_Coordinator.
+4. In the third terminal you can execute the following python scripts in order to move the robot based on coordinates. This needs to be executed in the AIP_Coordinator.
 
     ```bash
     (IF AIP_Coordinator docker is not already running) 
@@ -273,23 +234,23 @@ Those are being read from the behavior tree.
     ros2 launch aip_cell_description aip.launch.py
     ```
     This will execute the behavior tree using groot.
-4.  To edit the tree switch to the edit mode and save the tree afterwards.
-5.  This will take effect on the next start:
+5.  To edit the tree switch to the edit mode and save the tree afterwards.
+6.  This will take effect on the next start:
    
     ```bash
     ros2 launch aip_cell_description aip.launch.py
     ```
 
-### 4. Controll robot with Terminal
+### 4. Control robot via terminal
 
-1. Open Gripper (AIP_Coordinator/ AIP_BringUP)
+1. Open gripper (AIP_Coordinator/ AIP_BringUP)
    
     ```bash
     * works in both dockers *
     ros2 service call /open_gripper iras_interfaces/srv/MoveGripper '{cylinder_ids: [1,2]}'
     ```
 
-2. Close Gripper (AIP_Coordinator/ AIP_BringUP)
+2. Close gripper (AIP_Coordinator/ AIP_BringUP)
    * works in both dockers *
     ```bash
     ros2 service call /close_gripper iras_interfaces/srv/MoveGripper '{cylinder_ids: [1,2]}'
