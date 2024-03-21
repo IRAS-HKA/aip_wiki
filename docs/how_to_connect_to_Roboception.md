@@ -1,6 +1,6 @@
 # How to connect to Roboception camera
 
-This sections provides a quick guide for the connection to the Roboception camera, using RCDiscover
+This sections provides a quick guide for the connection to the Roboception camera, using RCDiscover.
 
 This guide is applicable to a Windows PC, but there is a possiblity to use it on  [Linux](https://github.com/roboception/rcdiscover).
 
