@@ -33,3 +33,6 @@ This sections provides a quick setup guide for your laboratory pc and specific r
     ```shell
     ping 10.166.32.145
     ```
+6. Make sure you still have an internet connection after connecting to the robot via ethernet.
+   Sometimes the ethernet connection automatically becomes the primary network connection.
+   In this case, please **disable** and **reconnect** with the wifi. Without an internet connection the docker image **can not** be build.

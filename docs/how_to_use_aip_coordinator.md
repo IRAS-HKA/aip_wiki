@@ -21,7 +21,7 @@ In this example, it is located in the iras_interfaces package: `iras_interfaces/
 
 The service definition for movements of the gripper (MoveGripper.srv) is structured as follows:
 
-```
+```yaml
 # Request
 int32[] cylinder_ids # number of cylinders as written on the hardware
 ---
@@ -76,9 +76,9 @@ The coordinator node is located at `aip_coordinator/src/node.cpp`
 Example Code:
 
 ```c++
-    // Gripper
-    factory.registerNodeType<OpenGripper>("OpenGripper");
-    factory.registerNodeType<CloseGripper>("CloseGripper");
+// Gripper
+factory.registerNodeType<OpenGripper>("OpenGripper");
+factory.registerNodeType<CloseGripper>("CloseGripper");
 ```
 
 ### Gripper.cpp
@@ -115,13 +115,13 @@ You can directly code your application sequence by creating a new .xml-file and 
   
 To adjust the to be executed behavior tree, please navigate to the params.yaml file and adjust the main_tree_path:
 
-```
+```yaml
 # in /home/docker/ros2_ws/src/aip_coordinator/config/params.yaml
 main_tree_path: "/home/docker/ros2_ws/src/aip_coordinator/behaviors/<your_folder_name>/<your_tree_name>.xml"
 ```
 
 Alternatively, you can create a new launch file with the following parameter:
-```
+```yaml
 # in /home/docker/ros2_ws/src/aip_coordinator/launch/<your_launch_file>.launch.py>
 parameters=[{'main_tree_path': "/home/docker/ros2_ws/src/aip_coordinator/behaviors/<your_folder_name>/<your_tree_name>.xml",
              'groot_palette_path': "/home/docker/ros2_ws/src/aip_coordinator/behaviors/GrootPalette.xml"}],

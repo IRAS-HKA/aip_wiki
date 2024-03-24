@@ -120,8 +120,7 @@ The **source file** used can be described as follows:
 
 - ```deffct int eki_hw_iface_available()```: Check if new commands are available for the robot axis. This function checks the buffer for new commands and returns the number of available elements.
 
-- ```deffct int eki_hw_iface_get(joint_pos_cmd :out)``` and ```shell
-    deffct int eki_io_iface_get()```: Reading the latest commands from the buffers of the hardware or I/O interface. The target positions of the robot axis or the states of the I/O pins are updated according to the commands received.
+- ```deffct int eki_hw_iface_get(joint_pos_cmd :out)``` and ```deffct int eki_io_iface_get()```: Reading the latest commands from the buffers of the hardware or I/O interface. The target positions of the robot axis or the states of the I/O pins are updated according to the commands received.
 
 - ```def set_io_values()```: This function updates the output states of the I/O pins based on the commands (io_cmd) that were previously received. A loop is run through to iterate over all existing I/O pins. If a valid command is available (different from -1), the output of the corresponding pin is set according to the command. The loop runs until the output has been successfully set to ensure that the command has been processed correctly.
 
