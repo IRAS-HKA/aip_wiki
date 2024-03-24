@@ -15,7 +15,7 @@ The model consists of several files. Main components are the robot, the table, t
 
 <img src="../images/20240304_URDF_model.png" width="300">
 
-The usedfiles are stored in [MS Teams](https://hskarlsruhede.sharepoint.com/:f:/s/Robolab/EvarfBdhJH5EiF5MisFpLRoBV33X3YFL95Ve3CYxm8kgdQ?e=Y4TLLa). The robot-STL is stored in the GitHub Repository. To integrate or change files, new files must be stored in the following folder as an STL file.
+The used files are stored in [MS Teams](https://hskarlsruhede.sharepoint.com/:f:/s/Robolab/EvarfBdhJH5EiF5MisFpLRoBV33X3YFL95Ve3CYxm8kgdQ?e=Y4TLLa). The robot-STL is stored in the GitHub Repository. To integrate or change files, new files must be stored in the following folder as an STL file.
 
     home/code/aip_bringup/dependencies/aip_cell_description/meshes/aip_cell/visual
 
