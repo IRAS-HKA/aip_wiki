@@ -42,7 +42,7 @@ Especially, pay attention to the official manufacturer descriptions stored in  [
 
 4. **Option 1: Use the existing project**
 
-   - Download the running AIP TwinCAT application project from the [folder](https://hskarlsruhede.sharepoint.com/:f:/s/Robolab/ElPBFLLrW_RMm7pFDprz8KkB-RZcx_qXqZm-LmxNzvh-zQ?e=y0gCYo) in the AIP MS Teams Team
+   - Download the running AIP TwinCAT application project from the [folder](https://hskarlsruhede.sharepoint.com/:f:/s/Robolab/ElPBFLLrW_RMm7pFDprz8KkB-RZcx_qXqZm-LmxNzvh-zQ?e=D9hbwS) in the AIP MS Teams Team
    - Make your desired adjustments to your local copy of the standard AIP TwinCAT Application project
 
     **Note: _The following steps are only necessary if no project exists yet or if you want to make changes._**

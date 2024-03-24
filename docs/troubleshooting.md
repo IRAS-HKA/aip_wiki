@@ -35,9 +35,9 @@ Possible errors:
 
 ### Solution
 
-- If the program is not loaded correctly, it is not possible to switch the PLC into "RUN" mode. Try to load the program again. The complete project is saved in the  it is saved in corresponding AIP MS Teams Team: : "CER Host"
+- If the program is not loaded correctly, it is not possible to switch the PLC into "RUN" mode. Try to load the program again. The complete project is saved in AIP MS Teams Team.
 - If the SD card is broken, simply copy the files to a new one. No flashing required.
-- Set PLC to RUN mode if not active
+- Set PLC to RUN mode if not active.
 
 ## IV. PLC debugging issues
 
@@ -66,13 +66,13 @@ Possible errors:
 
 - Install KUKA WorkVisual and ifm Moneo and check the current configuration
 - Reset ifm IO-Link Master using Moneo
-- Check if devices are listed in the graphical overview in Workvisual. If not,import them and deploy the project to KUKA.
+- Check if devices are listed in the graphical overview in Workvisual. If not, import them and deploy the project to KUKA.
 
 ## VII. PLC start up issues
 
 `PLC not properly starting up due to license issues`
 
-If you´re trying to start the AIP application but the PLC doesn´t start up properly, this may be caused by an outdated PLC trial license.
+If you´re trying to start the AIP application but the PLC doesn´t start up properly, this may be caused by an outdated PLC trial license.  
 A trial license is only valid for 7 days but can be generated for free.
 
 ### Solution

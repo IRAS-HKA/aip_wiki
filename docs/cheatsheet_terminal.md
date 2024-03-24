@@ -1,6 +1,9 @@
 # Cheatsheet: Terminal 
 
-This section provides a cheatsheet with all major necessary commands for the AIP application. 
+This section provides a cheatsheet with helpful commands for the AIP application. 
+
+For more explicit information to the start of the AIP application, please check the [AIP_BringUp GitHub Repository](https://github.com/IRAS-HKA/aip_bringup) and [How to start AIP](/docs/how_to_start_aip.md).
+
 
 ## I. GitHub
    

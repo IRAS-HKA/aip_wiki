@@ -2,7 +2,7 @@
 
 This section provides a general overview of the used repositories for the AIP application.
 
-## 1. AIP-Coordinator
+## 1. AIP_Coordinator
 
 This docker container handels the control via the **Groot Behavior Tree System**.
 You can design new behavior trees and programm the sequence visually.

@@ -30,7 +30,7 @@ bool success # indicate successful run of triggered service
 string message # informational, e.g. for error messages 
 ```
 
-To confirm it your interface creation worked, you can use:
+To confirm that your interface creation worked, you can use:
 ```
 ros2 srv show <your_package_name>/srv/>
 ```
@@ -58,10 +58,10 @@ This array is further processed in the gripper.cpp file where the cylinder numbe
 2. Include your newly added header by changing the first line (#include line).
 3. Replace all occurences where the old alias is used with the new one.
 4. Replace all occurences of the old class name with the new one.
-5. Set the topic name of the ros2 service/ action/... server to connect with as string
-6. Set the list of ports provided by the BT node
-   - InputPort represents a human input to the BT via Groot editor
-   - OutputPort represents an output from previous ROS2 processes to human via BT (Groot)
+5. Set the topic name of the ros2 service/ action/... server to connect with as string,
+6. Set the list of ports provided by the BT node.
+   - InputPort represents a human input to the BT via Groot editor.
+   - OutputPort represents an output from previous ROS2 processes to human via BT (Groot).
 7. Set the content of the goal message which is sent to the ROS2 service/ action/... server.
 8. Define what happens when receiving the result from the ROS2 action server.
 
@@ -70,8 +70,8 @@ This array is further processed in the gripper.cpp file where the cylinder numbe
 The coordinator node is located at `aip_coordinator/src/node.cpp`
 
 1. Include your newly created header files in the coordinator node.
-2. Register your node in the BehaviorTreeFactory
-   - The inserted string defined the name of the node in the BehaviorTree XML representation and Groot visualization
+2. Register your node in the BehaviorTreeFactory.
+   - The inserted string defined the name of the node in the BehaviorTree XML representation and Groot visualization.
   
 Example Code:
 
@@ -86,15 +86,14 @@ factory.registerNodeType<CloseGripper>("CloseGripper");
 For more information, please review [aip_bosch_gripper](https://github.com/IRAS-HKA/aip_cell_description/tree/main/aip_bosch_gripper).
 
 
-
 ## II. Behavior Tree
 
-There are two options to design a new behavior tree: graphically via the groot editor or directly by an XML file.
+There are two options to design a new behavior tree: Graphically via the groot editor or directly by a XML file.
 
 ### Option 1: Graphical Design via Groot
 
 You can graphically design your desired sequence within the Groot Editor UI for the Behavior Tree.
- It will be automatically converted to a xml-file.
+ It will be automatically converted to a XML-file.
 
 ```bash
 # To view or modify behavior trees, attach a new shell and start Groot
@@ -102,7 +101,7 @@ You can graphically design your desired sequence within the Groot Editor UI for 
 ros2 run groot Groot
 ```
 
-Note: _If the groot palette appears to be incomplete, please re-import the GrootPalette with all custom nodes. The xml-file is stored in:_
+Note: _If the groot palette appears to be incomplete, please re-import the GrootPalette with all custom nodes. The XML-file is stored in:_
     `/home/docker/ros2_ws/src/aip_coordinator/behaviors/GrootPalette.xml`
 
 Usually, the designed behavior trees are stored in the following location in the repository:

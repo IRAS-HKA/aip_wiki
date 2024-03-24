@@ -37,15 +37,11 @@ There are 4 different options to operate the AIP application which will be descr
 
 ### How to operate the Gripper
 
-To read or control sensors or actuators, select in the main menu the "_Display_" tab and then "_Inputs/Outputs_". Either the _digital inputs_ or _outputs_ can then be selected. The status of the inputs can be read out directly. To switch an actuator, it must first be selected and then switched by pressing the "_Value_" button while pressing the enabling switch.
+To operate the gripper manually with the SmartPad, please check[How to use KUKA SmartPad](/docs/how_to_use_kuka_hmi.md).
 
-To read or control sensors or actuators, select in the main menu the "_Display_" tab and then "_Inputs/Outputs_". Either the _digital inputs_ or _outputs_ can then be selected. The status of the inputs can be read out directly. To switch an actuator, it must first be selected and then switched by pressing the "_Value_" button while pressing the enabling switch.
+### How to set robot in EKI mode
 
-<img src="../images/Gripper_Control.png" width="600"/>
-
-For further information please see the KUKA **_ready2_educate_** documentation.
-
-### How to set robot in EKI mode in order to listen to Linux-PC
+The robot has been set into EKI mode in order to listen to the Linux-PC.
 
 **Import**: If you´re not familiar with ROS2 and AIP commands, please check out the [Cheatsheet with terminal commands](/docs/cheatsheet_terminal.md) for quick help. 
 
@@ -55,7 +51,7 @@ For further information please see the KUKA **_ready2_educate_** documentation.
     - Select "ros2_driver" in Verfügbare Projekte → Entpinnen
     - "Aktivieren" → Ja
     - Wait until project is activated
-3. On SmaprtPad navigate to R1 → Program → ros2_driver
+3. On SmartPad navigate to R1 → Program → ros2_driver
 4. Load the file "kuka_eki_hw"
 5. Click on "Abwählen" to deactivate the current programm
 6. Click on "Anwählen" to activate the "kuka_eki_hw"
@@ -69,7 +65,7 @@ For further information please see the KUKA **_ready2_educate_** documentation.
 
 ### Automatic modus via EKI (RViz)
 
-Further information for this operating mode can be found in the corresponding repository: [IRAS-HKA/aip_bringup](https://github.com/IRAS-HKA/aip_bringup.git). Especially, the ReadMe provides detailed information regarding the start up.
+Further information for this operating mode can be found in the corresponding repository: [IRAS-HKA/aip_bringup](https://github.com/IRAS-HKA/aip_bringup.git). Especially, the ReadMe provides a brief overview for the start up.
 
 1. Prerequisite: Docker and connection to robot is up and running
     - Clone and build repository "[AIP Bringup](https://github.com/IRAS-HKA/aip_bringup.git)"
@@ -191,7 +187,7 @@ The library of actions can be freely arranged using the "Groot" graphical user i
 
 Once the container is started, the description can be used to design a new or change the behavior tree in Groot.  
 Furthermore, instructions are given on how to create a new custom node and how to create behavior trees.
-To controll the gripper, we have created two services: /open_gripper and /close_gripper.
+To control the gripper, we have created two services: /open_gripper and /close_gripper.
 Both are using the iras_interfaces/srv/MoveGripper-datatype.
 
 The only input is cylinder_ids, which an array of int32. The content of the array are the ejectors, which will be opened.
