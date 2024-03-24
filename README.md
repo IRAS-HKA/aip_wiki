@@ -38,6 +38,7 @@ If you are not yet part of the iRAS Students MS team, you can ask any member of 
 
 - [How to configure Sick LiDAR scanner](/docs/how_to_configure_sick_scanner.md)
 - [How to connect to Moneo](/docs/how_to_connect_to_Moneo.md)
+- [How to connect to Roboception](/docs/how_to_connect_to_Roboception.md)
 
 ## Troubleshooting
 
