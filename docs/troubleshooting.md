@@ -68,7 +68,7 @@ Possible errors:
 - Reset ifm IO-Link Master using Moneo
 - Check if devices are listed in the graphical overview in Workvisual. If not, import them and deploy the project to KUKA.
 
-## VII. PLC start up issues
+## VII. PLC start up issues "Not-Halt nur Lokal"
 
 `PLC not properly starting up due to license issues`
 
