@@ -10,7 +10,7 @@ Due to reasons of clear task seperation, some parts of Luisa Schlenker's origina
 
 In order to start the calculation of the optimal packaging sequence and ideal volume utilization, the ROS2-server "*PackAlgorithm_Server*" needs to receive a list of strings of objects to be packed. During the normal process, this is provided by the LLM.
 
-The algorithm then uses the objects to calculate the "Packplan". For further information of procedure of the exact calculation, see the work of [Matthias Reiplinger](https://hskarlsruhede.sharepoint.com/:b:/s/Robolab/EZF0UL3QLYBPpvjeM2Y3UkwB81SG-OiJ-25jvLSR6Ph6Bw?e=szWvIF), [Dominik Lipfert](https://hskarlsruhede.sharepoint.com/:b:/s/Robolab/EWJFCraKGNpHjp71pGM5PiwB4MVVkDBT9mjcQsUsD9rr4w?e=l5ZdA5), [Anton Schulz](https://hskarlsruhede.sharepoint.com/:b:/s/Robolab/EZNjMJRuXIdHtjaKTe_28R8BG21SULXIZlKrc7NizC40tw?e=69PM1x) and [Luisa Schlenker](https://hskarlsruhede.sharepoint.com/:b:/s/Robolab/Ec22It_Fk9hKm28NS1hbQX4BLJKMpIRFVnF3OMU-dXNE-Q?e=IMnUJT). This [Ilias link](https://ilias.h-ka.de/goto.php?target=wiki_342982_Pack-Algorithmen#il_mhead_t_focus) provides more information on previous versions of the packing algorithm.
+The service starts the algorithm with the "Pack-Algorithm.py file. The algorithm then uses the objects from the LLM to calculate the "Packplan". For further information of procedure of the exact calculation, see the work of [Matthias Reiplinger](https://hskarlsruhede.sharepoint.com/:b:/s/Robolab/EZF0UL3QLYBPpvjeM2Y3UkwB81SG-OiJ-25jvLSR6Ph6Bw?e=szWvIF), [Dominik Lipfert](https://hskarlsruhede.sharepoint.com/:b:/s/Robolab/EWJFCraKGNpHjp71pGM5PiwB4MVVkDBT9mjcQsUsD9rr4w?e=l5ZdA5), [Anton Schulz](https://hskarlsruhede.sharepoint.com/:b:/s/Robolab/EZNjMJRuXIdHtjaKTe_28R8BG21SULXIZlKrc7NizC40tw?e=69PM1x) and [Luisa Schlenker](https://hskarlsruhede.sharepoint.com/:b:/s/Robolab/Ec22It_Fk9hKm28NS1hbQX4BLJKMpIRFVnF3OMU-dXNE-Q?e=IMnUJT). This [Ilias link](https://ilias.h-ka.de/goto.php?target=wiki_342982_Pack-Algorithmen#il_mhead_t_focus) provides more information on previous versions of the packing algorithm.
 
 The output of the packing algorithm is the packplan. It is organized in a ROS2 message and contains the following information for each package:
 
@@ -20,7 +20,7 @@ The output of the packing algorithm is the packplan. It is organized in a ROS2 m
 - Rotation index
 - Place coordinates
 
-The packages in the packplan are arranged in the optimal packaging sequence. Furthermore, a visualization of the optimal finished container is made and sent back to the LMM via a topic. An example of the visualization can be seen in the following.
+The packages in the packplan are arranged in the optimal packaging sequenceand is processed into the needed format in the "*Packplan_Processing.py*" script. Furthermore, a visualization of the optimal finished container is made and sent back to the LMM via a topic. An example of the visualization can be seen in the following.
 
 <img src="../images/20240729_solution_screenshot.png" width="900"/>
 
