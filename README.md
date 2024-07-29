@@ -22,6 +22,13 @@ The main components of the AIP are object recognition, gripping point planning, 
 - [How to use AIP Coordinator](/docs/how_to_use_aip_coordinator.md)
 - [Cheatsheet terminal commands](/docs/cheatsheet_terminal.md)
 
+## Applications of AIP
+
+- [Object Detection](/docs/application_object_detection.md)
+- [Large Language Model](/docs/application_llm.md)
+- [Packing Algorithm](/docs/application_packing_algorithm.md)
+- [Grasp Planning](/docs/application_grasp_planning.md)
+
 ## Parameters
 
 - [Devices, IPs and passwords](/docs/devices_ips_and_passwords.md)
