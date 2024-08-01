@@ -29,14 +29,14 @@ The packages in the packplan are arranged in the optimal packaging sequenceand i
 1. Start server in Terminal
     - Start Docker
     - Execute the following command:
-    
+
     ```shell
     ros2 run pkg_pack_node pack_server
     ```
 
 2. Execute a service call
     - Connect to the running container with the following command:
-    
+
     ```shell
     docker exec -it aip_packing_planning bash
     ```
@@ -49,7 +49,7 @@ The packages in the packplan are arranged in the optimal packaging sequenceand i
 
 3. Listen to SolutionFeedback Publisher
     - Connect to the running container with the following command:
-    
+
     ```shell
     docker exec -it aip_packing_planning bash
     ```
@@ -71,3 +71,16 @@ The following line mus also be **deactivated**:
 ```shell
 items = request.objects_to_pick
 ```
+
+## Changes in comparison to original Packing Algorithm in a Nutshell
+
+- B1.Packalgorithmus and example.py (only relevant things) merged.
+- B1.Packalgorithmus separated into classes.
+- Dataframe of packing list and container used transferred instead of csv. Getter-Setter method used for this.
+- Getter-Setter methods created for transfer of required variables.
+- Material master integrated as YAML.
+- Container dimensions hard coded. Currently only one container is available. (Changes in Container.py)
+- Service written to receive objects to be packed and transfer packing plan
+- Visualisation adapted (in Container.py). Visualisation is saved in image and no longer displayed.
+- Saved image is published via topic
+- Container quantity limited to one. All containers are calculated, but only the first one is transferred and displayed (changes in solution.py)
