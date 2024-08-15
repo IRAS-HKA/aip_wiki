@@ -51,7 +51,7 @@ ros2 launch aip_grasp_planning grasp_planning.launch.py
 |--------|---------|
 | - Objects to Pick and Place <br> - Package Sequence for placement planning <br> - Depth image <br> - Detections from ODTF | - Pick poses <br> - Cylinder IDs to grasp the objects <br> - Place poses        |
 
-The necessary interfaces from ODTF and Packing Planning are cloned from the most recent GitHub status of the main repositories per module (see Dockerfile).  
+The necessary interfaces from ODTF and Packing Planning are cloned from the most recent GitHub status of the main repositories per module (see Dockerfile). Consequently, they are only visible after attaching to the running container.
 If you need to adapt the interfaces, please change them in the repository of the modules and rebuild the docker image.
 
 For more information on the necessary inputs and outputs, please review the module repositories: 
