@@ -7,18 +7,53 @@ It uses the [BehaviorTee.IRAS](https://github.com/AndreasZachariae/BehaviorTree.
 The library of actions can be arranged freely with the graphical user interface [Groot](https://github.com/BehaviorTree/Groot).
 
 This ReadMe covers the following topics: 
-1. How to start a Behavior Tree? 
-2. How to start the Groot editor?
-3. How to design a new Behavior Tree?
-4. How to create a custom node?
-5. Interfaces
-6. Further information (including the usage of custom interfaces)
+1. Application Behavior Tree
+2. How to start a Behavior Tree? 
+3. How to start the Groot editor?
+4. How to design a new Behavior Tree?
+5. How to create a custom node?
+6. Interfaces
+7. Further information (including the usage of custom interfaces)
 
 Please consider that the interfaces from other external packages are only visible within the docker as defined in the Dockerfile.
 For further development, make sure to rebuild the image and update the interfaces if changes to the interfaces are required and implemented in the individual repositories of the application parts (e.g. aip_packing_algorithm or aip_grasp_planning)
 
+## 1. Application Behavior Tree
 
-## 1. How to start a Behavior Tree?
+The current application (SS2024) uses the following behavior tree: 
+
+**### UPDATE the picture ###**
+
+<img src="../images/BT_application_SS24.png" width="1000"><br>
+
+It uses regular service clients, (shared) blackboards, decorators, subtrees and standalone BT nodes to perform simple tasks.
+
+The first part uses common service clients for:
+- Object Detection
+- User Interaction
+- LLM Processing
+- Pack Planning
+- Grasp Planning 
+
+Afterwards it uses a subtree to execute the pick and place sequence consisting of: 
+- Move to a waypoint close to the picking area 
+- Move to the grasp pose 
+- Visualize Gripper Movement in RViz 
+- Close gripper and vacuum hold the package 
+- Move to exit grasp pose shifted in z-height 
+- Move to a waypoint close to the place Area
+- Move to the place pose 
+- Visualize Gripper Movement in RViz 
+- Open gripper to detach the package
+- Set object number 
+
+The subtree is able to flexibly adapt to the amount of objects to be handled.  
+This is implemented by using a the "Repeat" decorator for the {amount_of_objects_to_place}, which is an output port of the grasp planning.    
+Before the subtree starts, the initial object number must be set to zero as a blackboard variable {object_no}, which is done by the "SetInitialObjectNo" node.    
+At the end of each pick and place sequence, the {object_no} is incremented by the "SetObjectNo" node until the number of cycles defined in the "Repeat" decorator node is reached. 
+
+
+## 2. How to start a Behavior Tree?
 
 Build and start the docker container
 ```bash
@@ -44,7 +79,7 @@ It enables to build modular and flexible Behavior Trees for new applications.
 The Behavior Tree for aip.launch.py in the project from the SS2024 does include Subtrees and benefits from using the Blackboard to communicate between different parts of the application. 
 
 
-## 2. How to start the Groot editor?
+## 3. How to start the Groot editor?
 
 You can start Groot as the graphical user interface for the Behavior Tree.
 
@@ -55,7 +90,7 @@ docker exec -it coordinator bash
 ros2 run groot Groot
 ```
 
-## 3. How to design a new Behavior Trees?
+## 4. How to design a new Behavior Trees?
 
 
 1. Start the docker container
@@ -93,7 +128,7 @@ Alternatively, you can adjust the .xml files diretly.
 - <Behavior>.xml including the loaded Groot Palette at the bottom of the BT-Sequences
 
 
-## 4.How to create a new custom node
+## 5.How to create a new custom node
 
 There are currently 4 different types of nodes supported:
 - **actions** Use for ROS2 action client
@@ -207,20 +242,28 @@ Replace: ~~`using NavigateToPoseAction = nav2_msgs::action::NavigateToPose;`~~
 16. Rebuild and start the container as described above. This will generate an updated GrootPalette to use in the graphical editor Groot as described in "How to design a new Behavior Tree"
 
 
-## 5. Interfaces 
+## 6. Interfaces 
 
-The necessary interfaces from ODTF and Packing Planning are cloned from the most recent GitHub status of the main repositories per module. (see Dockerfile)
-If you need to adapt the interfaces, please change them in the repository of the modules and rebuild the docker image. 
+The necessary interfaces are cloned from the most recent GitHub status of the main repositories per module (see [Dockerfile in aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator/blob/humble/Dockerfile)). Consequently, they are only visible after attaching to the running container.
+If you need to adapt the interfaces, please change them in the repository of the modules and rebuild the docker image.
+
+For more information on the necessary inputs and outputs, please review the module repositories: 
+- [Object_Detector_Tensorflow](https://github.com/eshan-savla/object_detector_tensorflow) 
+- [AIP_Packing_Algorithm](https://github.com/SchmittAndreas/aip_packing_algorithm) 
+- [AIP_Grasp_Planning](https://github.com/LeoSc4/aip_grasp_planning.git) 
+- [LLM_UserInteraction_Website](https://github.com/maudetroll/LLM_Scene_Docker.git) 
 
 
-## 6. Further information 
+## 7. Further information 
 
-Most parts of the Behavior Trees are implemented with services/ actions based on the server/ client principle.
-For tasks that endure longer periods or/and if on going feedback is required, please consider using actions. 
+The necessary interfaces are cloned from the most recent GitHub status of the main repositories per module (see [Dockerfile in aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator/blob/humble/Dockerfile)). Consequently, they are only visible after attaching to the running container.
+If you need to adapt the interfaces, please change them in the repository of the modules and rebuild the docker image.
 
-To learn more about ROS2 service clients in general, please investigate the following [link](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client.html).
-
-For further examples on the creation of custom nodes and the usage of a custom interface message, please review the  [aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator) repository and especially the "How_To_Use_AIP_Coordinator.md" file.
+For more information on the necessary inputs and outputs, please review the module repositories: 
+- [Object_Detector_Tensorflow](https://github.com/eshan-savla/object_detector_tensorflow) 
+- [AIP_Packing_Algorithm](https://github.com/SchmittAndreas/aip_packing_algorithm) 
+- [AIP_Grasp_Planning](https://github.com/LeoSc4/aip_grasp_planning.git) 
+- [LLM_UserInteraction_Website](https://github.com/maudetroll/LLM_Scene_Docker.git) 
 
 
 ## License
