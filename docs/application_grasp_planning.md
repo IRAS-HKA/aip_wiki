@@ -35,20 +35,20 @@ Launch the nodes for grasp planning:
 ```bash
 ros2 launch aip_grasp_planning grasp_planning.launch.py
 ```
+## Interface diagram
 
-## Inputs / Outputs
+<img src="../images/aip_grasp_planning.drawio.png" width="1000"><br>
 
 | Inputs | Outputs |
 |--------|---------|
 | - Objects to Pick and Place <br> - Package Sequence for placement planning <br> - Depth image <br> - Detections from ODTF | - Pick poses <br> - Cylinder IDs to grasp the objects <br> - Place poses        |
 
-For more information on the necessary inputs and outputs, please review the interfaces. 
+The necessary interfaces from ODTF and Packing Planning are cloned from the most recent GitHub status of the main repositories per module (see Dockerfile).  
+If you need to adapt the interfaces, please change them in the repository of the modules and rebuild the docker image.
 
-
-## Interfaces 
-
-The necessary interfaces from ODTF and Packing Planning are cloned from the most recent GitHub status of the main repositories per module. (see Dockerfile)
-If you need to adapt the interfaces, please change them in the repository of the modules and rebuild the docker image. 
+For more information on the necessary inputs and outputs, please review the module repositories: 
+- [Object_Detector_Tensorflow](https://github.com/eshan-savla/object_detector_tensorflow) 
+- [AIP_Packing_Algorithm](https://github.com/SchmittAndreas/aip_packing_algorithm) 
 
 
 ## Miscellaneous
