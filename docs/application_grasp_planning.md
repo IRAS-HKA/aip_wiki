@@ -47,7 +47,7 @@ For more information on the necessary inputs and outputs, please review the inte
 
 ## Interfaces 
 
-The necessary interfaces from ODTF and Packing Planning are cloned from the most recent GitHub status of the main repositories per module. 
+The necessary interfaces from ODTF and Packing Planning are cloned from the most recent GitHub status of the main repositories per module. (see Dockerfile)
 If you need to adapt the interfaces, please change them in the repository of the modules and rebuild the docker image. 
 
 

@@ -11,7 +11,8 @@ This ReadMe covers the following topics:
 2. How to start the Groot editor?
 3. How to design a new Behavior Tree?
 4. How to create a custom node?
-5. Further information (including the usage of custom interfaces)
+5. Interfaces
+6. Further information (including the usage of custom interfaces)
 
 Please consider that the interfaces from other external packages are only visible within the docker as defined in the Dockerfile.
 For further development, make sure to rebuild the image and update the interfaces if changes to the interfaces are required and implemented in the individual repositories of the application parts (e.g. aip_packing_algorithm or aip_grasp_planning)
@@ -206,7 +207,13 @@ Replace: ~~`using NavigateToPoseAction = nav2_msgs::action::NavigateToPose;`~~
 16. Rebuild and start the container as described above. This will generate an updated GrootPalette to use in the graphical editor Groot as described in "How to design a new Behavior Tree"
 
 
-## Further information 
+## 5. Interfaces 
+
+The necessary interfaces from ODTF and Packing Planning are cloned from the most recent GitHub status of the main repositories per module. (see Dockerfile)
+If you need to adapt the interfaces, please change them in the repository of the modules and rebuild the docker image. 
+
+
+## 6. Further information 
 
 Most parts of the Behavior Trees are implemented with services/ actions based on the server/ client principle.
 For tasks that endure longer periods or/and if on going feedback is required, please consider using actions. 
