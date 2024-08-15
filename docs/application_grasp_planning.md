@@ -1,4 +1,4 @@
-# Grap Planning
+# Grasp Planning
 
 This section contains the 6-DoF Grasp Planning for the Automated Item Picking (AIP) application at the University of Applied Sciences in Karlsruhe (HKA). The corresponding repository is available via the following [Link](https://github.com/LeoSc4/aip_grasp_planning).
 
@@ -13,7 +13,15 @@ The grasp planning is based on the following operations:
     - Extraction of the object surface with RANSAC algorithm including projection of all points onto the determined surface    
     - Determination of the normal vector for the surface    
     - Determination of the grasp point as median of all relevant points in the point cloud    
-    - Determination of the grasp vector by including the orientation per package received from ODTF    
+    - Determination of the grasp vector by including the orientation per package received from ODTF  
+    
+<div style="display:flex;">
+    <img src="../images/pcl_image1.png" width="350">
+    <img src="../images//pcl_image3.png" width="350">
+    </div>
+    <br>
+
+
   3. Bosch vaccuum gripper (with 4 pneumatic individually actuated cylinders)   
     - Dynamic gripper selection based on the detected package   
     - Offset calculation to provide the correct grasp poses   
