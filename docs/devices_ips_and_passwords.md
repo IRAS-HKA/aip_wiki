@@ -2,7 +2,7 @@
 
 | Device | IP | Password | User |
 |----------|----------|----------|----------|
-| PLC | 10.181.116.66 | 1 | Administrator |
+| PLC | 10.181.116.66 (Subnet mask: 255.255.0.0) | 1 | Administrator |
 | PLC Safety Config | - | TwinSAFE | Administrator |
 | Robot Control (KUKA) | 10.166.32.145 | - | - |
 | User SmartPad | - | kuka | - |
