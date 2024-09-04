@@ -48,3 +48,15 @@ The full instructions and explaination of the code can be found here:
 [MoveIt Wrapper GitHub Repository](https://github.com/IRAS-HKA/moveit_wrapper)
 
 Custom wrapper for MoveIt2 that enables simpler interaction from Python scripts.
+
+## Repository Overview: Applications of AIP
+
+In the following table, the repositories with the correct branches are listed, in order to use the AIP demonstator correctly.
+
+| Repository Name   | Branch   | Link   |
+|------------|------------|------------|
+| Coordinator   | Inhalt 3   | |
+| BringUp   | Inhalt 6   | |
+| LMM   |  Inhalt 9   | |
+| Packing Algorithm   |  Visualization   | https://github.com/SchmittAndreas/aip_packing_algorithm |
+| Grasp Planning   | Inhalt 9   | |
