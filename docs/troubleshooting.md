@@ -116,3 +116,11 @@ If the battery of the PLC is empty, the date will be resetted after every restar
   - Load the programme to PLC → This triggers the generation of a licence
 
 If there are further issues, set the correct date and time manually in the online device manager.
+
+## IX. No connection to PLC possible
+
+`PLC cannot be found in TwinCat`
+
+### Solution
+
+If you try to connect your PC with the PLC and you can not find the PLC via the given IP adress, check your **subnet mask**. It has to be **255.255.0.0**. Then the connection should be possible.  
