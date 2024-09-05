@@ -58,5 +58,5 @@ In the following table, the repositories with the correct branches are listed, i
 | Coordinator   | Inhalt 3   | |
 | BringUp   | Inhalt 6   | |
 | LMM   |  Inhalt 9   | |
-| Packing Algorithm   |  Visualization   | https://github.com/SchmittAndreas/aip_packing_algorithm |
+| Packing Algorithm   |  Main   | https://github.com/SchmittAndreas/aip_packing_algorithm |
 | Grasp Planning   | Inhalt 9   | |
