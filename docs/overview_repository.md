@@ -49,6 +49,10 @@ The full instructions and explaination of the code can be found here:
 
 Custom wrapper for MoveIt2 that enables simpler interaction from Python scripts.
 
+## 6. LLM Scene Docker
+This repository contains a docker container which hosts a website for user interaction as well as the LLM (currently Mistral Nemo).
+The full instructions can be found here [ReadMe](https://github.com/MauriceDroll/LLM_Scene_Docker/blob/main/README.md ).
+
 ## Repository Overview: Applications of AIP
 
 In the following table, the repositories with the correct branches are listed, in order to use the AIP demonstator correctly.
@@ -57,6 +61,6 @@ In the following table, the repositories with the correct branches are listed, i
 |------------|------------|------------|
 | Coordinator   | Inhalt 3   | |
 | BringUp   | Inhalt 6   | |
-| LMM   |  Inhalt 9   | |
+| LLM Scene Docker  |  Main  | https://github.com/MauriceDroll/LLM_Scene_Docker/tree/main |
 | Packing Algorithm   |  Main   | https://github.com/SchmittAndreas/aip_packing_algorithm |
 | Grasp Planning   | Inhalt 9   | |
