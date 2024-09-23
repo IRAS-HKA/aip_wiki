@@ -21,7 +21,7 @@ The most important components are the following:
 - A Sick lidar scanner, an external emergency stop and a signal tower are wired to the PLC.
 - The PLC is communicating with the robot control and provides the safety approval.
 
-The robot can be controlled via the KUKA SmartPad, by commands from the terminal or by starting a behavior tree on the computer.  
+The robot can be controlled via the KUKA SmartPad, by commands from the terminal or by starting a behavior tree on the computer.
 Alternatively RViz or pyhton can be used to move the robot to a specific pose.
 
 ## Detailed IO-Link wiring
@@ -34,4 +34,4 @@ Below, you will find a **detailed view of the IO-Link wiring**:
 
 Below, you will find a diagram of the interfaces of the applications.
 
-<img src="../images/20240215_IO_Link_Detailed.png" alt="system_overview" width="1000">
+<img src="../images/2024092023_AIP-ROS2 Architektur.png" alt="system_overview">
