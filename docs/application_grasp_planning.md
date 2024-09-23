@@ -16,8 +16,8 @@ The grasp planning is based on the following operations:
      - Determination of the grasp vector by including the orientation per package received from ODTF
 
       <div style="display:flex;">
-        <img src="aip_grasp_planning/docs/pcl_image1.png" width="350">
-        <img src="aip_grasp_planning/docs/pcl_image3.png" width="350">
+        <img src="../images/pcl_image1.png" width="350">
+        <img src="../images/pcl_image3.png" width="350">
       </div>
       <br>
 
@@ -45,7 +45,7 @@ ros2 launch aip_grasp_planning grasp_planning.launch.py
 
 ## Interface diagram
 
-<img src="aip_grasp_planning/docs/aip_grasp_planning.drawio.png" width="1000"><br>
+<img src="../images/aip_grasp_planning.drawio.png" width="1000"><br>
 
 | Inputs | Outputs |
 |--------|---------|
@@ -66,7 +66,7 @@ Grasp poses and the resulting object surface point cloud can be visualized in RV
 - /grasp_poses (Green arrow)
 - /grasp_poses_with_offset (Red arrow)
 
-<img src="aip_grasp_planning/docs/rviz.JPG" width="400"><br>
+<img src="../images/rviz.JPG" width="400"><br>
 
 ## Miscellaneous
 
