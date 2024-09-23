@@ -29,3 +29,9 @@ Alternatively RViz or pyhton can be used to move the robot to a specific pose.
 Below, you will find a **detailed view of the IO-Link wiring**:
 
 <img src="../images/20240215_IO_Link_Detailed.png" alt="system_overview" width="1000">
+
+## Applications of AIP - Interfaces
+
+Below, you will find a diagram of the interfaces of the applications.
+
+<img src="../images/20240215_IO_Link_Detailed.png" alt="system_overview" width="1000">
