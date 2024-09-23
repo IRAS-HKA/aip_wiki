@@ -1,18 +1,20 @@
 # Large Language Model
 
-This section contains information on the language model of the "Autoamted Item Picking" system. The general structure of the model is described, as well as the integration with Docker and ROS2, followed by an overview of how to operate the LLM with various commands.
+This section contains information on the language model of the "Automated Item Picking" system. The general structure of the model is described, as well as the integration with Docker and ROS2, followed by an overview of how to operate the LLM with various commands.
 
-## Description of LLM (Überschrift kann man ändern)
+## Description of LLM
 
-Beschreibung wie LMM aufgebaut ist und in unserem Fall funktioniert
+A Large Language Model (LLM) is built using a neural network architecture, typically based on transformers, which are designed for handling sequential data. It consists of layers of attention mechanisms that allow the model to focus on different parts of the input text simultaneously. The model is trained on massive amounts of text data, learning patterns in language, grammar, and context. It uses token embeddings to represent words or subwords as vectors, enabling the model to understand relationships between them. During inference, the model generates text by predicting the next token in a sequence based on the context provided by the previous tokens.
 
-Erwähnen dass das LLM in deutscher Sprache bedient werden muss
+In our use case, the user is able to chat with the LLM and interact with it in three different ways (Chat, SceneChat and Command). Those communication methods are explained below.
+
+This allows the user to get information about the detected items and context based item picking e.g. "Pack all the items needed to fix my windshield vipers".
+
+The website can be used in german as well as in english.
 
 ## LLM with ROS2
 
-Beschreibung des Containers und der ROS Integration
-
-The LLM container is running as a ROS2 Node and contains a Ollama installation with Mistral as LLM. The container also hosts the website where the user interaction takes place.
+The LLM container is running as a ROS2 Node and contains a Ollama installation with Mistral Nemo as LLM. The container also hosts the website where the user interaction takes place.
 
 ## Description of Website
 
@@ -26,12 +28,32 @@ http://localhost:8080/
 
 The website contains several elements that also provide an overview of the current status of the machine.
 
-On the left-hand side is an image of the current depth camera readings. In the middle of the page is the result of the packing algorithm.It shows the calculated container as it will be packed by the robot. On the right-hand side is the LLM's interaction panel. This is where the chat is displayed and where commands can be entered.
+On the left-hand side is an image of the current depth camera readings. In the middle of the page is the result of the packing algorithm. It shows the calculated container as it will be packed by the robot. On the right-hand side is the LLM's interaction panel. This is where the chat is displayed and where commands can be entered.
 The packing sequence of the package and the cylinder IDs are displayed below the left image. The currently running nodes are displayed below the image of the calculated container. This panel is primarily used to analyse the whole system.
 
-# Bild aktualisieren!!!!!!!
+# Image of the Website / User Frontend
 
-<img src="../images/20240808_Website.png" width="1000"/>
+<img src="../images/20240923_Website_Image.png" width="1000"/>
+
+
+### Used Technologies
+
+- Ollama to run the LLMs 
+- Ollama API to connect to the LLMs with Python (https://github.com/ollama/ollama-python)
+- Python. Flask for Frontend (as well as CSS, HTML, JavaScript)
+- ROS2 to make it work with the project setting and robot
+
+### Structure of the Docker container
+
+In total there are 4 packages created on its own in this docker container, the rest are imported from the other docker containers:
+
+UserFrontend/ Website : *pkg_website_llm*
+
+LLM-Call/Pre-/PostProcessing: *pkg_llm_docker*
+
+ROS2 Interfaces to the other dockers: *llm_interfaces*
+
+ROS2 Action Interface used interally: *llm_action_interfaces*
 
 ### Interaction and possible Commands
 
@@ -43,11 +65,11 @@ This mode is selected by choosing "**Chat**". Normal chat is possible here. The 
 
 #### Chat including additional Object Information
 
-This mode can be selected with "**Scene chat**" (Vielleicht Wort ändern). In this mode, the LLM has an understanding of the scene and background information on the respective objects from the material master. Specific information, such as the position in the scene or the weight of an object, can be queried. A typical input could be: Tell me everything you know about the object in the centre of the scene.
+This mode can be selected with "**SceneChat**". In this mode, the LLM has an understanding of the scene and background information on the respective objects from the material master. Specific information, such as the position in the scene or the weight of an object, can be queried. A typical input could be: Tell me everything you know about the object in the centre of the scene.
 
 #### Command
 
-This mode is selected with "**Befehl**". It should be used when objects are to be transferred to the packing algorithm. In this mode a JSON object is created in the background with the objects to be packed. The objects are specified in the chat. If the selection is to be packed, this must be confirmed with the 'Bestätigen' button. The objects are then passed to the packing algorithm. The displayed selection can alternatively be rejected with the "Ablehnen" button. A typical command might be Pack part X and part Y.
+This mode is selected with "**Befehl**"/ "**Command**". It should be used when objects are to be transferred to the packing algorithm. In this mode a JSON object is created in the background with the objects to be packed. The objects are specified in the chat. If the selection is to be packed, this must be confirmed with the 'Bestätigen' button. The objects are then passed to the packing algorithm. The displayed selection can alternatively be rejected with the "Ablehnen" button. A typical command might be Pack part X and part Y.
 
 ## How to run the LLM container
 
@@ -62,19 +84,20 @@ Once the container is running open a new terminal and connect to the running con
 ```shell
 docker exec -it llm_docker bash
 ```
+Once the container is started, the entry point is directly on the cli of ollama.
 
 Then run one of the following commands.
 
 ### Start Website and LLM via Launchfile *(preferred option)*
 
 ```shell
-cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_WebsiteAndLLM.py
+cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_all_services.py
 ```
 
-### Start only Website
+### Start everything without the LLM
 
 ```shell
-cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_only_Website.py
+cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_UserInterface_without_llm.py
 ```
 
 ### Start only LLM
@@ -83,42 +106,27 @@ cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_websi
 cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_only_LLM.py
 ```
 
-### Start only UserInputService
 
-```shell
-cd && cd ros_ws && colcon build && source install/setup.bash && cd src/pkg_website_llm && cd launch && clear && ros2 launch launch_only_FeedbackWebsite.py
-```
-
-Once the container is started, the entry point is directly on the cli of ollama.
-
-### Call Ollama Python API test
-
-Navigate to the follwing folder:
-
-```shell
-llm_scene_docker/llm_files/
-```
-
-Execute the following command:
-
-```shell
-python3 MainLLM.py
-```
 
 ## How to request the User Input
 
 1. Connect to Docker
 2. Run the following commands
 
-    ```shell
-    ros2 service call /user_interaction llm_interfaces/srv/UserInteraction {''}
-    ```
+```bash
+ros2 service call /LLM/user_interaction llm_interfaces/srv/UserInteraction {''}
+```
 
-    ```shell
-    ros2 service call scene_interpretation llm_interfaces/srv/SceneInterpretation "{user_input: 'TEST'}"
-    ```
 
 Subsequently the terminal shows the user input.
+
+## How to send a test request to the LLM
+
+With the following command it is possible to start the action server of the LLM.
+
+```bash
+ros2 action send_goal /LLM/llm_action_server llm_action_interfaces/action/LLM "{userinput: 'Box_Wischblatt'}"
+```
 
 ## *For Debugging:* How to start the Action Client and Server to send the user input to the LLM
 
@@ -167,26 +175,21 @@ With the following command you can send a test request to the LLM
 ```shell
 ros2 action send_goal /llm_action_server llm_action_interfaces/action/LLM "{userinput: 'BEFEHL: Box_Wischblatt' }"
 ```
+## How to change the used LLM
 
-## How to mock (bypass the LLM)
-
-1. Connect to Docker
-2. enter on the terminal:
-
-    ```shell
-    ros2 run pkg_pack_item_server pack_item_server  
-    ```
-
-3. Result is hard coded:
-
-    ```shell
-    ['Box_Gluehlampe', 'Box_Wischblatt','Keilriemen_gross', 'Box_Bremsbacke', 'Keilriemen_klein', 'Tuete']
-    ```
-
-## How to start the action server of the LLM
-
-With the follwong command it is possible to start the action server of the LLM.
-
-```shell
-ros2 action send_goal /llm_action_server llm_action_interfaces/action/LLM "{userinput: "Box_Wischblatt"}"
+1. Search for compatible model on https://ollama.com/library 
+2. Change it in StartOllama.sh -> line 9
+3. Change it in pkg_llm_docker OllamaInteraction.py 
+   Chat and Generate-Function!
+```python 
+    # Chat functionality with Ollama API
+    def getObjectFromScene(role, prompt):
+        return ollama.chat(model='mistral-nemo', messages=[
+                {
+                    'role': role,
+                    'content': prompt,
+                    'options': {"seed": 123},
+                    "context": [],
+                },
+        ])
 ```
