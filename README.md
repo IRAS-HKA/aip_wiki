@@ -12,6 +12,9 @@ The main components of the AIP are object recognition, gripping point planning, 
 - [System overview](/docs/system_overview.md)
 - [Repository overview](/docs/overview_repository.md)
 
+## Quick Start Guide
+- [Quick Start Guide](/docs/quick_start_guide.md)
+
 ## How To AIP
 
 - [How to setup laboratory pc](/docs/how_to_setup_laboratory_pc.md)
@@ -19,8 +22,9 @@ The main components of the AIP are object recognition, gripping point planning, 
 - [How to start AIP](/docs/how_to_start_aip.md)
 - [How to configure robot control](/docs/how_to_configure_robot_control.md)
 - [How to configure PLC](/docs/how_to_configure_plc.md)
-- [How to use AIP Coordinator](/docs/how_to_use_aip_coordinator.md)
-- [Cheatsheet terminal commands](/docs/cheatsheet_terminal.md)
+- [How to use AIP Coordinator](/docs/AIPv2_Coordinator.md)
+- [How to make custom client for BehaviorTree](/docs/how_to_make_custom_client_behaviortree.md)
+- [Cheatsheet basics](/docs/cheatsheet_terminal.md)
 
 ## Applications of AIP
 
@@ -34,6 +38,7 @@ The main components of the AIP are object recognition, gripping point planning, 
 - [Devices, IPs and passwords](/docs/devices_ips_and_passwords.md)
 - [IO Mapping KUKA](/docs/mapping_hw_to_io_number.md)
 - [URDF files](/docs/urdf_model.md)
+- [Roboception camera parameters](/docs/Camera_parameter.md)
 
 ## MS Teams
 
