@@ -214,8 +214,9 @@ Those are being read from the behavior tree.
     ```
     Start Bosch gripper node:
     ```bash
-    ros2 run aip_bosch_gripper aip_bosch_gripper_node 
+    ros2 launch aip_bosch_gripper aip_bosch_gripper_node.launch only_visualize:=false
     ```
+    **Note:** If `only_visualize:=true` then the gripper controller node will not be started. This can be done when running AIP only virtually in Rviz.
 
 4. In the third terminal you can execute the following python scripts in order to move the robot based on coordinates. This needs to be executed in the AIP_Coordinator.
 
@@ -262,5 +263,5 @@ Those are being read from the behavior tree.
     Use Strg+ C to cancel the terminal which is running the command:
 
     ```bash
-    ros2 run aip_bosch_gripper aip_bosch_gripper_node 
+    ros2 launch aip_bosch_gripper aip_bosch_gripper_node.launch only_visualize:=false 
     ```
