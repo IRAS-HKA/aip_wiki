@@ -59,8 +59,16 @@ In the following table, the repositories with the correct branches are listed, i
 
 | Repository Name   | Branch   | Link   |
 |------------|------------|------------|
-| Coordinator   | Inhalt 3   | |
-| BringUp   | Inhalt 6   | |
+| AIP Coordinator   | humble   | https://github.com/IRAS-HKA/aip_coordinator |
+| AIP Interfaces | 972021f | https://github.com/LeoSc4/aip_interfaces/tree/972021f2257e06091a6485b9031849be6b015459 |
+| AIP Cell Description |   | https://github.com/IRAS-HKA/aip_cell_description/ |   |
+| Bosch Gripper | feature/shift_viz  |   |
+| BringUp   | humble   | https://github.com/IRAS-HKA/aip_bringup |
+| Roboception driver | AIP | https://github.com/MauriceDroll/roboception_driver/tree/aip |
+| Kuka EKI | d47e0c1 | https://github.com/IRAS-HKA/kuka_eki/tree/d47e0c1c07a9343579614ffe62580b14c6bb0bcf |
+| MoveIt Wrapper | 5750056 | https://github.com/IRAS-HKA/moveit_wrapper/tree/5750056b3ebc54d900f446f83aa5c343fcd0d775 |
+| Object Detector Tensorflow | humble  | https://github.com/eshan-savla/object_detector_tensorflow/ |
 | LLM Scene Docker  |  Main  | https://github.com/MauriceDroll/LLM_Scene_Docker/tree/main |
 | Packing Algorithm   |  Main   | https://github.com/SchmittAndreas/aip_packing_algorithm |
-| Grasp Planning   | Inhalt 9   | |
+| Grasp Planning   | main | https://github.com/LeoSc4/aip_grasp_planning |
+| Point Transformation |   |   |
