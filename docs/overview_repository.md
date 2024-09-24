@@ -62,7 +62,6 @@ In the following table, the repositories with the correct branches are listed, i
 | AIP Coordinator   | humble   | https://github.com/IRAS-HKA/aip_coordinator |
 | AIP Interfaces | 972021f | https://github.com/LeoSc4/aip_interfaces/tree/972021f2257e06091a6485b9031849be6b015459 |
 | AIP Cell Description |   | https://github.com/IRAS-HKA/aip_cell_description/ |   |
-| Bosch Gripper | feature/shift_viz  |   |
 | BringUp   | humble   | https://github.com/IRAS-HKA/aip_bringup |
 | Roboception driver | AIP | https://github.com/MauriceDroll/roboception_driver/tree/aip |
 | Kuka EKI | d47e0c1 | https://github.com/IRAS-HKA/kuka_eki/tree/d47e0c1c07a9343579614ffe62580b14c6bb0bcf |
