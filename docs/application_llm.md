@@ -193,3 +193,23 @@ ros2 action send_goal /llm_action_server llm_action_interfaces/action/LLM "{user
                 },
         ])
 ```
+
+## LLM Example Prompts
+
+### Chat
+
+- "Please explain Automated Item Picking."
+- "Please explain the advantages of a robot."
+
+### Scene Chat
+
+- "Which items can you see?"
+- "What can I use to clean my windshield?"
+- "What do you know about item xy?" (Ask about properties of item)
+- "Which objects can I use to repair my car?"
+
+### Command
+
+- Pack Everthing
+- Pack one specific item
+- Pack x specific items
