@@ -50,6 +50,7 @@ The full instructions and explaination of the code can be found here:
 Custom wrapper for MoveIt2 that enables simpler interaction from Python scripts.
 
 ## 6. LLM Scene Docker
+
 This repository contains a docker container which hosts a website for user interaction as well as the LLM (currently Mistral Nemo).
 The full instructions can be found here [ReadMe](https://github.com/MauriceDroll/LLM_Scene_Docker/blob/main/README.md ).
 
@@ -60,14 +61,14 @@ In the following table, the repositories with the correct branches are listed, i
 | Repository Name   | Branch   | Link   |
 |------------|------------|------------|
 | AIP Coordinator   | humble   | https://github.com/IRAS-HKA/aip_coordinator |
-| AIP Interfaces | 972021f | https://github.com/LeoSc4/aip_interfaces/tree/972021f2257e06091a6485b9031849be6b015459 |
-| AIP Cell Description |   | https://github.com/IRAS-HKA/aip_cell_description/ |   |
-| BringUp   | humble   | https://github.com/IRAS-HKA/aip_bringup |
-| Roboception driver | AIP | https://github.com/MauriceDroll/roboception_driver/tree/aip |
-| Kuka EKI | d47e0c1 | https://github.com/IRAS-HKA/kuka_eki/tree/d47e0c1c07a9343579614ffe62580b14c6bb0bcf |
-| MoveIt Wrapper | 5750056 | https://github.com/IRAS-HKA/moveit_wrapper/tree/5750056b3ebc54d900f446f83aa5c343fcd0d775 |
+| AIP Interfaces | main | https://github.com/LeoSc4/aip_interfaces/tree/972021f2257e06091a6485b9031849be6b015459 |
+| AIP Cell Description | main  | https://github.com/IRAS-HKA/aip_cell_description/ |
+| AIP BringUp   | devel  | https://github.com/IRAS-HKA/aip_bringup |
+| Roboception driver | aip | https://github.com/MauriceDroll/roboception_driver/tree/aip |
+| Kuka EKI | aip (local changes) | https://github.com/IRAS-HKA/kuka_eki/tree/d47e0c1c07a9343579614ffe62580b14c6bb0bcf |
+| MoveIt Wrapper | aip | https://github.com/IRAS-HKA/moveit_wrapper/tree/5750056b3ebc54d900f446f83aa5c343fcd0d775 |
 | Object Detector Tensorflow | humble  | https://github.com/eshan-savla/object_detector_tensorflow/ |
-| LLM Scene Docker  |  Main  | https://github.com/MauriceDroll/LLM_Scene_Docker/tree/main |
-| Packing Algorithm   |  Main   | https://github.com/SchmittAndreas/aip_packing_algorithm |
+| LLM Scene Docker  |  main  | https://github.com/MauriceDroll/LLM_Scene_Docker/tree/main |
+| Packing Algorithm   |  main   | https://github.com/SchmittAndreas/aip_packing_algorithm |
 | Grasp Planning   | main | https://github.com/LeoSc4/aip_grasp_planning |
-| Point Transformation |   |   |
+| Point Transformation | humble  | https://github.com/IRAS-HKA/point_transformation/tree/humble  |
