@@ -22,8 +22,6 @@ For further development, make sure to rebuild the image and update the interface
 
 The current application (SS2024) uses the following behavior tree: 
 
-**### UPDATE the picture ###**
-
 <img src="../images/BT_application_SS24.png" width="1000"><br>
 
 It uses regular service clients, (shared) blackboards, decorators, subtrees and standalone BT nodes to perform simple tasks.
@@ -256,14 +254,12 @@ For more information on the necessary inputs and outputs, please review the modu
 
 ## 7. Further information 
 
-The necessary interfaces are cloned from the most recent GitHub status of the main repositories per module (see [Dockerfile in aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator/blob/humble/Dockerfile)). Consequently, they are only visible after attaching to the running container.
-If you need to adapt the interfaces, please change them in the repository of the modules and rebuild the docker image.
+Most parts of the Behavior Trees are implemented with services/ actions based on the server/ client principle.
+For tasks that endure longer periods or/and if on going feedback is required, please consider using actions. 
 
-For more information on the necessary inputs and outputs, please review the module repositories: 
-- [Object_Detector_Tensorflow](https://github.com/eshan-savla/object_detector_tensorflow) 
-- [AIP_Packing_Algorithm](https://github.com/SchmittAndreas/aip_packing_algorithm) 
-- [AIP_Grasp_Planning](https://github.com/LeoSc4/aip_grasp_planning.git) 
-- [LLM_UserInteraction_Website](https://github.com/maudetroll/LLM_Scene_Docker.git) 
+To learn more about ROS2 service clients in general, please investigate the following [link](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client.html).
+
+For further examples on the creation of custom nodes and the usage of a custom interface message, please review the  [aip_coordinator](https://github.com/IRAS-HKA/aip_coordinator) repository and especially the "How_To_Use_AIP_Coordinator.md" file.
 
 
 ## License
