@@ -72,3 +72,20 @@ In the following table, the repositories with the correct branches are listed, i
 | Packing Algorithm   |  main   | https://github.com/SchmittAndreas/aip_packing_algorithm |
 | Grasp Planning   | main | https://github.com/LeoSc4/aip_grasp_planning |
 | Point Transformation | humble  | https://github.com/IRAS-HKA/point_transformation/tree/humble  |
+
+Here is an updated version after forking all private repos and transferring them to the IRAS-HKA organization:
+
+| Repository Name   | Branch   | Link   |
+|------------|------------|------------|
+| AIP Coordinator   | humble   | https://github.com/IRAS-HKA/aip_coordinator |
+| AIP Interfaces | main | https://github.com/IRAS-HKA/aip_interfaces |
+| AIP Cell Description | main  | https://github.com/IRAS-HKA/aip_cell_description/ |
+| AIP BringUp   | devel  | https://github.com/IRAS-HKA/aip_bringup |
+| Roboception driver | aip | https://github.com/IRAS-HKA/roboception_driver/tree/aip |
+| Kuka EKI | aip | https://github.com/IRAS-HKA/kuka_eki/tree/aip |
+| MoveIt Wrapper | aip | https://github.com/IRAS-HKA/moveit_wrapper/tree/aip |
+| Object Detector Tensorflow | aip  | https://github.com/IRAS-HKA/object_detector_tensorflow |
+| LLM Scene Docker  |  humble  | https://github.com/IRAS-HKA/LLM_Scene_Docker |
+| Packing Algorithm   |  main   | https://github.com/IRAS-HKA/aip_packing_algorithm |
+| Grasp Planning   | main | https://github.com/IRAS-HKA/aip_grasp_planning |
+| Point Transformation | humble  | https://github.com/IRAS-HKA/point_transformation/tree/humble  |
