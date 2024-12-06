@@ -39,6 +39,10 @@ If you require more information, please check out the rest of the documentation.
 	```shell 
 	ros2 launch aip_bosch_gripper aip_bosch_gripper_node.launch.py only_visualize:=false 
 	```
+3. (Optional) Reset the gripper positions
+	```bash
+	ros2 service call /open_gripper aip_interfaces/srv/MoveGripper "cylinder_ids: [1,2,3,4]"
+	```
 **Note**: 
 - If `only_visualize:=true` then the bosch gripper controller node won't be started. 
 - This can be used if running AIP virtually only in Rviz
