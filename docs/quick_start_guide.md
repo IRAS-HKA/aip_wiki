@@ -151,4 +151,8 @@ How to access the website for user interaction?
 	```
 
 
-
+## RESET Application
+ restart of some specific nodes is necessary:
+- aip_coordinator
+- aip_packing_algorithm
+- (in simulation) aip_bosch_gripper
