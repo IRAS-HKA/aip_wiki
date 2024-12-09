@@ -101,29 +101,17 @@ To show the odtf result manually, it is possible to use the client with:
 	ros2 launch point_transformation point_transformation.launch.py
 	```
 
-## Terminal 6 - LLM Back End
+## Terminal 6 - LLM Back End and launch Website
 
-1. Start the docker container 
+1. Start the docker container with autostart LLM
 	```shell 
 	cd ~/aip_ros2_ws/src/LLM_Scene_Docker
 	```
 	```shell 
 	. start_docker.sh
 	```
-
-## Terminal 7 - Website (via LLM Docker)
-
-1. Connect to the running aip_bringup docker container 
-	```shell 
-	docker exec -it llm_docker bash 
-	``` 
-
-2. Build and source
-	```shell 
-	colcon build --symlink-install && source install/setup.bash
-	``` 
 	
-3. Launch the website node
+2. Launch the website node
 	```shell 
 	ros2 launch pkg_website_llm launch_all_services.launch.py
 	``` 
@@ -132,7 +120,7 @@ How to access the website for user interaction?
 - Open your desired browser 
 - Navigate to the following local host URL: http://127.0.0.1:8080/
 
-## Terminal 8 - Packing Planning
+## Terminal 7 - Packing Planning
 
 1. Start the docker container 
 	```shell 
@@ -147,7 +135,7 @@ How to access the website for user interaction?
 	ros2 run pkg_pack_node pack_server 
 	```
 
-## Terminal 9 - Coordinator
+## Terminal 8 - Coordinator
 
 1. Start the docker container 
 	```shell 
