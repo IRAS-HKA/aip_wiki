@@ -34,7 +34,7 @@ If you require more information, please check out the rest of the documentation.
 	docker exec -it aip_bringup bash 
 
 	# reset gripper positions
-	ros2 service call /open_gripper aip_interfaces/srv/MoveGripper "cylinder_ids: [1,2,3,4]"
+	ros2 service call /open_gripper aip_interfaces/srv/MoveGripper "cylinder_ids: {cylinder_ids: [1,2,3,4]}"
 	```
 
 ## Terminal 3 - Roboception driver
