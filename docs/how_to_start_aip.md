@@ -150,7 +150,7 @@ Further information for this operating mode can be found in the corresponding re
     - Launch robot driver with MoveIt2 wrapper
 
         ```bash
-        ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=true robot_ip:=10.166.32.145
+        ros2 launch aip_bringup aip.launch.py use_fake_hardware:=true robot_ip:=10.166.32.145
         ```
 
         This will open up a simulated hardware with visualisation.
@@ -162,7 +162,7 @@ Further information for this operating mode can be found in the corresponding re
         - If everything is fine, please execute:
 
        ```bash
-        ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145
+        ros2 launch aip_bringup aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145
         ```
 
       **Pay attention**: If you´ve set the parameter use_fake_hardware:=false, the action will be executed on the real robot. Make sure that it won´t trigger a collision.
@@ -205,18 +205,11 @@ Those are being read from the behavior tree.
     Connect in first terminal with the robot:
 
     ```bash
-    ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145 
+    ros2 launch aip_bringup aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145 
     ```
-    Open second terminal for starting the Bosch Gripper Node:
-
-    ```bash
-    docker exec -it aip_bringup bash 
+    
     ```
-    Start Bosch gripper node:
-    ```bash
-    ros2 launch aip_bosch_gripper aip_bosch_gripper_node.launch only_visualize:=false
-    ```
-    **Note:** If `only_visualize:=true` then the gripper controller node will not be started. This can be done when running AIP only virtually in Rviz.
+    **Note:** If `use_fake_hardware:=true` then the gripper controller node will not be started. This can be done when running AIP only virtually in Rviz.
 
 4. In the third terminal you can execute the following python scripts in order to move the robot based on coordinates. This needs to be executed in the AIP_Coordinator.
 
@@ -228,14 +221,14 @@ Those are being read from the behavior tree.
 
     (IF AIP_Coordinator docker is running) 
     docker exec -it aip_coordinator
-    ros2 launch aip_cell_description aip.launch.py
+    ros2 launch aip_bringup aip.launch.py
     ```
     This will execute the behavior tree using groot.
 5.  To edit the tree switch to the edit mode and save the tree afterwards.
 6.  This will take effect on the next start:
    
     ```bash
-    ros2 launch aip_cell_description aip.launch.py
+    ros2 launch aip_bringup aip.launch.py
     ```
 
 ### 4. Control robot via terminal
@@ -256,7 +249,7 @@ Those are being read from the behavior tree.
     Use Strg+ C to cancel the terminal which is running the command:
 
     ```bash
-    ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145 
+    ros2 launch aip_bringup aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145 
     ```
 
 4.  Disconnect the gripper but not the robot:

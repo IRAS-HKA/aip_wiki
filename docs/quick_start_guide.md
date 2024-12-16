@@ -20,32 +20,22 @@ If you require more information, please check out the rest of the documentation.
 
 2. Launch the corresponding nodes for aip_bringup
 	```shell 
-	ros2 launch aip_cell_description aip.launch.py use_fake_hardware:=false robot_ip:=10.166.32.145
+	ros2 launch aip_bringup aip.launch.py use_fake_hardware:=false
 	```
 **Note**: 
 - The EKI Hardware interface must be running on the KUKA SmartPad
 - If the safety system detects any potential risk and stops the system, the system needs to be acknowledged and restarted (EKI programm on KUKA SmartPad & Terminal for aip_bringup)
+- If `use_fake_hardware:=true` then the bosch gripper controller node won't be started. 
+- This can be used if running AIP virtually only in Rviz
 
-
-## Terminal 2 - Bosch Gripper
-
-1. Connect to the running aip_bringup docker container 
-	```shell 
-	docker exec -it aip_bringup bash 
-	```
-
-2. Launch the gripper node
-
-	```shell 
-	ros2 launch aip_bosch_gripper aip_bosch_gripper_node.launch.py only_visualize:=false 
-	```
 3. (Optional) Reset the gripper positions
 	```bash
+	# connect to container
+	docker exec -it aip_bringup bash 
+
+	# reset gripper positions
 	ros2 service call /open_gripper aip_interfaces/srv/MoveGripper "cylinder_ids: [1,2,3,4]"
 	```
-**Note**: 
-- If `only_visualize:=true` then the bosch gripper controller node won't be started. 
-- This can be used if running AIP virtually only in Rviz
 
 ## Terminal 3 - Roboception driver
 
