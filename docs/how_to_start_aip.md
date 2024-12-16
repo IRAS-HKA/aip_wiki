@@ -237,13 +237,13 @@ Those are being read from the behavior tree.
    
     ```bash
     * works in both dockers *
-    ros2 service call /open_gripper iras_interfaces/srv/MoveGripper '{cylinder_ids: [1,2]}'
+    ros2 service call /open_gripper iras_interfaces/srv/MoveGripper "cylinder_ids: {cylinder_ids: [1,2,3,4]}"
     ```
 
 2. Close gripper (AIP_Coordinator/ AIP_BringUP)
    * works in both dockers *
     ```bash
-    ros2 service call /close_gripper iras_interfaces/srv/MoveGripper '{cylinder_ids: [1,2]}'
+    ros2 service call /close_gripper iras_interfaces/srv/MoveGripper "cylinder_ids: {cylinder_ids: [1,2,3,4]}"
     ```
 3.  Cancel robot operation
     Use Strg+ C to cancel the terminal which is running the command:
